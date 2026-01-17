@@ -1,0 +1,25 @@
+import { setDefaultResultOrder } from "dns"
+import { useRouter } from "next/router";
+
+// try{
+const router= useRouter()
+const res = fetch ('/api/login',{
+    method:"POST",
+    headers:{
+        'Content-Type':"application/json"
+    },
+    body:JSON.stringify({email,password})
+})
+
+const data =res.json();
+if(data.ok){
+    route.next('/usercards')
+}
+else{
+    SetError (data.message)
+}
+//}
+// }
+// catch(e){
+//     SetError ("something went wrong.....")
+// }
