@@ -22,7 +22,7 @@ const Recommend = () => {
 
     // Small delay to show loading state before navigation
     setTimeout(() => {
-      router.push(`/recommendCards?prompt=${encodeURIComponent(input)}`);
+      router.push(`/users/recommendCards?prompt=${encodeURIComponent(input)}`);
     }, 300);
   }
   return (
@@ -33,7 +33,7 @@ const Recommend = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
-                onClick={() => router.push('/userCards')}
+                onClick={() => router.push('/users/userCards')}
                 className="flex items-center gap-2 px-3 py-2 bg-gray-900/60 hover:bg-gray-800/60 rounded-xl border border-gray-800/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200 hover:scale-105 shrink-0"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

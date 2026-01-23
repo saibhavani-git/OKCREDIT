@@ -30,7 +30,12 @@ export default function RegisterPage() {
       if (res.ok) {
         setText(data.message || "Registration Successful");
         setTimeout(() => {
-          router.push("/userCards");
+          if (data.userRole === "user") {
+            router.push("/users/userCards");
+          } else if (data.userRole === "admin") {
+            router.push("/admin/dashboard");
+          }
+          router.refresh();
         }, 1000);
       } else {
         setError(data.message || "Registration failed");

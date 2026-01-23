@@ -1,4 +1,3 @@
-import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 import dbConnect from "../../lib/db";
 import User from "../../models/user";
@@ -10,11 +9,12 @@ export async function POST(request) {
   try {
     await dbConnect();
 
-    //  Auth
-    const {userId} = await verifyAuth(request);
-    if (!userId) {
+    const token = request.cookies.get("authToken")?.value;
+    const userData = verifyAuth(token);
+    if (!userData) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
+    const { userId } = userData;
 
     //  User + cards
     const user = await User.findById(userId).populate("cards").lean();
@@ -57,18 +57,9 @@ export async function POST(request) {
 
     const { amount, purpose } = extractAmountAndPurpose(prompt);
 
-    //  Fetch all cards from database
     const databaseCards = await CreditCard.find().lean();
 
-    //  Enhanced AI prompt with amount and purpose - only database cards
-    const databaseCardsInfo = databaseCards
-      .map(c => 
-        `ID: ${c._id} | ${c.bank} ${c.cardName} | Type: ${c.cardType} | Categories: Shopping:${c.categories?.shopping || 1}x, Travel:${c.categories?.travel || 1}x, Fuel:${c.categories?.fuel || 1}x | Best For: ${c.bestFor?.join(', ') || 'general'} | Reward: ${c.rewardRateText || 'standard'}`
-      )
-      .join("\n");
-
-    
-    //  Fallback scoring function (used if AI fails or for backup)
+    // Scoring function for card recommendations
     const scoreCards = (cards, amount, purpose) => {
       return cards.map(card => {
         let score = 0;

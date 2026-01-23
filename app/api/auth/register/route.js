@@ -2,9 +2,7 @@ import { NextResponse } from "next/server";
 import dbConnect from "../../../lib/db";
 import User from '../../../models/user'
 import bcrypt from 'bcryptjs'
-import jwt from "jsonwebtoken";
 import generateToken from "../../../lib/generateToken";
-import { cookies } from "next/headers";
 
 export async function POST(request){
    try{
@@ -23,7 +21,7 @@ export async function POST(request){
                 });
              const token = generateToken(newUser)
              
-          const response = NextResponse.json({ message: 'Registration successful' });
+          const response = NextResponse.json({ message: 'Registration successful',userRole:newUser.role });
             response.cookies.set('authToken', token, {
                 httpOnly: true,
                 // secure: process.env.NODE_ENV === 'production', // Enable HTTPS in the production environment

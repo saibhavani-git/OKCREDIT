@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const CreditCardSchema = new Schema({
+
   /* ---------- BASIC CARD INFO ---------- */
   bank: {
     type: String,
@@ -30,7 +31,7 @@ const CreditCardSchema = new Schema({
   },
 
   baseRewardRate: {
-    type: Number, // e.g. 0.5 (% or points per ₹100)
+    type: Number,
     default: 0
   },
 
@@ -42,59 +43,68 @@ const CreditCardSchema = new Schema({
     groceries: { type: Number, default: 1 }
   },
 
-  bestFor: [{
-    type: String
-  }],
+  bestFor: [String],
 
   rewardRateText: {
-    type: String // "5% cashback", "10X points"
+    type: String
   },
 
-  perks: {
-    loungeAccess: { type: Boolean, default: false },
-    fuelWaiver: { type: Boolean, default: false },
-    amazonPrime: { type: Boolean, default: false }
-  },
+  /* ---------- PERKS (FLEXIBLE) ---------- */
+  perks: [{
+    type: String,
+    enum: [
+      'LOUNGE_ACCESS',
+      'TRAVEL_INSURANCE',
+      'FUEL_WAIVER',
+      'AMAZON_PRIME',
+      'MOVIE_OFFER',
+      'DINING_DISCOUNT',
+      'TRAVEL_VOUCHER',
+      'CONCIERGE',
+      'BUSINESS_BENEFITS'
+    ]
+  }],
 
   /* ---------- FEES ---------- */
-  annualFee: {
-    type: Number,
-    default: 0
-  },
-  joiningFee: {
-    type: Number,
-    default: 0
-  },
-  feeWaiverSpend: {
-    type: Number // yearly spend for fee waiver
-  },
-
-  /* ---------- ELIGIBILITY ---------- */
-  eligibility: {
-    minIncome: {
-      type: Number
+  fees: {
+    joining: {
+      type: Number,
+      default: 0
     },
-    minCreditScore: {
+    annual: {
+      type: Number,
+      default: 0
+    },
+    waiverSpend: {
       type: Number
     }
   },
 
+  /* ---------- ELIGIBILITY ---------- */
+  eligibility: {
+    minIncome: Number,
+    minCreditScore: Number
+  },
+
   /* ---------- USER-SPECIFIC DATA ---------- */
-  maxLimit: {
-    type: Number,
-    required: true
+  limits: {
+    max: {
+      type: Number,
+      required: true
+    },
+    available: {
+      type: Number,
+      required: true
+    }
   },
-  availableLimit: {
-    type: Number,
-    required: true
-  },
+
   billingDate: {
     type: Number // 1–31
   },
 
   /* ---------- META ---------- */
   image: {
-    type: String // card image URL
+    type: String
   },
   popularityScore: {
     type: Number,
@@ -103,4 +113,5 @@ const CreditCardSchema = new Schema({
 
 }, { timestamps: true });
 
-export default mongoose.models.CreditCard || mongoose.model('CreditCard', CreditCardSchema);
+export default mongoose.models.CreditCard ||
+  mongoose.model('CreditCard', CreditCardSchema);

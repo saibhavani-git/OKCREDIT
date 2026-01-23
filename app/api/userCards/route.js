@@ -8,31 +8,28 @@ export async function GET(request) {
   try {
     await dbConnect();
     
-    // Use verifyAuth to get userId
-    // Note: userId from JWT is ALWAYS a string (JWT converts ObjectId → string)
-    const { userId } = verifyAuth(request);
-    
-    // Mongoose findById() accepts strings directly, no conversion needed!
+    const token = request.cookies.get("authToken")?.value;
+    const userData = verifyAuth(token);
+    if (!userData) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+    const { userId } = userData;
     const user = await User.findById(userId)
       .populate('cards')
-      .lean(); // Use lean() AFTER populate to get plain objects
+      .lean();
     
     if (!user) {
       return NextResponse.json([], { status: 200 });
     }
     
-    // Return populated cards (or empty array if none)
     return NextResponse.json(user.cards || []);
   } catch (e) {
     console.error("Error in userCards route:", e);
-    if (e.message.includes("Unauthorized")) {
-      return NextResponse.json(
-        { message: e.message },
-        { status: 401 }
-      );
-    }
     return NextResponse.json(
-      { message: e.message || "Internal server error" },
+      { message: "Internal server error" },
       { status: 500 }
     );
   }
@@ -42,8 +39,15 @@ export async function POST(request) {
   try {
     await dbConnect();
     
-    // Use verifyAuth to get userId
-    const { userId } = verifyAuth(request);
+    const token = request.cookies.get("authToken")?.value;
+    const userData = verifyAuth(token);
+    if (!userData) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+    const { userId } = userData;
     
     // Get cardId from request body
     const { cardId } = await request.json();
@@ -91,14 +95,8 @@ export async function POST(request) {
     );
   } catch (e) {
     console.error("Error adding card:", e);
-    if (e.message.includes("Unauthorized")) {
-      return NextResponse.json(
-        { message: e.message },
-        { status: 401 }
-      );
-    }
     return NextResponse.json(
-      { message: e.message || "Internal server error" },
+      { message: "Internal server error" },
       { status: 500 }
     );
   }

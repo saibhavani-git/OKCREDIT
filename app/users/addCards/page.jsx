@@ -111,7 +111,7 @@ const AddCards = () => {
               <p className="text-gray-500 mt-2 text-sm">Discover and add new credit cards to your wallet</p>
             </div>
             <button
-              onClick={() => router.push('/userCards')}
+              onClick={() => router.push('/users/userCards')}
               className="px-4 py-2 bg-gray-900/50 hover:bg-gray-800/50 rounded-lg border border-gray-700/50 text-gray-300 text-sm font-medium transition-colors"
             >
               My Cards

@@ -2,7 +2,7 @@
 import React from "react"
 import { useState ,useEffect} from "react"
 import { useRouter } from "next/navigation"
-import  prefixedData  from "../../../okcredit/prompt"
+
 
 const Page = () => {
   const router = useRouter()
@@ -61,13 +61,13 @@ const Page = () => {
             </div>
             <div className="flex items-center gap-3">
               <button
-                onClick={() => router.push('/recommend')}
+                onClick={() => router.push('/users/recommend')}
                 className="px-4 py-2 bg-gray-900/50 hover:bg-gray-800/50 rounded-lg border border-gray-700/50 text-gray-300 text-sm font-medium transition-colors"
               >
                 Get Recommendation
               </button>
               <button
-                onClick={() => router.push('/addCards')}
+                onClick={() => router.push('/users/addCards')}
                 className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
                 style={{
                   background: "linear-gradient(90deg, #5f676a, #f0f0f0, #5f676a)",
@@ -86,7 +86,7 @@ const Page = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-7 lg:px-9 py-13">
         {cards.length === 0 ? (
           <div className="text-center py-32">
             <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-2xl mb-6 border border-gray-800">
@@ -150,19 +150,15 @@ const Page = () => {
                         <span className="text-xs opacity-60">•</span>
                         <span className="text-xs opacity-80 font-medium">{card.network}</span>
                       </div>
+                      <div className="text-right">
+                        <p className="text-[10px] opacity-60 mb-1.5 font-medium uppercase tracking-wide">Limit</p>
+                        <p className="text-sm font-bold"> ₹{card.limits?.max?.toLocaleString("en-IN") || "N/A"}</p>
+
+                      </div>
                     </div>
 
                     {/* Bottom Section */}
-                    <div className="flex justify-between items-end pt-2">
-                      <div>
-                        <p className="text-[10px] opacity-60 mb-1.5 font-medium uppercase tracking-wide">Reward</p>
-                        <p className="text-sm font-bold">{card.rewardRateText || 'N/A'}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-[10px] opacity-60 mb-1.5 font-medium uppercase tracking-wide">Limit</p>
-                        <p className="text-sm font-bold">₹{card.maxLimit?.toLocaleString('en-IN') || 'N/A'}</p>
-                      </div>
-                    </div>
+                    
                   </div>
 
                   {/* Subtle glow on hover */}
@@ -219,27 +215,35 @@ const Page = () => {
             <div className="p-6 space-y-4 bg-gray-950 overflow-y-auto flex-1">
               {/* Key Metrics */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
+                {/* <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
                   <p className="text-xs text-gray-500 mb-1.5 font-medium">Reward Rate</p>
                   <p className="text-lg font-bold text-white">{selectedCard.rewardRateText || 'N/A'}</p>
-                </div>
+                </div> */}
                 <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
                   <p className="text-xs text-gray-500 mb-1.5 font-medium">Annual Fee</p>
-                  <p className="text-lg font-bold text-white">₹{selectedCard.annualFee?.toLocaleString('en-IN') || '0'}</p>
+                  <p className="text-lg font-bold text-white">₹{selectedCard.fees?.annual?.toLocaleString("en-IN") || 0}</p>
                 </div>
               </div>
+
+              {/* Joining Fee */}
+              {selectedCard.fees?.joining && selectedCard.fees.joining > 0 && (
+                <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
+                  <p className="text-xs text-gray-500 mb-1.5 font-medium">Joining Fee</p>
+                  <p className="text-lg font-bold text-white">₹{selectedCard.fees.joining.toLocaleString("en-IN")}</p>
+                </div>
+              )}
 
               {/* Credit Limit */}
               <div className="bg-gray-900/50 rounded-xl p-5 border border-gray-800/50">
                 <p className="text-xs text-gray-500 mb-2 font-medium">Credit Limit</p>
-                <p className="text-2xl font-bold text-white">₹{selectedCard.maxLimit?.toLocaleString('en-IN') || 'N/A'}</p>
+                <p className="text-2xl font-bold text-white">₹{selectedCard.limits?.max?.toLocaleString("en-IN") || "N/A"}</p>
               </div>
 
               {/* Available Limit */}
-              {selectedCard.availableLimit && (
+              {selectedCard.limits?.available && (
                 <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
                   <p className="text-xs text-gray-500 mb-1.5 font-medium">Available Limit</p>
-                  <p className="text-xl font-semibold text-white">₹{selectedCard.availableLimit.toLocaleString('en-IN')}</p>
+                  <p className="text-xl font-semibold text-white">₹{selectedCard.limits.available.toLocaleString('en-IN')}</p>
                 </div>
               )}
 
@@ -252,18 +256,36 @@ const Page = () => {
               )}
 
               {/* Perks */}
-              {selectedCard.perks && (
+              {selectedCard.perks && selectedCard.perks.length > 0 && (
                 <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
                   <p className="text-xs text-gray-500 mb-3 font-medium">Perks & Benefits</p>
                   <div className="flex flex-wrap gap-2">
-                    {selectedCard.perks.loungeAccess && (
+                    {selectedCard.perks.includes('LOUNGE_ACCESS') && (
                       <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Lounge Access</span>
                     )}
-                    {selectedCard.perks.fuelWaiver && (
+                    {selectedCard.perks.includes('FUEL_WAIVER') && (
                       <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Fuel Waiver</span>
                     )}
-                    {selectedCard.perks.amazonPrime && (
+                    {selectedCard.perks.includes('AMAZON_PRIME') && (
                       <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Amazon Prime</span>
+                    )}
+                    {selectedCard.perks.includes('TRAVEL_INSURANCE') && (
+                      <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Travel Insurance</span>
+                    )}
+                    {selectedCard.perks.includes('MOVIE_OFFER') && (
+                      <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Movie Offers</span>
+                    )}
+                    {selectedCard.perks.includes('DINING_DISCOUNT') && (
+                      <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Dining Discount</span>
+                    )}
+                    {selectedCard.perks.includes('TRAVEL_VOUCHER') && (
+                      <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Travel Voucher</span>
+                    )}
+                    {selectedCard.perks.includes('CONCIERGE') && (
+                      <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Concierge</span>
+                    )}
+                    {selectedCard.perks.includes('BUSINESS_BENEFITS') && (
+                      <span className="px-3 py-1.5 bg-gray-800/60 rounded-lg text-xs font-medium text-gray-200">Business Benefits</span>
                     )}
                   </div>
                 </div>
