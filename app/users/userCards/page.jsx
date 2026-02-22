@@ -48,7 +48,7 @@ const Page = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 
-                className="text-5xl font-extrabold tracking-tight"
+                className="text-3xl font-extrabold tracking-tight"
                 style={{
                   background: "linear-gradient(90deg, #888, #fff, #888)",
                   WebkitBackgroundClip: "text",

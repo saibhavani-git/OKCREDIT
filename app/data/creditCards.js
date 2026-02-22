@@ -5,6 +5,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Cashback",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 1,
     "categories": {
       "shopping": 5,
@@ -38,6 +40,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "points",
+    "pointValueInr": 0.5,
+    "pointValueSource": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/regalia-gold-credit-card",
     "baseRewardRate": 4,
     "categories": {
       "shopping": 2,
@@ -71,6 +75,8 @@ const creditCards=[
     "network": "Amex",
     "cardType": "Travel",
     "rewardType": "miles",
+    "pointValueInr": 1,
+    "pointValueSource": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/diners-club-black-credit-card",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 3,
@@ -104,6 +110,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 5,
@@ -137,6 +145,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Basic",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
     "baseRewardRate": 1,
     "categories": {
       "shopping": 1,
@@ -170,6 +180,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "miles",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
     "baseRewardRate": 6,
     "categories": {
       "shopping": 4,
@@ -203,6 +215,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 5,
@@ -236,6 +250,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.sbicard.com/en/personal/credit-cards/travel/elite.page",
     "baseRewardRate": 3,
     "categories": {
       "shopping": 2,
@@ -269,6 +285,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Fuel",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 4,
     "categories": {
       "shopping": 1,
@@ -302,6 +320,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 5,
@@ -335,6 +355,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "miles",
+    "pointValueInr": 0.2,
+    "pointValueSource": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-cards",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 3,
@@ -368,6 +390,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Cashback",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 2,
     "categories": {
       "shopping": 2,
@@ -401,6 +425,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.kotak.com/en/personal-banking/cards/credit-cards/reward-points-program.html",
     "baseRewardRate": 2,
     "categories": {
       "shopping": 2,
@@ -434,6 +460,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.kotak.com/en/personal-banking/cards/credit-cards/reward-points-program.html",
     "baseRewardRate": 3,
     "categories": {
       "shopping": 3,
@@ -467,6 +495,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Basic",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 1,
     "categories": {
       "shopping": 1,
@@ -500,6 +530,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.idfcfirstbank.com/credit-card/rewards",
     "baseRewardRate": 4,
     "categories": {
       "shopping": 3,
@@ -533,6 +565,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Cashback",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 2,
     "categories": {
       "shopping": 2,
@@ -566,6 +600,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Cashback",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 5,
@@ -599,6 +635,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards/yes-first-business-credit-card",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 5,
@@ -632,6 +670,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Cashback",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 1,
     "categories": {
       "shopping": 1,
@@ -665,6 +705,8 @@ const creditCards=[
     "network": "RuPay",
     "cardType": "Shopping",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 5,
     "categories": {
       "shopping": 5,
@@ -698,6 +740,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Fuel",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 3,
     "categories": {
       "shopping": 1,
@@ -731,6 +775,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Cashback",
     "rewardType": "cashback",
+    "pointValueInr": null,
+    "pointValueSource": "",
     "baseRewardRate": 2,
     "categories": {
       "shopping": 2,
@@ -764,6 +810,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "points",
+    "pointValueInr": 0.2,
+    "pointValueSource": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-cards",
     "baseRewardRate": 2,
     "categories": {
       "shopping": 2,
@@ -797,6 +845,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "points",
+    "pointValueInr": 0.25,
+    "pointValueSource": "https://www.kotak.com/en/personal-banking/cards/credit-cards/reward-points-program.html",
     "baseRewardRate": 3,
     "categories": {
       "shopping": 2,
@@ -830,6 +880,8 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "miles",
+    "pointValueInr": 1,
+    "pointValueSource": "https://www.idfcfirstbank.com/credit-card/club-vistara-idfc-first-credit-card",
     "baseRewardRate": 4,
     "categories": {
       "shopping": 2,

@@ -29,6 +29,14 @@ const CreditCardSchema = new Schema({
     enum: ['cashback', 'points', 'miles'],
     required: true
   },
+  pointValueInr: {
+    type: Number,
+    default: null
+  },
+  pointValueSource: {
+    type: String,
+    default: ""
+  },
 
   baseRewardRate: {
     type: Number,

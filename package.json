@@ -23,7 +23,7 @@
   "lint": "eslint",
  
    
-  "seed": "node app/seeds/db.seeds.js"
+  "seed": "node app/seed/db.seeds.js"
  
   },
  
@@ -86,3 +86,4 @@
  
   }
 }
+

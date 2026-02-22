@@ -1,428 +1,686 @@
+// 'use client'
+// import React, { Suspense, useEffect, useState } from "react"
+// import { useRouter, useSearchParams } from "next/navigation"
+
+// const RUPEE = "\u20B9"
+// const DOT = "\u2022"
+
+// const RecommendCardsContent = () => {
+//   const [loading, setLoading] = useState(true)
+//   const [recommendedCards, setRecommendedCards] = useState([])
+//   const [error, setError] = useState(null)
+//   const [selectedCard, setSelectedCard] = useState(null)
+//   const [recommendationMessage, setRecommendationMessage] = useState(null)
+
+//   const router = useRouter()
+//   const searchParams = useSearchParams()
+//   const amount = searchParams.get("amount")
+//   const intent = searchParams.get("intent")
+
+//   useEffect(() => {
+//     if (!amount || !intent) {
+//       setLoading(false)
+//       setError("Amount and intent are required")
+//       return
+//     }
+
+//     const fetchRecommendations = async () => {
+//       setLoading(true)
+//       setError(null)
+//       setRecommendedCards([])
+
+//       try {
+//         const res = await fetch("/api/getrecommendation", {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify({ amount, intent }),
+//         })
+
+//         const data = await res.json()
+//         if (!res.ok) throw new Error(data.message || "Failed to get recommendation")
+
+//         const cards = Array.isArray(data.cards) ? data.cards.slice(0, 3) : []
+//         setRecommendedCards(cards)
+//         if (data.message) setRecommendationMessage(data.message)
+//       } catch (err) {
+//         console.error(err)
+//         setError(err.message || "Something went wrong")
+//       } finally {
+//         setLoading(false)
+//       }
+//     }
+
+//     fetchRecommendations()
+//   }, [amount, intent])
+
+//   const rewardLabel = (rewardType) =>
+//     rewardType === "points" ? "Reward Points" : rewardType === "miles" ? "Miles" : "Rewards"
+
+//   const rewardUnit = (rewardType) =>
+//     rewardType === "points" ? "pts" : rewardType === "miles" ? "miles" : ""
+
+//   return (
+//     <div className="min-h-screen bg-black">
+//       <div className="bg-black/95 backdrop-blur-xl border-b border-gray-900/50 sticky top-0 z-40">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+//           <div className="flex items-center gap-4">
+//             <button
+//               onClick={() => router.push("/users/recommend")}
+//               className="flex items-center gap-2 px-3 py-2 bg-gray-900/60 hover:bg-gray-800/60 rounded-xl border border-gray-800/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200"
+//             >
+//               <span>Back</span>
+//             </button>
+//             <div>
+//               <h1
+//                 className="text-3xl font-extrabold tracking-tight"
+//                 style={{
+//                   background: "linear-gradient(90deg, #888, #fff, #888)",
+//                   WebkitBackgroundClip: "text",
+//                   WebkitTextFillColor: "transparent",
+//                 }}
+//               >
+//                 Top 3 Recommended Cards
+//               </h1>
+//               <p className="text-gray-500 mt-2 text-sm">Based on your amount and intent</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {loading && (
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-gray-400">
+//           Finding Perfect Cards for You...
+//         </div>
+//       )}
+
+//       {error && !loading && (
+//         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//           <div className="bg-red-900/20 border border-red-800/50 rounded-xl p-6">
+//             <h3 className="text-lg font-semibold text-red-400 mb-2">Error Loading Recommendations</h3>
+//             <p className="text-red-300 text-sm">{error}</p>
+//           </div>
+//         </div>
+//       )}
+
+//       {!loading && recommendedCards.length > 0 && (
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//           {recommendationMessage && (
+//             <div className="max-w-3xl mx-auto mb-8 bg-blue-900/20 border border-blue-800/50 rounded-xl p-4">
+//               <p className="text-blue-300 text-sm text-center">{recommendationMessage}</p>
+//             </div>
+//           )}
+
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//             {recommendedCards.map((card, index) => (
+//               <div
+//                 key={card._id || index}
+//                 onClick={() => setSelectedCard(card)}
+//                 className="bg-gray-900/50 border border-gray-800/50 rounded-xl p-6 hover:border-gray-700/50 transition-all cursor-pointer"
+//               >
+//                 <div className="mb-4">
+//                   <h3 className="text-xl font-bold text-gray-200 mb-2">{card.cardName}</h3>
+//                   <div className="flex items-center gap-2 text-sm text-gray-400">
+//                     <span>{card.bank}</span>
+//                     <span>{DOT}</span>
+//                     <span>{card.cardType}</span>
+//                     <span>{DOT}</span>
+//                     <span>{card.network}</span>
+//                   </div>
+//                 </div>
+
+//                 <div className="mb-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+//                   <p className="text-xs text-gray-400 mb-1">Total Benefit</p>
+//                   <p className="text-2xl font-bold text-gray-100">
+//                     {RUPEE}{(card.totalBenefit || 0).toFixed(2)}
+//                   </p>
+//                 </div>
+
+//                 <div className="space-y-2 mb-4">
+//                   <div className="flex justify-between items-center py-2 border-b border-gray-800/50">
+//                     <span className="text-sm text-gray-400">Cashback</span>
+//                     <span className="text-sm font-semibold text-gray-200">{RUPEE}{(card.cashback || 0).toFixed(2)}</span>
+//                   </div>
+//                   <div className="flex justify-between items-center py-2 border-b border-gray-800/50">
+//                     <span className="text-sm text-gray-400">{rewardLabel(card.rewardType)}</span>
+//                     <span className="text-sm font-semibold text-gray-200">
+//                       {(card.rewards || 0).toFixed(2)} {rewardUnit(card.rewardType)}
+//                     </span>
+//                   </div>
+//                   <div className="flex justify-between items-center py-2 border-b border-gray-800/50">
+//                     <span className="text-sm text-gray-400">Rewards Value</span>
+//                     <span className="text-sm font-semibold text-gray-200">{RUPEE}{(card.rewardsValue || 0).toFixed(2)}</span>
+//                   </div>
+//                 </div>
+
+//                 {Array.isArray(card.perks) && card.perks.length > 0 && (
+//                   <div className="mb-4">
+//                     <p className="text-xs text-gray-500 mb-2">Perks:</p>
+//                     <div className="flex flex-wrap gap-2">
+//                       {card.perks.map((perk, idx) => (
+//                         <span key={idx} className="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
+//                           {perk.replace(/_/g, " ")}
+//                         </span>
+//                       ))}
+//                     </div>
+//                   </div>
+//                 )}
+
+//                 <div className="pt-4 border-t border-gray-800/50">
+//                   <div className="flex justify-between text-xs text-gray-500">
+//                     <div>
+//                       <span className="block mb-1">Reward Rate</span>
+//                       <span className="text-gray-300">{card.rewardRateText || "N/A"}</span>
+//                     </div>
+//                     <div className="text-right">
+//                       <span className="block mb-1">Limit</span>
+//                       <span className="text-gray-300">{RUPEE}{(card.limits?.max || card.maxLimit || 0).toLocaleString("en-IN")}</span>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+
+//       {!loading && !error && recommendedCards.length === 0 && (
+//         <div className="text-center py-16">
+//           <h3 className="text-xl font-bold text-gray-200 mb-2">No recommendations yet</h3>
+//           <p className="text-gray-500 text-sm">Enter amount and intent to get top 3 card recommendations</p>
+//         </div>
+//       )}
+
+//       {selectedCard && (
+//         <div
+//           className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-4"
+//           onClick={() => setSelectedCard(null)}
+//         >
+//           <div
+//             className="bg-gray-950 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-800/50"
+//             onClick={(e) => e.stopPropagation()}
+//           >
+//             <div className="p-6 border-b border-gray-800/50">
+//               <h2 className="text-2xl font-bold text-white">{selectedCard.cardName}</h2>
+//               <p className="text-gray-400 mt-1">{selectedCard.bank} {DOT} {selectedCard.cardType} {DOT} {selectedCard.network}</p>
+//             </div>
+//             <div className="p-6 space-y-3 text-sm">
+//               <div className="flex justify-between"><span className="text-gray-400">Total Benefit</span><span className="text-white font-semibold">{RUPEE}{(selectedCard.totalBenefit || 0).toFixed(2)}</span></div>
+//               <div className="flex justify-between"><span className="text-gray-400">Cashback</span><span className="text-white font-semibold">{RUPEE}{(selectedCard.cashback || 0).toFixed(2)}</span></div>
+//               <div className="flex justify-between"><span className="text-gray-400">{rewardLabel(selectedCard.rewardType)}</span><span className="text-white font-semibold">{(selectedCard.rewards || 0).toFixed(2)} {rewardUnit(selectedCard.rewardType)}</span></div>
+//               <div className="flex justify-between"><span className="text-gray-400">Rewards Value</span><span className="text-white font-semibold">{RUPEE}{(selectedCard.rewardsValue || 0).toFixed(2)}</span></div>
+//               <div className="flex justify-between"><span className="text-gray-400">Reward Rate</span><span className="text-white font-semibold">{selectedCard.rewardRateText || "N/A"}</span></div>
+//               <div className="flex justify-between"><span className="text-gray-400">Limit</span><span className="text-white font-semibold">{RUPEE}{(selectedCard.limits?.max || selectedCard.maxLimit || 0).toLocaleString("en-IN")}</span></div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   )
+// }
+
+// const RecommendCardsPage = () => (
+//   <Suspense
+//     fallback={
+//       <div className="min-h-screen bg-black flex items-center justify-center">
+//         <p className="text-gray-400 text-sm">Loading...</p>
+//       </div>
+//     }
+//   >
+//     <RecommendCardsContent />
+//   </Suspense>
+// )
+
+// export default RecommendCardsPage
+
+
+
 'use client'
-import React, { useEffect, useState, Suspense } from "react"
+import React, { Suspense, useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
-const RecommendCardsContent = () => {
-  
-  const [loading, setLoading] = useState(true)
-  const [recommendedCards, setRecommendedCards] = useState([])
-  const [error, setError] = useState(null)
-  const [selectedCard, setSelectedCard] = useState(null)
-  const [recommendationMessage, setRecommendationMessage] = useState(null)
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const userInput = searchParams.get('prompt')
-  // Get gradient colors based on bank
-  const getCardGradient = (bank) => {
-    
-    const gradients = {
-      'HDFC': 'linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%)',
-      'ICICI': 'linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%)',
-      'SBI': 'linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%)',
-      'Axis': 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
-      'Kotak': 'linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%)',
-      'IDFC First': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 50%, #4facfe 100%)',
-    };
-    return gradients[bank] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-  };
-useEffect(() => {
-  if (!userInput?.trim()) {
-    setLoading(false);
-    return;
+const RUPEE = "\u20B9"
+const DOT = "\u2022"
+
+// Rank config for top 3
+const RANK = [
+  { medal: "🥇", label: "Best Match",  ring: "ring-yellow-500/40",  badge: "bg-yellow-500/10 text-yellow-300 border-yellow-500/30" },
+  { medal: "🥈", label: "Runner Up",   ring: "ring-slate-400/40",   badge: "bg-slate-400/10 text-slate-300 border-slate-400/30" },
+  { medal: "🥉", label: "Great Pick",  ring: "ring-orange-600/40",  badge: "bg-orange-700/10 text-orange-300 border-orange-600/30" },
+]
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+/** Human-readable label for the reward type */
+const rewardLabel = (rewardType) =>
+  rewardType === "points" ? "Reward Points" : rewardType === "miles" ? "Miles Earned" : "Rewards"
+
+/** Unit suffix for rewards */
+const rewardUnit = (rewardType) =>
+  rewardType === "points" ? " pts" : rewardType === "miles" ? " miles" : ""
+
+/** Format a rupee amount — shows "₹0.00" for zero, never blank */
+const fmt = (n) => `${RUPEE}${(Number(n) || 0).toFixed(2)}`
+
+/** Format reward points / miles with unit */
+const fmtReward = (n, rewardType) =>
+  `${(Number(n) || 0).toFixed(2)}${rewardUnit(rewardType)}`
+
+/**
+ * Derives a human-readable category tag from the usedCategory returned by the API.
+ * Falls back to the intent string if usedCategory is absent.
+ */
+const categoryLabel = (usedCategory, intent) => {
+  const map = {
+    travel:    "Travel & Hotels",
+    fuel:      "Fuel & Commute",
+    dining:    "Dining & Food",
+    groceries: "Groceries",
+    shopping:  "Shopping",
   }
+  return map[usedCategory] ?? intent ?? "General"
+}
 
-  setRecommendedCards([]);
-  setLoading(true);
-  setError(null);
+// ─── Sub-components ───────────────────────────────────────────────────────────
 
-  const fetchRecommendations = async () => {
-    try {
-      const res = await fetch("/api/getrecommendation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: userInput }),
-      });
+/** One benefit row inside a card */
+function BenefitRow({ label, value, highlight }) {
+  return (
+    <div className={`flex justify-between items-center py-2 border-b border-gray-800/50 ${highlight ? "text-emerald-300" : ""}`}>
+      <span className="text-sm text-gray-400">{label}</span>
+      <span className={`text-sm font-semibold ${highlight ? "text-emerald-300" : "text-gray-200"}`}>{value}</span>
+    </div>
+  )
+}
 
-      const data = await res.json();
+/** Skeleton card shown while loading */
+function CardSkeleton() {
+  return (
+    <div className="bg-gray-900/50 border border-gray-800/50 rounded-xl p-6 animate-pulse space-y-4">
+      <div className="h-5 w-40 bg-gray-700/50 rounded" />
+      <div className="h-4 w-28 bg-gray-800/50 rounded" />
+      <div className="h-16 bg-gray-800/40 rounded-lg" />
+      <div className="space-y-2">
+        {[...Array(4)].map((_, i) => <div key={i} className="h-4 bg-gray-800/30 rounded" />)}
+      </div>
+    </div>
+  )
+}
 
-      if (!res.ok) {
-        throw new Error(data.message || "Failed to get recommendation");
-      }
-      
-      // Case 1: cards directly
-      if (Array.isArray(data.cards)) {
-        setRecommendedCards(data.cards.slice(0, 3));
-        if (data.message) {
-          setRecommendationMessage(data.message);
-        }
-        return;
-      }
+// ─── Main content ─────────────────────────────────────────────────────────────
 
-      // Case 2: cardIds
-      if (Array.isArray(data.cardIds)) {
-        const cards = await Promise.all(
-          data.cardIds.slice(0, 3).map(async (id) => {
-            const cardRes = await fetch(`/api/cards?id=${id}`);
-            if (!cardRes.ok) throw new Error("Failed to fetch card details");
-            return cardRes.json();
-          })
-        );
-        setRecommendedCards(cards);
-        return;
-      }
+const RecommendCardsContent = () => {
+  const [loading, setLoading]               = useState(true)
+  const [recommendedCards, setRecommendedCards] = useState([])
+  const [resolvedCategory, setResolvedCategory] = useState(null)
+  const [error, setError]                   = useState(null)
+  const [selectedCard, setSelectedCard]     = useState(null)
+  const [apiMessage, setApiMessage]         = useState(null)
 
-      // Fallback
-      const fallbackRes = await fetch("/api/cards");
-      const fallbackCards = await fallbackRes.json();
-      setRecommendedCards(fallbackCards.slice(0, 3));
+  const router       = useRouter()
+  const searchParams = useSearchParams()
+  const amount       = searchParams.get("amount")
+  const intent       = searchParams.get("intent")
 
-    } catch (err) {
-      console.error(err);
-      setError(err.message || "Something went wrong");
-    } finally {
-      setLoading(false);
+  useEffect(() => {
+    if (!amount || !intent) {
+      setError("Amount and intent are required.")
+      setLoading(false)
+      return
     }
-  };
 
-  fetchRecommendations();
-}, [userInput]);
+    const fetchRecommendations = async () => {
+      setLoading(true)
+      setError(null)
+      setRecommendedCards([])
 
+      try {
+        const res  = await fetch("/api/getrecommendation", {
+          method:  "POST",
+          headers: { "Content-Type": "application/json" },
+          // credentials: "include" sends the authToken cookie so logged-in
+          // users get their own cards ranked; guests get all cards
+          credentials: "include",
+          body: JSON.stringify({ amount, intent }),
+        })
 
+        const data = await res.json()
+        if (!res.ok) throw new Error(data.message ?? "Failed to get recommendations")
+
+        // API already slices to top 3, but guard anyway
+        const cards = Array.isArray(data.cards) ? data.cards.slice(0, 3) : []
+        setRecommendedCards(cards)
+        setResolvedCategory(data.resolvedCategory ?? null)
+        if (data.message) setApiMessage(data.message)
+      } catch (err) {
+        console.error(err)
+        setError(err.message ?? "Something went wrong")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchRecommendations()
+  }, [amount, intent])
 
   return (
-    <>
     <div className="min-h-screen bg-black">
-      {/* Header */}
+      {/* ── Header ── */}
       <div className="bg-black/95 backdrop-blur-xl border-b border-gray-900/50 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => router.push('/users/recommend')}
-                className="flex items-center gap-2 px-3 py-2 bg-gray-900/60 hover:bg-gray-800/60 rounded-xl border border-gray-800/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200 hover:scale-105 shrink-0"
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => router.push("/users/recommend")}
+              className="flex items-center gap-2 px-3 py-2 bg-gray-900/60 hover:bg-gray-800/60 rounded-xl border border-gray-800/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back
+            </button>
+            <div>
+              <h1
+                className="text-3xl font-extrabold tracking-tight"
+                style={{ background: "linear-gradient(90deg,#888,#fff,#888)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                <span>Back</span>
-              </button>
-              <div>
-                <h1 
-                  className="text-5xl font-extrabold tracking-tight"
-                  style={{
-                    background: "linear-gradient(90deg, #888, #fff, #888)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  Recommended Cards
-                </h1>
-                <p className="text-gray-500 mt-2 text-sm">Based on your requirements</p>
-              </div>
+                Top 3 Recommended Cards
+              </h1>
+              {/* Show what was resolved from the intent */}
+              <p className="text-gray-500 mt-1 text-sm">
+                {amount && intent
+                  ? <>Showing best cards for <span className="text-gray-300">{RUPEE}{Number(amount).toLocaleString("en-IN")}</span> · {" "}
+                    <span className="text-gray-300">{categoryLabel(resolvedCategory, intent)}</span></>
+                  : "Based on your amount and intent"}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Loading State */}
+      {/* ── Loading ── */}
       {loading && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="flex flex-col items-center justify-center min-h-[400px]">
-            <div className="relative">
-              <svg className="animate-spin h-16 w-16 text-gray-600" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-            </div>
-            <h3 className="mt-8 text-xl font-bold text-gray-300" style={{
-              background: "linear-gradient(90deg, #888, #fff, #888)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}>
-              Finding Perfect Cards for You...
-            </h3>
-            <p className="mt-3 text-gray-500 text-sm">Analyzing your requirements and matching the best cards</p>
-          </div>
-        </div>
-      )}
-
-      {/* Error State */}
-      {error && !loading && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="max-w-3xl mx-auto bg-red-900/20 border border-red-800/50 rounded-xl p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <h3 className="text-lg font-semibold text-red-400">Error Loading Recommendations</h3>
-            </div>
-            <p className="text-red-300 text-sm">{error}</p>
-            <button
-              onClick={() => router.push('/users/recommend')}
-              className="mt-4 px-4 py-2 bg-red-900/50 hover:bg-red-900/70 text-red-200 rounded-lg transition-colors text-sm font-medium"
-            >
-              Try Again
-            </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(3)].map((_, i) => <CardSkeleton key={i} />)}
           </div>
         </div>
       )}
 
-        {/* Recommended Cards */}
-        {!loading && recommendedCards.length > 0 && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h2 
-              className="text-3xl font-bold mb-4 text-center"
-              style={{
-                background: "linear-gradient(90deg, #888, #fff, #888)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Top 3 Recommended Cards
-            </h2>
-            
-            {/* Recommendation Message */}
-            {recommendationMessage && (
-              <div className="max-w-3xl mx-auto mb-8 bg-blue-900/20 border border-blue-800/50 rounded-xl p-4">
-                <p className="text-blue-300 text-sm text-center">{recommendationMessage}</p>
-              </div>
-            )}
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {recommendedCards.map((card, index) => (
+      {/* ── Error ── */}
+      {error && !loading && (
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="bg-red-900/20 border border-red-800/50 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-red-400 mb-2">Error Loading Recommendations</h3>
+            <p className="text-red-300 text-sm">{error}</p>
+          </div>
+        </div>
+      )}
+
+      {/* ── Cards ── */}
+      {!loading && recommendedCards.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+          {/* Optional API debug message (hidden in production) */}
+          {process.env.NODE_ENV !== "production" && apiMessage && (
+            <div className="max-w-3xl mx-auto mb-6 bg-blue-900/20 border border-blue-800/50 rounded-xl p-3">
+              <p className="text-blue-300 text-xs text-center font-mono">{apiMessage}</p>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recommendedCards.map((card, index) => {
+              const rank = RANK[index]
+
+              // ── Determine what to show for rewards ──
+              // If rewardType is cashback, rewards field will be 0 — hide it
+              const showRewards    = card.rewardType !== "cashback" && card.rewards > 0
+              // Only show perksValue when it's non-zero (means live discount offers applied)
+              const showPerksValue = card.perksValue > 0
+
+              return (
                 <div
-                  key={card._id || index}
+                  key={card._id ?? index}
                   onClick={() => setSelectedCard(card)}
-                  className="group cursor-pointer relative"
+                  className={`bg-gray-900/50 border border-gray-800/50 rounded-xl p-6
+                    hover:border-gray-700/50 transition-all cursor-pointer
+                    ring-1 ${rank.ring}`}
                 >
-                  {/* Credit Card Design */}
-                  <div 
-                    className="relative h-64 rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden group/card"
-                    style={{
-                      background: getCardGradient(card.bank),
-                    }}
-                  >
-                    {/* Animated shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/10 to-white/0 opacity-0 group-hover/card:opacity-100 group-hover/card:translate-x-full transition-all duration-1000 -translate-x-full"></div>
-                    
-                    {/* Pattern overlay */}
-                    <div className="absolute inset-0 opacity-10" style={{
-                      backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-                      backgroundSize: '24px 24px'
-                    }}></div>
-                    
-                    {/* Badge for cards that need to be added */}
-                    {card.needsToBeAdded && (
-                      <div className="absolute top-4 right-4 z-10">
-                        <span className="px-3 py-1 bg-yellow-500/90 text-black text-xs font-bold rounded-full shadow-lg border-2 border-yellow-300/50">
-                          ADD THIS CARD
+                  {/* ── Rank badge + card name ── */}
+                  <div className="mb-4 flex items-start justify-between gap-2">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg">{rank.medal}</span>
+                        <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${rank.badge}`}>
+                          {rank.label}
                         </span>
                       </div>
-                    )}
-
-                    {/* Card Content */}
-                    <div className="relative h-full p-7 flex flex-col justify-between text-white">
-                      {/* Top Section */}
-                      <div className="flex justify-between items-start">
-                        <div className="flex items-center gap-3">
-                          <div className="w-14 h-14 bg-white/25 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg border border-white/20">
-                            <div className="w-10 h-10 bg-white/40 rounded-lg"></div>
-                          </div>
-                          <div>
-                            <p className="text-[10px] opacity-90 font-semibold uppercase tracking-[0.15em] leading-tight">{card.bank}</p>
-                            <p className="text-[9px] opacity-60 mt-0.5">{card.network}</p>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="w-16 h-11 bg-white/20 rounded-lg backdrop-blur-sm border border-white/30 shadow-inner"></div>
-                        </div>
-                      </div>
-
-                     
-                      <div className="flex-1 flex flex-col justify-center py-4">
-                        <h2 className="text-2xl font-extrabold mb-3 tracking-tight leading-tight">{card.cardName}</h2>
-                        <div className="flex items-center gap-2">
-                          <span className="px-3 py-1.5 bg-white/25 rounded-lg backdrop-blur-md text-xs font-semibold border border-white/30 shadow-sm">
-                            {card.cardType}
-                          </span>
-                          <span className="text-xs opacity-60">•</span>
-                          <span className="text-xs opacity-80 font-medium">{card.network}</span>
-                        </div>
-                      </div>
-
-                      {/* Bottom Section */}
-                      <div className="flex justify-between items-end pt-2">
-                        <div>
-                          <p className="text-[10px] opacity-60 mb-1.5 font-medium uppercase tracking-wide">Reward</p>
-                          <p className="text-sm font-bold">{card.rewardRateText || 'N/A'}</p>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-[10px] opacity-60 mb-1.5 font-medium uppercase tracking-wide">Limit</p>
-                          <p className="text-sm font-bold">₹{card.maxLimit?.toLocaleString('en-IN') || 'N/A'}</p>
-                        </div>
+                      <h3 className="text-xl font-bold text-gray-200">{card.cardName}</h3>
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-gray-500 mt-1">
+                        <span>{card.bank}</span>
+                        {card.cardType  && <><span>{DOT}</span><span>{card.cardType}</span></>}
+                        {card.network   && <><span>{DOT}</span><span>{card.network}</span></>}
                       </div>
                     </div>
 
-                    {/* Subtle glow on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                    {/* Category used for scoring */}
+                    <span className="shrink-0 text-xs px-2 py-1 rounded-lg bg-gray-800/60 border border-gray-700/50 text-gray-400">
+                      {categoryLabel(card.usedCategory, intent)}
+                    </span>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
-        
-        {!loading && recommendedCards.length === 0 && !error && userInput && (
-          <div className="text-center py-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-2xl mb-6 border border-gray-800">
-              <svg className="w-10 h-10 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-gray-200 mb-2">No recommendations yet</h3>
-            <p className="text-gray-500 text-sm">Enter your spending habits above to get personalized card recommendations</p>
-          </div>
-        )}
-      </div>
-      
-      {selectedCard && (
-        <div 
-          className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-4"
-          onClick={() => setSelectedCard(null)}
-        >
-          <div 
-            className="bg-gray-950 rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] flex flex-col transform border border-gray-800/50"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div 
-              className="relative h-48 text-white p-6 flex flex-col justify-between overflow-hidden"
-              style={{
-                background: getCardGradient(selectedCard.bank),
-              }}
-            >
-              <button
-                className="absolute top-4 right-4 w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 z-20 cursor-pointer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedCard(null);
-                }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              <div>
-                <p className="text-xs opacity-80 font-semibold uppercase tracking-wider mb-1">{selectedCard.bank}</p>
-                <h2 className="text-3xl font-extrabold mb-2">{selectedCard.cardName}</h2>
-                <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-white/25 rounded-lg backdrop-blur-md text-xs font-semibold border border-white/30">
-                    {selectedCard.cardType}
-                  </span>
-                  <span className="text-xs opacity-60">•</span>
-                  <span className="text-xs opacity-80">{selectedCard.network}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Body */}
-            <div className="overflow-y-auto flex-1 p-6 space-y-6">
-              {/* Add Card Button if needed */}
-              {selectedCard.needsToBeAdded && (
-                <div className="bg-yellow-900/20 border border-yellow-800/50 rounded-xl p-4 mb-4">
-                  <p className="text-yellow-300 text-sm mb-3">This card is not in your collection yet.</p>
-                  <button
-                    onClick={async (e) => {
-                      e.stopPropagation();
-                      try {
-                        const res = await fetch('/api/userCards', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({ cardId: selectedCard._id }),
-                        });
-                        if (res.ok) {
-                          alert('Card added successfully!');
-                          setSelectedCard(null);
-                          // Refresh recommendations
-                          window.location.reload();
-                        } else {
-                          alert('Failed to add card');
-                        }
-                      } catch (err) {
-                        console.error(err);
-                        alert('Failed to add card');
-                      }
-                    }}
-                    className="w-full px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-lg transition-colors"
-                  >
-                    Add This Card to My Collection
-                  </button>
-                </div>
-              )}
-              
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">Rewards & Benefits</h3>
-                <div className="space-y-3">
-                  <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
-                    <p className="text-xs text-gray-400 mb-1">Reward Rate</p>
-                    <p className="text-lg font-bold text-white">{selectedCard.rewardRateText || 'N/A'}</p>
+                  {/* ── Total Benefit highlight ── */}
+                  <div className="mb-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                    <p className="text-xs text-gray-400 mb-1">Total Benefit on this transaction</p>
+                    <p className="text-2xl font-bold text-gray-100">{fmt(card.totalBenefit)}</p>
+                    {card.categoryMultiplier > 1 && (
+                      <p className="text-xs text-emerald-400 mt-1">
+                        {card.categoryMultiplier}× multiplier applied for {categoryLabel(card.usedCategory)}
+                      </p>
+                    )}
                   </div>
-                  {selectedCard.bestFor && selectedCard.bestFor.length > 0 && (
-                    <div className="bg-gray-900/50 rounded-xl p-4 border border-gray-800/50">
-                      <p className="text-xs text-gray-400 mb-2">Best For</p>
+
+                  {/* ── Benefit breakdown ── */}
+                  <div className="space-y-0 mb-4">
+                    {/* Cashback — always show, even if 0 */}
+                    <BenefitRow
+                      label="Cashback"
+                      value={fmt(card.cashback)}
+                      highlight={card.cashback > 0}
+                    />
+
+                    {/* Reward points / miles — only show when applicable */}
+                    {showRewards && (
+                      <BenefitRow
+                        label={rewardLabel(card.rewardType)}
+                        value={fmtReward(card.rewards, card.rewardType)}
+                      />
+                    )}
+
+                    {/* Monetary value of rewards */}
+                    {card.rewardsValue > 0 && (
+                      <BenefitRow
+                        label="Rewards Value"
+                        value={fmt(card.rewardsValue)}
+                        highlight
+                      />
+                    )}
+
+                    {/* Perks value from live discount offers */}
+                    {showPerksValue && (
+                      <BenefitRow
+                        label="Offer Savings"
+                        value={fmt(card.perksValue)}
+                        highlight
+                      />
+                    )}
+                  </div>
+
+                  {/* ── Card perks list (from card document) ── */}
+                  {Array.isArray(card.perks) && card.perks.length > 0 && (
+                    <div className="mb-4">
+                      <p className="text-xs text-gray-500 mb-2">Perks included:</p>
                       <div className="flex flex-wrap gap-2">
-                        {selectedCard.bestFor.map((item, idx) => (
-                          <span key={idx} className="px-2 py-1 bg-gray-800/50 rounded-lg text-xs text-gray-300">
-                            {item}
+                        {card.perks.map((perk, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50"
+                          >
+                            {typeof perk === "string" ? perk.replace(/_/g, " ") : perk}
                           </span>
                         ))}
                       </div>
                     </div>
                   )}
+
+                  {/* ── Footer: reward rate + limit ── */}
+                  <div className="pt-4 border-t border-gray-800/50 flex justify-between text-xs text-gray-500">
+                    <div>
+                      <span className="block mb-1">Reward Rate</span>
+                      <span className="text-gray-300">{card.rewardRateText || "N/A"}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="block mb-1">Card Limit</span>
+                      <span className="text-gray-300">
+                        {RUPEE}{(card.limits?.max ?? card.maxLimit ?? 0).toLocaleString("en-IN")}
+                      </span>
+                    </div>
+                  </div>
                 </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* ── Empty state ── */}
+      {!loading && !error && recommendedCards.length === 0 && (
+        <div className="text-center py-16">
+          <h3 className="text-xl font-bold text-gray-200 mb-2">No recommendations found</h3>
+          <p className="text-gray-500 text-sm">Try a different amount or intent.</p>
+          <button
+            onClick={() => router.push("/users/recommend")}
+            className="mt-4 px-4 py-2 bg-gray-900 border border-gray-700 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
+          >
+            Go back and try again
+          </button>
+        </div>
+      )}
+
+      {/* ── Detail Modal ── */}
+      {selectedCard && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedCard(null)}
+        >
+          <div
+            className="bg-gray-950 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-800/50"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6 border-b border-gray-800/50">
+              <h2 className="text-2xl font-bold text-white">{selectedCard.cardName}</h2>
+              <p className="text-gray-400 mt-1 text-sm">
+                {selectedCard.bank}
+                {selectedCard.cardType && <> {DOT} {selectedCard.cardType}</>}
+                {selectedCard.network  && <> {DOT} {selectedCard.network}</>}
+              </p>
+            </div>
+
+            <div className="p-6 space-y-3 text-sm">
+              {/* Summary */}
+              <div className="p-4 bg-gray-900/60 rounded-xl border border-gray-800/50 mb-4">
+                <p className="text-xs text-gray-500 mb-1">Total Benefit</p>
+                <p className="text-2xl font-bold text-white">{fmt(selectedCard.totalBenefit)}</p>
+                {selectedCard.categoryMultiplier > 1 && (
+                  <p className="text-xs text-emerald-400 mt-1">
+                    {selectedCard.categoryMultiplier}× multiplier · {categoryLabel(selectedCard.usedCategory, intent)}
+                  </p>
+                )}
               </div>
 
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">Card Details</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center py-2 border-b border-gray-800/50">
-                    <span className="text-sm text-gray-400">Credit Limit</span>
-                    <span className="text-sm font-semibold text-white">₹{selectedCard.maxLimit?.toLocaleString('en-IN') || 'N/A'}</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-800/50">
-                    <span className="text-sm text-gray-400">Annual Fee</span>
-                    <span className="text-sm font-semibold text-white">₹{selectedCard.annualFee || 0}</span>
-                  </div>
-                  {selectedCard.joiningFee && (
-                    <div className="flex justify-between items-center py-2 border-b border-gray-800/50">
-                      <span className="text-sm text-gray-400">Joining Fee</span>
-                      <span className="text-sm font-semibold text-white">₹{selectedCard.joiningFee}</span>
-                    </div>
-                  )}
-                </div>
+              {/* Breakdown rows */}
+              <div className="flex justify-between py-2 border-b border-gray-800/40">
+                <span className="text-gray-400">Cashback</span>
+                <span className="text-white font-semibold">{fmt(selectedCard.cashback)}</span>
               </div>
+
+              {selectedCard.rewardType !== "cashback" && (
+                <div className="flex justify-between py-2 border-b border-gray-800/40">
+                  <span className="text-gray-400">{rewardLabel(selectedCard.rewardType)}</span>
+                  <span className="text-white font-semibold">{fmtReward(selectedCard.rewards, selectedCard.rewardType)}</span>
+                </div>
+              )}
+
+              {selectedCard.rewardsValue > 0 && (
+                <div className="flex justify-between py-2 border-b border-gray-800/40">
+                  <span className="text-gray-400">Rewards Value</span>
+                  <span className="text-emerald-300 font-semibold">{fmt(selectedCard.rewardsValue)}</span>
+                </div>
+              )}
+
+              {selectedCard.perksValue > 0 && (
+                <div className="flex justify-between py-2 border-b border-gray-800/40">
+                  <span className="text-gray-400">Offer Savings</span>
+                  <span className="text-emerald-300 font-semibold">{fmt(selectedCard.perksValue)}</span>
+                </div>
+              )}
+
+              <div className="flex justify-between py-2 border-b border-gray-800/40">
+                <span className="text-gray-400">Reward Rate</span>
+                <span className="text-white font-semibold">{selectedCard.rewardRateText || "N/A"}</span>
+              </div>
+
+              <div className="flex justify-between py-2 border-b border-gray-800/40">
+                <span className="text-gray-400">Category Multiplier</span>
+                <span className="text-white font-semibold">{selectedCard.categoryMultiplier}×</span>
+              </div>
+
+              <div className="flex justify-between py-2 border-b border-gray-800/40">
+                <span className="text-gray-400">Card Limit</span>
+                <span className="text-white font-semibold">
+                  {RUPEE}{(selectedCard.limits?.max ?? selectedCard.maxLimit ?? 0).toLocaleString("en-IN")}
+                </span>
+              </div>
+
+              {/* Perks */}
+              {Array.isArray(selectedCard.perks) && selectedCard.perks.length > 0 && (
+                <div className="pt-2">
+                  <p className="text-xs text-gray-500 mb-2">Perks:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedCard.perks.map((perk, idx) => (
+                      <span key={idx} className="px-2 py-1 bg-gray-800/60 text-gray-300 text-xs rounded border border-gray-700/50">
+                        {typeof perk === "string" ? perk.replace(/_/g, " ") : perk}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="p-4 border-t border-gray-800/50">
+              <button
+                onClick={() => setSelectedCard(null)}
+                className="w-full py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-gray-300 hover:text-white text-sm font-medium transition-colors"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
 
-const recommendCards = () => {
-  return (
-    <Suspense fallback={
+// ── Suspense wrapper (required because useSearchParams needs it) ────────────
+const RecommendCardsPage = () => (
+  <Suspense
+    fallback={
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin h-8 w-8 border-4 border-gray-600 border-t-white rounded-full"></div>
-          <p className="text-gray-400 text-sm">Loading...</p>
-        </div>
+        <p className="text-gray-400 text-sm animate-pulse">Loading recommendations...</p>
       </div>
-    }>
-      <RecommendCardsContent />
-    </Suspense>
-  )
-}
+    }
+  >
+    <RecommendCardsContent />
+  </Suspense>
+)
 
-export default recommendCards
+export default RecommendCardsPage
