@@ -1,29 +1,64 @@
 'use client'
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
+
+// Icons for each category (inline SVG for consistency)
+const CategoryIcons = {
+  shopping: (
+    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+    </svg>
+  ),
+  travel: (
+    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+    </svg>
+  ),
+  fuel: (
+    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2h-2m-4-1V9" />
+    </svg>
+  ),
+  dining: (
+    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 114 0v5m0 0v13m4-13v13M4 8v13m0-6a2 2 0 114 0M4 8a2 2 0 114 0" />
+    </svg>
+  ),
+  groceries: (
+    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+  ),
+};
 
 const Recommend = () => {
   const [amount, setAmount] = useState('')
   const [intent, setIntent] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [intentDropdownOpen, setIntentDropdownOpen] = useState(false)
+  const intentDropdownRef = useRef(null)
   const router = useRouter()
 
-  // Intent options based on spending categories and card types
+  // Intent = category only (limited options) with icons
   const intents = [
-  { value: '', label: 'Select Your Primary Need' },
+    { value: '', label: 'Select category', icon: null },
+    { value: 'shopping', label: 'Shopping', icon: CategoryIcons.shopping },
+    { value: 'travel', label: 'Travel', icon: CategoryIcons.travel },
+    { value: 'fuel', label: 'Fuel', icon: CategoryIcons.fuel },
+    { value: 'dining', label: 'Dining', icon: CategoryIcons.dining },
+    { value: 'groceries', label: 'Groceries', icon: CategoryIcons.groceries },
+  ];
 
-  { value: 'daily-expenses', label: 'Manage Daily Expenses' },
-  { value: 'online-shopping', label: 'Online Shopping & E-commerce' },
-  { value: 'travel-bookings', label: 'Travel & Flight Bookings' },
-  { value: 'fuel-savings', label: 'Fuel & Commute Expenses' },
-  { value: 'dining-lifestyle', label: 'Dining & Lifestyle Benefits' },
-  { value: 'grocery-bills', label: 'Groceries & Supermarkets' },
-  { value: 'build-credit', label: 'Build or Improve Credit Score' },
-  { value: 'high-rewards', label: 'Maximize Rewards & Offers' },
-  { value: 'business-expenses', label: 'Business or Professional Expenses' },
-  { value: 'low-interest', label: 'Low Interest / EMI Needs' }
-];
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (intentDropdownRef.current && !intentDropdownRef.current.contains(e.target)) {
+        setIntentDropdownOpen(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,7 +100,7 @@ const Recommend = () => {
               </button>
               <div>
                 <h1 
-                  className="text-5xl font-extrabold tracking-tight"
+                  className="text-3xl font-extrabold tracking-tight"
                   style={{
                     background: "linear-gradient(90deg, #888, #fff, #888)",
                     WebkitBackgroundClip: "text",
@@ -104,35 +139,70 @@ const Recommend = () => {
                 />
               </div>
 
-              {/* Intent Selection */}
-              <div>
+              {/* Intent Selection (with icons) */}
+              <div ref={intentDropdownRef} className="relative">
                 <label className="block text-gray-300 text-sm font-medium mb-2">
-                  Intent / Card Type *
+                  Category *
                 </label>
-                <select
-                  value={intent}
-                  onChange={(e) => setIntent(e.target.value)}
-                  required
-                  className="w-full bg-gray-950/50 border border-gray-800/50 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:border-gray-700/50"
+                <button
+                  type="button"
+                  onClick={() => setIntentDropdownOpen((o) => !o)}
+                  className="w-full flex items-center gap-3 bg-gray-950/50 border border-gray-800/50 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:border-gray-700/50 text-left"
                 >
-                  {intents.map((intentOption) => (
-                    <option key={intentOption.value} value={intentOption.value} className="bg-gray-900">
-                      {intentOption.label}
-                    </option>
-                  ))}
-                </select>
+                  {intent ? (
+                    <>
+                      <span className="text-gray-400">
+                        {intents.find((i) => i.value === intent)?.icon ?? null}
+                      </span>
+                      <span>{intents.find((i) => i.value === intent)?.label ?? intent}</span>
+                    </>
+                  ) : (
+                    <span className="text-gray-500">Select category</span>
+                  )}
+                  <svg
+                    className={`w-5 h-5 text-gray-500 ml-auto shrink-0 transition-transform ${intentDropdownOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {intentDropdownOpen && (
+                  <div className="absolute z-10 mt-1 w-full rounded-xl border border-gray-800/50 bg-gray-950 shadow-xl overflow-hidden">
+                    {intents.map((opt) => {
+                      if (opt.value === '') return null
+                      return (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => {
+                            setIntent(opt.value)
+                            setIntentDropdownOpen(false)
+                          }}
+                          className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+                            intent === opt.value
+                              ? 'bg-gray-800/80 text-white'
+                              : 'text-gray-300 hover:bg-gray-800/50'
+                          }`}
+                        >
+                          <span className="text-gray-400">{opt.icon}</span>
+                          <span>{opt.label}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center justify-between pt-2">
                 <button
                   type="submit"
                   disabled={!amount || !intent || loading}
-                  className="px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl disabled:shadow-none disabled:cursor-not-allowed"
+                  className="px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{
-                    background: (!amount || !intent || loading)
-                      ? "linear-gradient(90deg, #b5a5a5, #9b8b8b, #918888)"
-                      : "linear-gradient(90deg, #a7aaab, #8f8c8c, #838e90)",
-                    color: (!amount || !intent || loading) ? "#292626" : "#000",
+                    background: "linear-gradient(90deg, #888, #fff, #888)",
+                    color: "#000",
                   }}
                 >
                   {loading ? (

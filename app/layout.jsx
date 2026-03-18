@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from '@/app/components/Navbar'
+import NavbarClient from "@/app/components/NavbarClient";
 import { verifyAuth } from "./lib/auth";
 
 const geistSans = Geist({
@@ -29,7 +29,7 @@ export default async function RootLayout({children}) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > 
-        <Navbar userRole={user?.userRole || null}/>
+        <NavbarClient userRole={user?.userRole || null} userName={user?.username || null} userEmail={user?.email || null} />
         {children}
       </body>
     </html>

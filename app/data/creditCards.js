@@ -7,16 +7,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 1,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 5,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 2
+      "shopping": 3,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 1
     },
     "bestFor": ["Online Shopping", "Amazon", "Flipkart", "Myntra", "Cashback"],
-    "rewardRateText": "5% cashback on Amazon, Flipkart, Myntra; 1% on all other spends",
+    "rewardRateText": "3% cashback on Amazon, Flipkart, Myntra; 0.5% on other spends",
     "perks": ["FUEL_WAIVER"],
     "fees": {
       "joining": 1000,
@@ -28,11 +28,11 @@ const creditCards=[
       "minCreditScore": 700
     },
     "limits": {
-      "max": 300000,
-      "available": 300000
+      "max": 250000,
+      "available": 250000
     },
     "billingDate": 5,
-    "popularityScore": 95
+    "popularityScore": 88
   },
   {
     "bank": "HDFC",
@@ -40,18 +40,18 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "points",
-    "pointValueInr": 0.5,
+    "pointValueInr": 0.25,
     "pointValueSource": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/regalia-gold-credit-card",
-    "baseRewardRate": 4,
+    "baseRewardRate": 2,
     "categories": {
-      "shopping": 2,
-      "travel": 4,
-      "fuel": 1,
-      "dining": 3,
-      "groceries": 1
+      "shopping": 1,
+      "travel": 3,
+      "fuel": 0.5,
+      "dining": 2,
+      "groceries": 0.5
     },
     "bestFor": ["Travel", "Lounge Access", "International Travel", "Flight Bookings"],
-    "rewardRateText": "4 reward points per ₹150 spent on travel; 2X on dining",
+    "rewardRateText": "3 reward points per ₹100 on travel; 2X on dining",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE", "CONCIERGE"],
     "fees": {
       "joining": 2500,
@@ -63,11 +63,11 @@ const creditCards=[
       "minCreditScore": 750
     },
     "limits": {
-      "max": 600000,
-      "available": 600000
+      "max": 500000,
+      "available": 500000
     },
     "billingDate": 10,
-    "popularityScore": 92
+    "popularityScore": 85
   },
   {
     "bank": "HDFC",
@@ -75,18 +75,18 @@ const creditCards=[
     "network": "Amex",
     "cardType": "Travel",
     "rewardType": "miles",
-    "pointValueInr": 1,
+    "pointValueInr": 0.5,
     "pointValueSource": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/diners-club-black-credit-card",
-    "baseRewardRate": 5,
+    "baseRewardRate": 2,
     "categories": {
-      "shopping": 3,
-      "travel": 5,
-      "fuel": 2,
-      "dining": 4,
-      "groceries": 2
+      "shopping": 1,
+      "travel": 3,
+      "fuel": 0.5,
+      "dining": 2,
+      "groceries": 0.5
     },
     "bestFor": ["Premium Travel", "Luxury", "International Travel", "Miles"],
-    "rewardRateText": "5X reward points on travel; 3X on dining & shopping",
+    "rewardRateText": "3X miles on travel; 2X on dining & shopping",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE", "CONCIERGE", "TRAVEL_VOUCHER"],
     "fees": {
       "joining": 10000,
@@ -98,11 +98,11 @@ const creditCards=[
       "minCreditScore": 780
     },
     "limits": {
-      "max": 1500000,
-      "available": 1500000
+      "max": 800000,
+      "available": 800000
     },
     "billingDate": 15,
-    "popularityScore": 88
+    "popularityScore": 82
   },
   {
     "bank": "ICICI",
@@ -112,16 +112,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 5,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 5,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 1,
-      "groceries": 2
+      "shopping": 3,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 0.5,
+      "groceries": 1
     },
     "bestFor": ["Amazon", "Online Shopping", "Cashback", "Prime Members"],
-    "rewardRateText": "5% cashback on Amazon; 1% on all other spends",
+    "rewardRateText": "3% cashback on Amazon; 0.5% on other spends",
     "perks": ["AMAZON_PRIME"],
     "fees": {
       "joining": 0,
@@ -137,7 +137,7 @@ const creditCards=[
       "available": 200000
     },
     "billingDate": 7,
-    "popularityScore": 98
+    "popularityScore": 92
   },
   {
     "bank": "ICICI",
@@ -151,7 +151,7 @@ const creditCards=[
     "categories": {
       "shopping": 1,
       "travel": 1,
-      "fuel": 1,
+      "fuel": 0.5,
       "dining": 1,
       "groceries": 1
     },
@@ -172,7 +172,7 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 12,
-    "popularityScore": 75
+    "popularityScore": 72
   },
   {
     "bank": "ICICI",
@@ -180,18 +180,18 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "miles",
-    "pointValueInr": 0.25,
+    "pointValueInr": 0.35,
     "pointValueSource": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
-    "baseRewardRate": 6,
+    "baseRewardRate": 2,
     "categories": {
-      "shopping": 4,
-      "travel": 6,
-      "fuel": 3,
-      "dining": 5,
-      "groceries": 3
+      "shopping": 1,
+      "travel": 3,
+      "fuel": 0.5,
+      "dining": 2,
+      "groceries": 0.5
     },
     "bestFor": ["Premium Travel", "Luxury", "International", "Miles"],
-    "rewardRateText": "6X reward points on travel; 4X on dining & shopping",
+    "rewardRateText": "3X miles on travel; 2X on dining & shopping",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE", "CONCIERGE", "TRAVEL_VOUCHER", "BUSINESS_BENEFITS"],
     "fees": {
       "joining": 12500,
@@ -203,11 +203,11 @@ const creditCards=[
       "minCreditScore": 800
     },
     "limits": {
-      "max": 2000000,
-      "available": 2000000
+      "max": 1000000,
+      "available": 1000000
     },
     "billingDate": 20,
-    "popularityScore": 85
+    "popularityScore": 80
   },
   {
     "bank": "SBI",
@@ -217,16 +217,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 5,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 5,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 3
+      "shopping": 3,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 1.5
     },
     "bestFor": ["Online Shopping", "Amazon", "Flipkart", "Cashback"],
-    "rewardRateText": "5% cashback on online shopping; 1% on all other spends",
+    "rewardRateText": "3% cashback on online shopping; 0.5% on other spends",
     "perks": ["MOVIE_OFFER"],
     "fees": {
       "joining": 499,
@@ -242,7 +242,7 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 3,
-    "popularityScore": 90
+    "popularityScore": 84
   },
   {
     "bank": "SBI",
@@ -252,16 +252,16 @@ const creditCards=[
     "rewardType": "points",
     "pointValueInr": 0.25,
     "pointValueSource": "https://www.sbicard.com/en/personal/credit-cards/travel/elite.page",
-    "baseRewardRate": 3,
+    "baseRewardRate": 1.5,
     "categories": {
-      "shopping": 2,
-      "travel": 3,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 1
+      "shopping": 1,
+      "travel": 2,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Travel", "Lounge Access", "Domestic Travel"],
-    "rewardRateText": "3 reward points per ₹100 spent on travel",
+    "rewardRateText": "2 reward points per ₹100 on travel",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE"],
     "fees": {
       "joining": 4999,
@@ -273,11 +273,11 @@ const creditCards=[
       "minCreditScore": 750
     },
     "limits": {
-      "max": 800000,
-      "available": 800000
+      "max": 600000,
+      "available": 600000
     },
     "billingDate": 8,
-    "popularityScore": 87
+    "popularityScore": 82
   },
   {
     "bank": "SBI",
@@ -287,16 +287,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 4,
+    "baseRewardRate": 0.25,
     "categories": {
-      "shopping": 1,
-      "travel": 1,
-      "fuel": 4,
-      "dining": 1,
-      "groceries": 1
+      "shopping": 0.25,
+      "travel": 0.25,
+      "fuel": 2.5,
+      "dining": 0.25,
+      "groceries": 0.25
     },
     "bestFor": ["Fuel", "BPCL", "Petrol", "Diesel", "Cashback"],
-    "rewardRateText": "4% cashback on BPCL fuel; 0.25% on all other spends",
+    "rewardRateText": "2.5% cashback on BPCL fuel; 0.25% on other spends",
     "perks": ["FUEL_WAIVER"],
     "fees": {
       "joining": 0,
@@ -312,7 +312,7 @@ const creditCards=[
       "available": 200000
     },
     "billingDate": 18,
-    "popularityScore": 82
+    "popularityScore": 78
   },
   {
     "bank": "Axis",
@@ -322,16 +322,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 5,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 5,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 1,
-      "groceries": 2
+      "shopping": 3,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 0.5,
+      "groceries": 1
     },
     "bestFor": ["Flipkart", "Online Shopping", "Cashback"],
-    "rewardRateText": "5% cashback on Flipkart; 1.5% on other spends",
+    "rewardRateText": "3% cashback on Flipkart; 0.5% on other spends",
     "perks": [],
     "fees": {
       "joining": 500,
@@ -347,7 +347,7 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 14,
-    "popularityScore": 94
+    "popularityScore": 90
   },
   {
     "bank": "Axis",
@@ -355,18 +355,18 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "miles",
-    "pointValueInr": 0.2,
+    "pointValueInr": 0.25,
     "pointValueSource": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-cards",
-    "baseRewardRate": 5,
+    "baseRewardRate": 2,
     "categories": {
-      "shopping": 3,
-      "travel": 5,
-      "fuel": 2,
-      "dining": 4,
-      "groceries": 2
+      "shopping": 1,
+      "travel": 3,
+      "fuel": 0.5,
+      "dining": 1.5,
+      "groceries": 0.5
     },
     "bestFor": ["Travel", "Lounge Access", "International", "Miles"],
-    "rewardRateText": "5X reward points on travel; 3X on dining",
+    "rewardRateText": "3X miles on travel; 1.5X on dining",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE", "CONCIERGE"],
     "fees": {
       "joining": 10000,
@@ -378,11 +378,11 @@ const creditCards=[
       "minCreditScore": 780
     },
     "limits": {
-      "max": 2000000,
-      "available": 2000000
+      "max": 1200000,
+      "available": 1200000
     },
     "billingDate": 22,
-    "popularityScore": 89
+    "popularityScore": 84
   },
   {
     "bank": "Axis",
@@ -392,16 +392,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 2,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 2,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 2
+      "shopping": 1,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 1
     },
     "bestFor": ["Cashback", "Bill Payments", "Utilities", "Groceries"],
-    "rewardRateText": "2% cashback on bill payments & utilities; 1% on other spends",
+    "rewardRateText": "1% cashback on bill payments & utilities; 0.5% on other spends",
     "perks": [],
     "fees": {
       "joining": 0,
@@ -417,7 +417,7 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 6,
-    "popularityScore": 80
+    "popularityScore": 76
   },
   {
     "bank": "Kotak",
@@ -427,16 +427,16 @@ const creditCards=[
     "rewardType": "points",
     "pointValueInr": 0.25,
     "pointValueSource": "https://www.kotak.com/en/personal-banking/cards/credit-cards/reward-points-program.html",
-    "baseRewardRate": 2,
+    "baseRewardRate": 1,
     "categories": {
-      "shopping": 2,
-      "travel": 2,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 1
+      "shopping": 1,
+      "travel": 1.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Travel", "Lounge Access", "Domestic Travel"],
-    "rewardRateText": "2 reward points per ₹100 spent",
+    "rewardRateText": "1.5 reward points per ₹100 on travel",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE"],
     "fees": {
       "joining": 1999,
@@ -448,11 +448,11 @@ const creditCards=[
       "minCreditScore": 720
     },
     "limits": {
-      "max": 500000,
-      "available": 500000
+      "max": 400000,
+      "available": 400000
     },
     "billingDate": 11,
-    "popularityScore": 83
+    "popularityScore": 78
   },
   {
     "bank": "Kotak",
@@ -462,16 +462,16 @@ const creditCards=[
     "rewardType": "points",
     "pointValueInr": 0.25,
     "pointValueSource": "https://www.kotak.com/en/personal-banking/cards/credit-cards/reward-points-program.html",
-    "baseRewardRate": 3,
+    "baseRewardRate": 1,
     "categories": {
-      "shopping": 3,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 1
+      "shopping": 2,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Movies", "Entertainment", "PVR", "Shopping"],
-    "rewardRateText": "3X reward points on PVR & entertainment; 1X on other spends",
+    "rewardRateText": "2X reward points on PVR & entertainment; 0.5X on other spends",
     "perks": ["MOVIE_OFFER", "DINING_DISCOUNT"],
     "fees": {
       "joining": 500,
@@ -487,7 +487,7 @@ const creditCards=[
       "available": 200000
     },
     "billingDate": 16,
-    "popularityScore": 79
+    "popularityScore": 74
   },
   {
     "bank": "IDFC First",
@@ -497,16 +497,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 1,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 1,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 1,
-      "groceries": 1
+      "shopping": 0.5,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 0.5,
+      "groceries": 0.5
     },
     "bestFor": ["First Time Users", "Basic Needs", "Low Income"],
-    "rewardRateText": "1% cashback on all spends",
+    "rewardRateText": "0.5% cashback on all spends",
     "perks": [],
     "fees": {
       "joining": 0,
@@ -522,7 +522,7 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 9,
-    "popularityScore": 72
+    "popularityScore": 68
   },
   {
     "bank": "IDFC First",
@@ -532,16 +532,16 @@ const creditCards=[
     "rewardType": "points",
     "pointValueInr": 0.25,
     "pointValueSource": "https://www.idfcfirstbank.com/credit-card/rewards",
-    "baseRewardRate": 4,
+    "baseRewardRate": 2,
     "categories": {
-      "shopping": 3,
-      "travel": 4,
-      "fuel": 2,
-      "dining": 3,
-      "groceries": 2
+      "shopping": 1,
+      "travel": 2.5,
+      "fuel": 0.5,
+      "dining": 1.5,
+      "groceries": 0.5
     },
     "bestFor": ["Travel", "Lounge Access", "Premium Benefits"],
-    "rewardRateText": "4 reward points per ₹100 spent on travel; 2X on dining",
+    "rewardRateText": "2.5 reward points per ₹100 on travel; 1.5X on dining",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE", "CONCIERGE"],
     "fees": {
       "joining": 5000,
@@ -553,11 +553,11 @@ const creditCards=[
       "minCreditScore": 750
     },
     "limits": {
-      "max": 1000000,
-      "available": 1000000
+      "max": 600000,
+      "available": 600000
     },
     "billingDate": 13,
-    "popularityScore": 86
+    "popularityScore": 82
   },
   {
     "bank": "Standard Chartered",
@@ -567,16 +567,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 2,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 2,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 2
+      "shopping": 1,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 1
     },
     "bestFor": ["Cashback", "Groceries", "Dining", "Utilities"],
-    "rewardRateText": "2% cashback on groceries & dining; 1% on other spends",
+    "rewardRateText": "1% cashback on groceries & dining; 0.5% on other spends",
     "perks": [],
     "fees": {
       "joining": 0,
@@ -592,7 +592,7 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 4,
-    "popularityScore": 78
+    "popularityScore": 74
   },
   {
     "bank": "Citibank",
@@ -602,16 +602,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 5,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 5,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 5,
-      "groceries": 3
+      "shopping": 2,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 2,
+      "groceries": 1
     },
     "bestFor": ["Cashback", "Dining", "Shopping", "Online Shopping"],
-    "rewardRateText": "5% cashback on dining & shopping; 1% on other spends",
+    "rewardRateText": "2% cashback on dining & shopping; 0.5% on other spends",
     "perks": [],
     "fees": {
       "joining": 0,
@@ -627,7 +627,7 @@ const creditCards=[
       "available": 250000
     },
     "billingDate": 16,
-    "popularityScore": 84
+    "popularityScore": 80
   },
   {
     "bank": "Yes Bank",
@@ -637,16 +637,16 @@ const creditCards=[
     "rewardType": "points",
     "pointValueInr": 0.25,
     "pointValueSource": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards/yes-first-business-credit-card",
-    "baseRewardRate": 5,
+    "baseRewardRate": 1.5,
     "categories": {
-      "shopping": 5,
-      "travel": 3,
-      "fuel": 2,
-      "dining": 3,
-      "groceries": 2
+      "shopping": 2,
+      "travel": 1.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Business Expenses", "Corporate", "Shopping", "Travel"],
-    "rewardRateText": "5X reward points on business spends; 2X on travel",
+    "rewardRateText": "2X reward points on business spends; 1.5X on travel",
     "perks": ["LOUNGE_ACCESS", "FUEL_WAIVER", "BUSINESS_BENEFITS"],
     "fees": {
       "joining": 2000,
@@ -658,11 +658,11 @@ const creditCards=[
       "minCreditScore": 710
     },
     "limits": {
-      "max": 500000,
-      "available": 500000
+      "max": 400000,
+      "available": 400000
     },
     "billingDate": 19,
-    "popularityScore": 85
+    "popularityScore": 80
   },
   {
     "bank": "RBL",
@@ -672,16 +672,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 1,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 1,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 1,
-      "groceries": 1
+      "shopping": 0.5,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 0.5,
+      "groceries": 0.5
     },
     "bestFor": ["Cashback", "All Purpose", "Low Income"],
-    "rewardRateText": "1% cashback on all spends",
+    "rewardRateText": "0.5% cashback on all spends",
     "perks": [],
     "fees": {
       "joining": 0,
@@ -697,7 +697,7 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 21,
-    "popularityScore": 70
+    "popularityScore": 66
   },
   {
     "bank": "HDFC",
@@ -707,16 +707,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 5,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 5,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 3
+      "shopping": 3,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 2
     },
     "bestFor": ["Tata Brands", "BigBasket", "Croma", "Westside", "Shopping"],
-    "rewardRateText": "5% NeuCoins on Tata brands; 1% on other spends",
+    "rewardRateText": "3% NeuCoins on Tata brands; 0.5% on other spends",
     "perks": [],
     "fees": {
       "joining": 1500,
@@ -732,7 +732,7 @@ const creditCards=[
       "available": 300000
     },
     "billingDate": 17,
-    "popularityScore": 91
+    "popularityScore": 86
   },
   {
     "bank": "ICICI",
@@ -742,16 +742,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 3,
+    "baseRewardRate": 0.25,
     "categories": {
-      "shopping": 1,
-      "travel": 1,
-      "fuel": 3,
-      "dining": 1,
-      "groceries": 1
+      "shopping": 0.25,
+      "travel": 0.25,
+      "fuel": 2,
+      "dining": 0.25,
+      "groceries": 0.25
     },
     "bestFor": ["Fuel", "HPCL", "Petrol", "Diesel", "Cashback"],
-    "rewardRateText": "3% cashback on HPCL fuel; 0.5% on other spends",
+    "rewardRateText": "2% cashback on HPCL fuel; 0.25% on other spends",
     "perks": ["FUEL_WAIVER"],
     "fees": {
       "joining": 0,
@@ -767,7 +767,7 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 23,
-    "popularityScore": 81
+    "popularityScore": 76
   },
   {
     "bank": "SBI",
@@ -777,16 +777,16 @@ const creditCards=[
     "rewardType": "cashback",
     "pointValueInr": null,
     "pointValueSource": "",
-    "baseRewardRate": 2,
+    "baseRewardRate": 0.5,
     "categories": {
-      "shopping": 2,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 2
+      "shopping": 1,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 1
     },
     "bestFor": ["Dining", "Groceries", "Cashback", "Utilities"],
-    "rewardRateText": "2% cashback on dining & groceries; 1% on other spends",
+    "rewardRateText": "1% cashback on dining & groceries; 0.5% on other spends",
     "perks": ["DINING_DISCOUNT"],
     "fees": {
       "joining": 499,
@@ -802,7 +802,7 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 24,
-    "popularityScore": 77
+    "popularityScore": 73
   },
   {
     "bank": "Axis",
@@ -810,18 +810,18 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Shopping",
     "rewardType": "points",
-    "pointValueInr": 0.2,
+    "pointValueInr": 0.25,
     "pointValueSource": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-cards",
-    "baseRewardRate": 2,
+    "baseRewardRate": 1,
     "categories": {
-      "shopping": 2,
-      "travel": 1,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 1
+      "shopping": 1.5,
+      "travel": 0.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Shopping", "Entertainment", "Movies", "Dining"],
-    "rewardRateText": "2X reward points on shopping & entertainment",
+    "rewardRateText": "1.5X reward points on shopping & entertainment",
     "perks": ["MOVIE_OFFER", "DINING_DISCOUNT"],
     "fees": {
       "joining": 500,
@@ -837,7 +837,7 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 25,
-    "popularityScore": 76
+    "popularityScore": 72
   },
   {
     "bank": "Kotak",
@@ -847,16 +847,16 @@ const creditCards=[
     "rewardType": "points",
     "pointValueInr": 0.25,
     "pointValueSource": "https://www.kotak.com/en/personal-banking/cards/credit-cards/reward-points-program.html",
-    "baseRewardRate": 3,
+    "baseRewardRate": 1.5,
     "categories": {
-      "shopping": 2,
-      "travel": 3,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 1
+      "shopping": 1,
+      "travel": 2,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Travel", "Lounge Access", "Domestic Travel"],
-    "rewardRateText": "3 reward points per ₹100 spent on travel",
+    "rewardRateText": "2 reward points per ₹100 on travel",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE"],
     "fees": {
       "joining": 2999,
@@ -868,11 +868,11 @@ const creditCards=[
       "minCreditScore": 730
     },
     "limits": {
-      "max": 600000,
-      "available": 600000
+      "max": 500000,
+      "available": 500000
     },
     "billingDate": 26,
-    "popularityScore": 84
+    "popularityScore": 80
   },
   {
     "bank": "IDFC First",
@@ -880,18 +880,18 @@ const creditCards=[
     "network": "Visa",
     "cardType": "Travel",
     "rewardType": "miles",
-    "pointValueInr": 1,
+    "pointValueInr": 0.5,
     "pointValueSource": "https://www.idfcfirstbank.com/credit-card/club-vistara-idfc-first-credit-card",
-    "baseRewardRate": 4,
+    "baseRewardRate": 2,
     "categories": {
-      "shopping": 2,
-      "travel": 4,
-      "fuel": 1,
-      "dining": 2,
-      "groceries": 1
+      "shopping": 0.5,
+      "travel": 2.5,
+      "fuel": 0.5,
+      "dining": 1,
+      "groceries": 0.5
     },
     "bestFor": ["Vistara", "Travel", "Miles", "Flight Bookings"],
-    "rewardRateText": "4X Club Vistara points on Vistara flights; 2X on other travel",
+    "rewardRateText": "2.5X Club Vistara points on Vistara flights; 1X on other travel",
     "perks": ["LOUNGE_ACCESS", "TRAVEL_INSURANCE", "TRAVEL_VOUCHER"],
     "fees": {
       "joining": 3000,
@@ -907,7 +907,7 @@ const creditCards=[
       "available": 500000
     },
     "billingDate": 27,
-    "popularityScore": 88
+    "popularityScore": 84
   }
 ]
 

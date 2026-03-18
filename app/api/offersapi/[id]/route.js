@@ -10,6 +10,10 @@ export async function GET(request,{params}){
         if(!offer){
             return NextResponse.json({message:"offer not found"},{status:404})
         }
+        const now = new Date();
+        if(offer.validTill && new Date(offer.validTill) < now){
+            return NextResponse.json({message:"offer has expired"},{status:410});
+        }
         return NextResponse.json(offer)
     }
     catch(e){

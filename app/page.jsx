@@ -63,14 +63,14 @@ export default function Home() {
           </h2>
 
           <p className="max-w-2xl text-lg text-zinc-400">
-            OKCREDIT analyzes your spending patterns and recommends the
+            OKCREDIT analyzes your spending intent and recommends the
             most rewarding credit cards — cashback, rewards, and savings,
             tailored to your needs.
           </p>
 
           <div className="mt-10 flex gap-4">
             <Link
-              href="/usercards"
+              href="/users/userCards"
               className="rounded-full px-8 py-3 text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
               style={{
                 background: "linear-gradient(90deg, #5f676a, #f0f0f0, #5f676a)",

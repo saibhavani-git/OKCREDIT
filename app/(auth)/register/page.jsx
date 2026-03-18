@@ -55,7 +55,7 @@ export default function RegisterPage() {
           {/* Title */}
           <div className="text-center mb-8">
             <h1 
-              className="text-5xl font-extrabold tracking-tight mb-2"
+              className="text-4xl font-extrabold tracking-tight mb-2"
               style={{
                 background: "linear-gradient(90deg, #888, #fff, #888)",
                 WebkitBackgroundClip: "text",

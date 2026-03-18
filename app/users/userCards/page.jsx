@@ -1,31 +1,81 @@
 'use client'
 import React from "react"
-import { useState ,useEffect} from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 
+const TIP_POPUP_SHOWN_KEY = "okcredit_tip_popup_shown";
 
 const Page = () => {
   const router = useRouter()
-  const [cards,setCards] = useState([])
+  const [cards, setCards] = useState([])
   const [selectedCard, setSelectedCard] = useState(null);
-  useEffect(()=>{
-      fetch('/api/userCards',{method:"GET"})
-      .then(res => {
-        console.log("Response status:", res.status);
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
+  const [loginTip, setLoginTip] = useState(null);
+  const [tipPopupVisible, setTipPopupVisible] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/userCards", { method: "GET", credentials: "include" })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        setCards(Array.isArray(data) ? data : []);
+      })
+      .catch(() => setCards([]));
+  }, []);
+
+  // Show one personalised tip popup once per session after login
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem(TIP_POPUP_SHOWN_KEY)) return;
+    fetch("/api/youtube/tips", { cache: "no-store", credentials: "include" })
+      .then((res) => res.json())
+      .then((data) => {
+        const list = Array.isArray(data?.tips) ? data.tips : [];
+        if (list.length === 0) return;
+        const random = list[Math.floor(Math.random() * list.length)];
+        setLoginTip(random);
+        setTipPopupVisible(true);
+      })
+      .catch(() => {});
+  }, []);
+
+  const dismissTipPopup = () => {
+    try {
+      sessionStorage.setItem(TIP_POPUP_SHOWN_KEY, "1");
+    } catch (_) {}
+    setTipPopupVisible(false);
+    setLoginTip(null);
+  };
+
+  const loadCards = () => {
+    fetch("/api/userCards", { method: "GET", credentials: "include" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load");
+        return res.json();
+      })
+      .then((data) => setCards(Array.isArray(data) ? data : []))
+      .catch(() => setCards([]));
+  };
+
+  const handleRemoveFromList = (cardId, e) => {
+    e?.stopPropagation();
+    if (!cardId) return;
+    fetch("/api/userCards", {
+      method: "DELETE",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cardId }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          setSelectedCard(null);
+          loadCards();
         }
         return res.json();
       })
-      .then(data => {
-        console.log("Cards data received:", data);
-        setCards(data);
-      })
-      .catch(error => {
-        console.error("Error fetching cards:", error);
-        setCards([]);
-      });
-  },[])
+      .catch(() => {});
+  };
 
   // Get gradient colors based on bank
   const getCardGradient = (bank) => {
@@ -42,6 +92,43 @@ const Page = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      {/* Personalised tip popup (once per session after login) */}
+      {tipPopupVisible && loginTip && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          role="dialog"
+          aria-label="Tip of the day"
+          onClick={dismissTipPopup}
+        >
+          <div
+            className="bg-slate-900 border border-slate-700/60 rounded-2xl shadow-2xl max-w-md w-full p-6 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-2 text-amber-400/90 mb-2">
+              <span className="text-xl" aria-hidden>💡</span>
+              <span className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                Tip for you
+              </span>
+            </div>
+            <p className="text-white text-lg font-medium leading-snug">
+              {loginTip.tip}
+            </p>
+            {loginTip.source && loginTip.source !== "youtube" && (
+              <p className="text-slate-500 text-xs mt-2">
+                — {loginTip.source}
+              </p>
+            )}
+            <button
+              type="button"
+              onClick={dismissTipPopup}
+              className="mt-6 w-full py-3 rounded-xl bg-slate-700/80 hover:bg-slate-600/80 text-white font-medium text-sm transition-colors"
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className="bg-black/95 backdrop-blur-xl border-b border-gray-900/50 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -67,6 +154,12 @@ const Page = () => {
                 Get Recommendation
               </button>
               <button
+                onClick={() => router.push("/users/recommendCardToBuy")}
+                className="px-4 py-2 bg-gray-900/50 hover:bg-gray-800/50 rounded-lg border border-gray-700/50 text-gray-300 text-sm font-medium transition-colors"
+              >
+                Recommend a card to buy
+              </button>
+              <button
                 onClick={() => router.push('/users/addCards')}
                 className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
                 style={{
@@ -82,6 +175,46 @@ const Page = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Action fields: View Monthly Analysis & Find a card (quiz) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <button
+            onClick={() => router.push('/users/savings')}
+            className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-gray-800/60 bg-gray-900/60 hover:bg-gray-800/50 hover:border-gray-700/60 text-left transition-all group"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gray-800/80 border border-gray-700/50 flex items-center justify-center group-hover:bg-gray-700/60">
+              <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-white text-sm sm:text-base">View Monthly Analysis</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-0.5">Spend, savings & category breakdown</p>
+            </div>
+            <svg className="w-5 h-5 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <button
+            onClick={() => router.push("/users/cardToBuyRecommend")}
+            className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-gray-800/60 bg-gray-900/60 hover:bg-gray-800/50 hover:border-gray-700/60 text-left transition-all group"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gray-800/80 border border-gray-700/50 flex items-center justify-center group-hover:bg-gray-700/60">
+              <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-white text-sm sm:text-base">Find a card (quiz)</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-0.5">Answer a few questions, get card recommendations</p>
+            </div>
+            <svg className="w-5 h-5 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -290,6 +423,20 @@ const Page = () => {
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* Remove from my list */}
+            <div className="p-6 pt-0 border-t border-gray-800/60">
+              <button
+                type="button"
+                onClick={(e) => handleRemoveFromList(selectedCard._id, e)}
+                className="w-full py-3 rounded-xl border border-red-900/60 bg-red-950/40 text-red-300 hover:bg-red-900/30 hover:border-red-800/60 font-medium text-sm transition-colors flex items-center justify-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                Remove from my list
+              </button>
             </div>
           </div>
         </div>

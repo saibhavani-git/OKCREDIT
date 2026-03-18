@@ -9,7 +9,12 @@ export function verifyAuth(token) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    return { userId: decoded.userId, userRole: decoded.userRole };
+    return {
+      userId: decoded.userId,
+      userRole: decoded.userRole,
+      username: decoded.username || null,
+      email: decoded.email || null,
+    };
   } catch {
     return null;
   }

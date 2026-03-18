@@ -43,12 +43,13 @@ const CreditCardSchema = new Schema({
     default: 0
   },
 
+  // Category reward: number (legacy rate) or { rate, maxCap, period } (new schema)
   categories: {
-    shopping: { type: Number, default: 1 },
-    travel: { type: Number, default: 1 },
-    fuel: { type: Number, default: 1 },
-    dining: { type: Number, default: 1 },
-    groceries: { type: Number, default: 1 }
+    shopping: { type: Schema.Types.Mixed, default: 1 },
+    travel: { type: Schema.Types.Mixed, default: 1 },
+    fuel: { type: Schema.Types.Mixed, default: 1 },
+    dining: { type: Schema.Types.Mixed, default: 1 },
+    groceries: { type: Schema.Types.Mixed, default: 1 }
   },
 
   bestFor: [String],
@@ -109,6 +110,14 @@ const CreditCardSchema = new Schema({
   billingDate: {
     type: Number // 1–31
   },
+
+  /* ---------- TRANSACTION HISTORY (REFS) ---------- */
+  transactions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Transaction"
+    }
+  ],
 
   /* ---------- META ---------- */
   image: {

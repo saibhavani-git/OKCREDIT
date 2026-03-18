@@ -5,11 +5,18 @@ import Offer from '../../models/offers'
 export async function GET(){
     try{
         await dbConnect();
-        const allOffers = await Offer.find();
-    if(!allOffers){
-        return NextResponse.json({message:"offers are missing"},{status:400})
-    }
-    return NextResponse.json(allOffers)
+        const now = new Date();
+        // Delete expired offers automatically (validTill has passed)
+        await Offer.deleteMany({ validTill: { $lt: now } });
+        // Return only offers that are still valid (validTill >= now, validFrom <= now)
+        const allOffers = await Offer.find({
+            validFrom: { $lte: now },
+            validTill: { $gte: now },
+        }).sort({ validTill: 1 });
+        if(!allOffers || allOffers.length === 0){
+            return NextResponse.json([], { status: 200 });
+        }
+        return NextResponse.json(allOffers);
     }
     catch(e){
         return NextResponse.json({message:"something went wrong", error: e.message},{status:500})

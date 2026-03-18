@@ -30,7 +30,7 @@ export async function POST(request) {
       );
     }
       const token = generateToken(user)
-      console.log(token)
+     // console.log(token)
      const response =NextResponse.json({message:'SuccessFull',userRole:user.role})
       response.cookies.set('authToken',token,{
         httpOnly: true,

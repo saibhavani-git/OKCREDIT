@@ -102,3 +102,53 @@ export async function POST(request) {
   }
 }
 
+export async function DELETE(request) {
+  try {
+    await dbConnect();
+
+    const token = request.cookies.get("authToken")?.value;
+    const userData = verifyAuth(token);
+    if (!userData) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+    const { userId } = userData;
+
+    const body = await request.json().catch(() => ({}));
+    const cardId = body.cardId;
+
+    if (!cardId) {
+      return NextResponse.json(
+        { message: "Card ID is required" },
+        { status: 400 }
+      );
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return NextResponse.json(
+        { message: "User not found" },
+        { status: 404 }
+      );
+    }
+
+    user.cards = (user.cards || []).filter(
+      (id) => String(id) !== String(cardId)
+    );
+    await user.save();
+
+    return NextResponse.json(
+      { message: "Card removed from your list" },
+      { status: 200 }
+    );
+  } catch (e) {
+    console.error("Error removing card:", e);
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}
+

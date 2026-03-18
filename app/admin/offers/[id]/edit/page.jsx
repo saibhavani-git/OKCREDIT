@@ -56,6 +56,7 @@ const Page = () => {
       fetchOffer();
     }
   }, [params.id]);
+  
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({

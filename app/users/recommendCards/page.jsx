@@ -243,9 +243,9 @@ const DOT = "\u2022"
 
 // Rank config for top 3
 const RANK = [
-  { medal: "🥇", label: "Best Match",  ring: "ring-yellow-500/40",  badge: "bg-yellow-500/10 text-yellow-300 border-yellow-500/30" },
-  { medal: "🥈", label: "Runner Up",   ring: "ring-slate-400/40",   badge: "bg-slate-400/10 text-slate-300 border-slate-400/30" },
-  { medal: "🥉", label: "Great Pick",  ring: "ring-orange-600/40",  badge: "bg-orange-700/10 text-orange-300 border-orange-600/30" },
+  { medal: "🥇", label: "Best Overall",  ring: "ring-yellow-500/40",  badge: "bg-yellow-500/10 text-yellow-300 border-yellow-500/30" },
+  { medal: "🥈", label: "Great Value",   ring: "ring-slate-400/40",   badge: "bg-slate-400/10 text-slate-300 border-slate-400/30" },
+  { medal: "🥉", label: "Smart Choice",  ring: "ring-orange-600/40",  badge: "bg-orange-700/10 text-orange-300 border-orange-600/30" },
 ]
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -280,6 +280,75 @@ const categoryLabel = (usedCategory, intent) => {
   return map[usedCategory] ?? intent ?? "General"
 }
 
+/**
+ * For the current top-3 cards, derive "roles" so that each card
+ * is clearly labelled for the user:
+ *   - Best for Cashback
+ *   - Best for Rewards
+ *   - Best for Offers & Perks
+ *   - Best for Lowest Fees
+ *
+ * Returns an array parallel to cards: rolesByIndex[i] = [label1, label2, ...]
+ */
+const deriveRolesForCards = (cards) => {
+  if (!Array.isArray(cards) || cards.length === 0) return []
+
+  const getAnnualCost = (card) => {
+    const joining = Number(card?.fees?.joining ?? 0)
+    const annual  = Number(card?.fees?.annual ?? 0)
+    return joining + annual
+  }
+
+  const indexOfMax = (picker) => {
+    let bestIdx = null
+    let bestVal = -Infinity
+    cards.forEach((c, idx) => {
+      const v = picker(c) ?? 0
+      if (v > bestVal) {
+        bestVal = v
+        bestIdx = idx
+      }
+    })
+    return bestVal > 0 ? bestIdx : null
+  }
+
+  const indexOfMin = (picker) => {
+    let bestIdx = null
+    let bestVal = Infinity
+    cards.forEach((c, idx) => {
+      const v = picker(c)
+      if (v < bestVal) {
+        bestVal = v
+        bestIdx = idx
+      }
+    })
+    return bestIdx
+  }
+
+  const bestCashbackIdx = indexOfMax((c) => Number(c.cashback))
+  const bestRewardsIdx  = indexOfMax((c) => Number(c.rewardsValue))
+  const bestPerksIdx    = indexOfMax((c) => Number(c.perksValue))
+  const bestFeesIdx     = indexOfMin((c) => getAnnualCost(c))
+
+  const rolesByIndex = cards.map(() => [])
+
+  if (bestCashbackIdx !== null) {
+    rolesByIndex[bestCashbackIdx].push("Best for Cashback")
+  }
+  if (bestRewardsIdx !== null) {
+    rolesByIndex[bestRewardsIdx].push("Best for Rewards")
+  }
+  if (bestPerksIdx !== null) {
+    rolesByIndex[bestPerksIdx].push("Best for Offers & Perks")
+  }
+  if (bestFeesIdx !== null) {
+    rolesByIndex[bestFeesIdx].push("Best for Lowest Fees")
+  }
+
+  // Fallback label so no card looks "unlabelled"
+  return rolesByIndex.map((roles) => (roles.length ? roles : ["Great Overall Pick"]))
+}
+
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
 /** One benefit row inside a card */
@@ -309,17 +378,24 @@ function CardSkeleton() {
 // ─── Main content ─────────────────────────────────────────────────────────────
 
 const RecommendCardsContent = () => {
-  const [loading, setLoading]               = useState(true)
-  const [recommendedCards, setRecommendedCards] = useState([])
-  const [resolvedCategory, setResolvedCategory] = useState(null)
-  const [error, setError]                   = useState(null)
-  const [selectedCard, setSelectedCard]     = useState(null)
-  const [apiMessage, setApiMessage]         = useState(null)
+  const [loading, setLoading]                    = useState(true)
+  const [recommendedCards, setRecommendedCards]  = useState([])
+  const [resolvedCategory, setResolvedCategory]  = useState(null)
+  const [bestOwnedCard, setBestOwnedCard]        = useState(null)
+  const [bestOverallCard, setBestOverallCard]   = useState(null)
+  const [error, setError]                        = useState(null)
+  const [selectedCard, setSelectedCard]          = useState(null)
+  const [apiMessage, setApiMessage]              = useState(null)
+  const [payingCardId, setPayingCardId]          = useState(null)
+  const [paySuccessMessage, setPaySuccessMessage]= useState("")
 
   const router       = useRouter()
   const searchParams = useSearchParams()
   const amount       = searchParams.get("amount")
   const intent       = searchParams.get("intent")
+
+  // Pre-compute role labels for the current set of cards
+  const rolesByIndex = deriveRolesForCards(recommendedCards)
 
   useEffect(() => {
     if (!amount || !intent) {
@@ -332,13 +408,14 @@ const RecommendCardsContent = () => {
       setLoading(true)
       setError(null)
       setRecommendedCards([])
+      setBestOwnedCard(null)
+      setBestOverallCard(null)
+      setPaySuccessMessage("")
 
       try {
         const res  = await fetch("/api/getrecommendation", {
           method:  "POST",
           headers: { "Content-Type": "application/json" },
-          // credentials: "include" sends the authToken cookie so logged-in
-          // users get their own cards ranked; guests get all cards
           credentials: "include",
           body: JSON.stringify({ amount, intent }),
         })
@@ -346,10 +423,11 @@ const RecommendCardsContent = () => {
         const data = await res.json()
         if (!res.ok) throw new Error(data.message ?? "Failed to get recommendations")
 
-        // API already slices to top 3, but guard anyway
         const cards = Array.isArray(data.cards) ? data.cards.slice(0, 3) : []
         setRecommendedCards(cards)
         setResolvedCategory(data.resolvedCategory ?? null)
+        if (data.bestOwnedCard) setBestOwnedCard(data.bestOwnedCard)
+        if (data.bestOverallCard) setBestOverallCard(data.bestOverallCard)
         if (data.message) setApiMessage(data.message)
       } catch (err) {
         console.error(err)
@@ -367,31 +445,40 @@ const RecommendCardsContent = () => {
       {/* ── Header ── */}
       <div className="bg-black/95 backdrop-blur-xl border-b border-gray-900/50 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => router.push("/users/recommend")}
-              className="flex items-center gap-2 px-3 py-2 bg-gray-900/60 hover:bg-gray-800/60 rounded-xl border border-gray-800/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back
-            </button>
-            <div>
-              <h1
-                className="text-3xl font-extrabold tracking-tight"
-                style={{ background: "linear-gradient(90deg,#888,#fff,#888)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => router.push("/users/recommend")}
+                className="flex items-center gap-2 px-3 py-2 bg-gray-900/60 hover:bg-gray-800/60 rounded-xl border border-gray-800/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200"
               >
-                Top 3 Recommended Cards
-              </h1>
-              {/* Show what was resolved from the intent */}
-              <p className="text-gray-500 mt-1 text-sm">
-                {amount && intent
-                  ? <>Showing best cards for <span className="text-gray-300">{RUPEE}{Number(amount).toLocaleString("en-IN")}</span> · {" "}
-                    <span className="text-gray-300">{categoryLabel(resolvedCategory, intent)}</span></>
-                  : "Based on your amount and intent"}
-              </p>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back
+              </button>
+              <div>
+                <h1
+                  className="text-3xl font-extrabold tracking-tight"
+                  style={{ background: "linear-gradient(90deg,#888,#fff,#888)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                >
+                  Top 3 Recommended Cards
+                </h1>
+                {/* Show what was resolved from the intent */}
+                <p className="text-gray-500 mt-1 text-sm">
+                  {amount && intent
+                    ? <>Showing best cards for <span className="text-gray-300">{RUPEE}{Number(amount).toLocaleString("en-IN")}</span> · {" "}
+                      <span className="text-gray-300">{categoryLabel(resolvedCategory, intent)}</span></>
+                    : "Based on your amount and intent"}
+                </p>
+              </div>
             </div>
+
+            <button
+              onClick={() => router.push("/users/savings")}
+              className="px-4 py-2 rounded-xl bg-gray-900/70 hover:bg-gray-800/80 border border-gray-700/60 text-xs font-semibold text-gray-200 hover:text-white transition-all duration-200"
+            >
+              View Monthly Savings
+            </button>
           </div>
         </div>
       </div>
@@ -419,6 +506,34 @@ const RecommendCardsContent = () => {
       {!loading && recommendedCards.length > 0 && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
+          {/* Best owned / Best overall summary */}
+          {(bestOwnedCard || bestOverallCard) && (
+            <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {bestOwnedCard && (
+                <div className="bg-gray-900/60 border border-emerald-800/50 rounded-xl p-4">
+                  <p className="text-xs font-medium text-emerald-400/90 uppercase tracking-wide mb-1">Best card you own</p>
+                  <p className="text-lg font-semibold text-gray-100">{bestOwnedCard.cardName}</p>
+                  <p className="text-sm text-gray-400 mt-1">Expected reward: {RUPEE}{Number(bestOwnedCard.expectedRewardInr ?? bestOwnedCard.expectedReward ?? 0).toFixed(2)}</p>
+                </div>
+              )}
+              {bestOverallCard && (
+                <div className="bg-gray-900/60 border border-amber-800/50 rounded-xl p-4">
+                  <p className="text-xs font-medium text-amber-400/90 uppercase tracking-wide mb-1">Best card overall</p>
+                  <p className="text-lg font-semibold text-gray-100">{bestOverallCard.cardName}</p>
+                  <p className="text-sm text-gray-400 mt-1">Expected reward: {RUPEE}{Number(bestOverallCard.expectedRewardInr ?? bestOverallCard.expectedReward ?? 0).toFixed(2)}</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {paySuccessMessage && (
+            <div className="max-w-3xl mx-auto mb-6 bg-emerald-900/20 border border-emerald-700/50 rounded-xl p-3">
+              <p className="text-emerald-300 text-xs text-center">
+                {paySuccessMessage}
+              </p>
+            </div>
+          )}
+
           {/* Optional API debug message (hidden in production) */}
           {process.env.NODE_ENV !== "production" && apiMessage && (
             <div className="max-w-3xl mx-auto mb-6 bg-blue-900/20 border border-blue-800/50 rounded-xl p-3">
@@ -428,101 +543,87 @@ const RecommendCardsContent = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {recommendedCards.map((card, index) => {
-              const rank = RANK[index]
-
-              // ── Determine what to show for rewards ──
-              // If rewardType is cashback, rewards field will be 0 — hide it
-              const showRewards    = card.rewardType !== "cashback" && card.rewards > 0
-              // Only show perksValue when it's non-zero (means live discount offers applied)
-              const showPerksValue = card.perksValue > 0
+              const rank  = RANK[index]
+              const roles = rolesByIndex[index] || []
 
               return (
                 <div
                   key={card._id ?? index}
-                  onClick={() => setSelectedCard(card)}
                   className={`bg-gray-900/50 border border-gray-800/50 rounded-xl p-6
                     hover:border-gray-700/50 transition-all cursor-pointer
                     ring-1 ${rank.ring}`}
                 >
-                  {/* ── Rank badge + card name ── */}
-                  <div className="mb-4 flex items-start justify-between gap-2">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">{rank.medal}</span>
-                        <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${rank.badge}`}>
-                          {rank.label}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-200">{card.cardName}</h3>
-                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-gray-500 mt-1">
-                        <span>{card.bank}</span>
-                        {card.cardType  && <><span>{DOT}</span><span>{card.cardType}</span></>}
-                        {card.network   && <><span>{DOT}</span><span>{card.network}</span></>}
+                  {/* Header: medal + minimal card identity */}
+                  <div className="mb-4 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">{rank.medal}</span>
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-200">{card.cardName}</h3>
+                        <p className="text-[11px] text-gray-500">{card.bank}</p>
+                        {roles.length > 0 && (
+                          <p className="text-[10px] text-gray-500 mt-0.5">{roles.join(" · ")}</p>
+                        )}
                       </div>
                     </div>
-
-                    {/* Category used for scoring */}
-                    <span className="shrink-0 text-xs px-2 py-1 rounded-lg bg-gray-800/60 border border-gray-700/50 text-gray-400">
-                      {categoryLabel(card.usedCategory, intent)}
-                    </span>
                   </div>
 
-                  {/* ── Total Benefit highlight ── */}
-                  <div className="mb-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
-                    <p className="text-xs text-gray-400 mb-1">Total Benefit on this transaction</p>
-                    <p className="text-2xl font-bold text-gray-100">{fmt(card.totalBenefit)}</p>
-                    {card.categoryMultiplier > 1 && (
-                      <p className="text-xs text-emerald-400 mt-1">
-                        {card.categoryMultiplier}× multiplier applied for {categoryLabel(card.usedCategory)}
-                      </p>
+                  {/* Cashback / rewards: by card + by offer */}
+                  <div className="space-y-2 mb-4">
+                    {card.rewardType === "cashback" && (
+                      <BenefitRow
+                        label="Cashback (by card)"
+                        value={fmt(card.cashback)}
+                        highlight={card.cashback > 0}
+                      />
                     )}
-                  </div>
-
-                  {/* ── Benefit breakdown ── */}
-                  <div className="space-y-0 mb-4">
-                    {/* Cashback — always show, even if 0 */}
+                    {(card.rewardType === "points" || card.rewardType === "miles") && (
+                      <>
+                        <BenefitRow
+                          label={`${rewardLabel(card.rewardType)} (by card)`}
+                          value={fmtReward(card.rewards, card.rewardType)}
+                          highlight
+                        />
+                        {Number(card.rewardsValue) > 0 && (
+                          <BenefitRow
+                            label="Value (₹)"
+                            value={fmt(card.rewardsValue)}
+                            highlight={false}
+                          />
+                        )}
+                      </>
+                    )}
+                    {Array.isArray(card.appliedOffers) && card.appliedOffers.length > 0 && (
+                      <>
+                        <p className="text-[10px] text-gray-500 uppercase tracking-wider mt-1.5">By offer</p>
+                        {card.appliedOffers.map((o, i) => (
+                          <BenefitRow
+                            key={i}
+                            label={o.description}
+                            value={fmt(o.value)}
+                            highlight
+                          />
+                        ))}
+                        <BenefitRow
+                          label="Total from offers"
+                          value={fmt(card.perksValue)}
+                          highlight={card.perksValue > 0}
+                        />
+                      </>
+                    )}
                     <BenefitRow
-                      label="Cashback"
-                      value={fmt(card.cashback)}
-                      highlight={card.cashback > 0}
+                      label="Total benefit (card + offers)"
+                      value={fmt(card.totalBenefit)}
+                      highlight
                     />
-
-                    {/* Reward points / miles — only show when applicable */}
-                    {showRewards && (
-                      <BenefitRow
-                        label={rewardLabel(card.rewardType)}
-                        value={fmtReward(card.rewards, card.rewardType)}
-                      />
-                    )}
-
-                    {/* Monetary value of rewards */}
-                    {card.rewardsValue > 0 && (
-                      <BenefitRow
-                        label="Rewards Value"
-                        value={fmt(card.rewardsValue)}
-                        highlight
-                      />
-                    )}
-
-                    {/* Perks value from live discount offers */}
-                    {showPerksValue && (
-                      <BenefitRow
-                        label="Offer Savings"
-                        value={fmt(card.perksValue)}
-                        highlight
-                      />
-                    )}
                   </div>
 
-                  {/* ── Card perks list (from card document) ── */}
                   {Array.isArray(card.perks) && card.perks.length > 0 && (
                     <div className="mb-4">
-                      <p className="text-xs text-gray-500 mb-2">Perks included:</p>
                       <div className="flex flex-wrap gap-2">
                         {card.perks.map((perk, idx) => (
                           <span
                             key={idx}
-                            className="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50"
+                            className="px-2 py-1 bg-gray-800/50 text-gray-300 text-[11px] rounded border border-gray-700/50"
                           >
                             {typeof perk === "string" ? perk.replace(/_/g, " ") : perk}
                           </span>
@@ -531,18 +632,50 @@ const RecommendCardsContent = () => {
                     </div>
                   )}
 
-                  {/* ── Footer: reward rate + limit ── */}
-                  <div className="pt-4 border-t border-gray-800/50 flex justify-between text-xs text-gray-500">
-                    <div>
-                      <span className="block mb-1">Reward Rate</span>
-                      <span className="text-gray-300">{card.rewardRateText || "N/A"}</span>
-                    </div>
-                    <div className="text-right">
-                      <span className="block mb-1">Card Limit</span>
-                      <span className="text-gray-300">
-                        {RUPEE}{(card.limits?.max ?? card.maxLimit ?? 0).toLocaleString("en-IN")}
-                      </span>
-                    </div>
+                  {/* Footer: just Pay button */}
+                  <div className="pt-2 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        // Prevent double-clicks
+                        if (payingCardId) return
+                        setPaySuccessMessage("")
+                        setPayingCardId(card._id ?? String(index))
+                        try {
+                          const res = await fetch("/api/transactions", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            credentials: "include",
+                            body: JSON.stringify({
+                              cardId: String(card._id),
+                              cardName: card.cardName || "",
+                              amount,
+                              intent,
+                              resolvedCategory: resolvedCategory ?? card.usedCategory ?? "shopping",
+                              cashback: card.cashback ?? 0,
+                              rewards: card.rewards ?? 0,
+                              rewardsValue: card.rewardsValue ?? 0,
+                              perksValue: card.perksValue ?? 0,
+                              totalBenefit: card.totalBenefit ?? 0,
+                            }),
+                          })
+                          const data = await res.json()
+                          if (!res.ok) {
+                            throw new Error(data.message || "Failed to record transaction")
+                          }
+                          setPaySuccessMessage(`Recorded: ${RUPEE}${Number(amount).toLocaleString("en-IN")} added to card spend, ${RUPEE}${(card.totalBenefit ?? 0).toFixed(2)} added to card savings. View in Monthly Savings.`)
+                        } catch (err) {
+                          console.error(err)
+                          setError(err.message || "Failed to record transaction")
+                        } finally {
+                          setPayingCardId(null)
+                        }
+                      }}
+                      className="shrink-0 px-3 py-2 rounded-lg bg-emerald-500/90 hover:bg-emerald-400 text-black text-xs font-semibold border border-emerald-300/70 disabled:opacity-60 disabled:cursor-not-allowed"
+                      disabled={payingCardId === (card._id ?? String(index))}
+                    >
+                      {payingCardId === (card._id ?? String(index)) ? "Recording..." : "Pay with this card"}
+                    </button>
                   </div>
                 </div>
               )
@@ -585,59 +718,62 @@ const RecommendCardsContent = () => {
             </div>
 
             <div className="p-6 space-y-3 text-sm">
-              {/* Summary */}
-              <div className="p-4 bg-gray-900/60 rounded-xl border border-gray-800/50 mb-4">
-                <p className="text-xs text-gray-500 mb-1">Total Benefit</p>
-                <p className="text-2xl font-bold text-white">{fmt(selectedCard.totalBenefit)}</p>
-                {selectedCard.categoryMultiplier > 1 && (
-                  <p className="text-xs text-emerald-400 mt-1">
-                    {selectedCard.categoryMultiplier}× multiplier · {categoryLabel(selectedCard.usedCategory, intent)}
-                  </p>
+              {/* Cashback / rewards: by card */}
+              {selectedCard.rewardType === "cashback" && (
+                <div className="flex justify-between py-2 border-b border-gray-800/40">
+                  <span className="text-gray-400">Cashback (by card)</span>
+                  <span className="text-white font-semibold">{fmt(selectedCard.cashback)}</span>
+                </div>
+              )}
+
+              {(selectedCard.rewardType === "points" || selectedCard.rewardType === "miles") && (
+                <>
+                  <div className="flex justify-between py-2 border-b border-gray-800/40">
+                    <span className="text-gray-400">{rewardLabel(selectedCard.rewardType)} (by card)</span>
+                    <span className="text-white font-semibold">{fmtReward(selectedCard.rewards, selectedCard.rewardType)}</span>
+                  </div>
+                  {Number(selectedCard.rewardsValue) > 0 && (
+                    <div className="flex justify-between py-2 border-b border-gray-800/40">
+                      <span className="text-gray-400">Value (₹)</span>
+                      <span className="text-white font-semibold">{fmt(selectedCard.rewardsValue)}</span>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* By offer: each offer + total */}
+              {Array.isArray(selectedCard.appliedOffers) && selectedCard.appliedOffers.length > 0 && (
+                <>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider pt-2">By offer</p>
+                  {selectedCard.appliedOffers.map((o, i) => (
+                    <div key={i} className="flex justify-between py-2 border-b border-gray-800/40">
+                      <span className="text-gray-400 pr-2">{o.description}</span>
+                      <span className="text-emerald-300 font-semibold shrink-0">{fmt(o.value)}</span>
+                    </div>
+                  ))}
+                  <div className="flex justify-between py-2 border-b border-gray-800/40">
+                    <span className="text-gray-400 font-medium">Total from offers</span>
+                    <span className="text-emerald-300 font-semibold">{fmt(selectedCard.perksValue)}</span>
+                  </div>
+                </>
+              )}
+
+              <div className="flex justify-between py-3 bg-gray-900/50 rounded-lg px-3 mt-2">
+                <span className="text-gray-200 font-semibold">Total benefit (card + offers)</span>
+                <span className="text-white font-bold">{fmt(selectedCard.totalBenefit)}</span>
+              </div>
+
+              {/* Simple explanation */}
+              <div className="mt-3 text-[11px] text-gray-500 space-y-1">
+                {selectedCard.rewardType === "cashback" && (
+                  <p>Cashback = amount × category rate for {categoryLabel(resolvedCategory ?? selectedCard.usedCategory, intent).toLowerCase()}, subject to cap.</p>
                 )}
-              </div>
-
-              {/* Breakdown rows */}
-              <div className="flex justify-between py-2 border-b border-gray-800/40">
-                <span className="text-gray-400">Cashback</span>
-                <span className="text-white font-semibold">{fmt(selectedCard.cashback)}</span>
-              </div>
-
-              {selectedCard.rewardType !== "cashback" && (
-                <div className="flex justify-between py-2 border-b border-gray-800/40">
-                  <span className="text-gray-400">{rewardLabel(selectedCard.rewardType)}</span>
-                  <span className="text-white font-semibold">{fmtReward(selectedCard.rewards, selectedCard.rewardType)}</span>
-                </div>
-              )}
-
-              {selectedCard.rewardsValue > 0 && (
-                <div className="flex justify-between py-2 border-b border-gray-800/40">
-                  <span className="text-gray-400">Rewards Value</span>
-                  <span className="text-emerald-300 font-semibold">{fmt(selectedCard.rewardsValue)}</span>
-                </div>
-              )}
-
-              {selectedCard.perksValue > 0 && (
-                <div className="flex justify-between py-2 border-b border-gray-800/40">
-                  <span className="text-gray-400">Offer Savings</span>
-                  <span className="text-emerald-300 font-semibold">{fmt(selectedCard.perksValue)}</span>
-                </div>
-              )}
-
-              <div className="flex justify-between py-2 border-b border-gray-800/40">
-                <span className="text-gray-400">Reward Rate</span>
-                <span className="text-white font-semibold">{selectedCard.rewardRateText || "N/A"}</span>
-              </div>
-
-              <div className="flex justify-between py-2 border-b border-gray-800/40">
-                <span className="text-gray-400">Category Multiplier</span>
-                <span className="text-white font-semibold">{selectedCard.categoryMultiplier}×</span>
-              </div>
-
-              <div className="flex justify-between py-2 border-b border-gray-800/40">
-                <span className="text-gray-400">Card Limit</span>
-                <span className="text-white font-semibold">
-                  {RUPEE}{(selectedCard.limits?.max ?? selectedCard.maxLimit ?? 0).toLocaleString("en-IN")}
-                </span>
+                {(selectedCard.rewardType === "points" || selectedCard.rewardType === "miles") && (
+                  <p>{rewardLabel(selectedCard.rewardType)} = amount × category rate ÷ 100; value in ₹ using card&apos;s point value.</p>
+                )}
+                {selectedCard.perksValue > 0 && (
+                  <p>Perks (₹) from active offers, capped per offer.</p>
+                )}
               </div>
 
               {/* Perks */}
