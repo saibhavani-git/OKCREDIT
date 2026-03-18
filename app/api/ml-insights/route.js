@@ -2,13 +2,12 @@ import { NextResponse } from "next/server";
 import dbConnect from "../../lib/db";
 import Transaction from "../../models/transaction";
 import { verifyAuth } from "../../lib/auth";
-import { buildIntentAmountModel, analyzeIntentAmountPatterns } from "../../lib/mlRecommender";
+import { buildUserProfile } from "../../lib/mlRecommender";
 
 export async function GET(request) {
   try {
     await dbConnect();
 
-    // Verify user is authenticated
     const token = request.cookies.get("authToken")?.value;
     if (!token) {
       return NextResponse.json(
@@ -26,7 +25,6 @@ export async function GET(request) {
       );
     }
 
-    // Fetch user's transactions
     const transactions = await Transaction.find({ user: userId }).lean();
 
     if (!transactions || transactions.length < 5) {
@@ -41,11 +39,45 @@ export async function GET(request) {
       );
     }
 
-    // Build ML model
-    const mlModel = buildIntentAmountModel(transactions);
+    const profile = await buildUserProfile(transactions);
+    if (!profile) {
+      return NextResponse.json(
+        {
+          message: "Could not build profile from transactions",
+          transactionCount: transactions.length,
+          mlEnabled: false,
+          insights: null,
+        },
+        { status: 200 }
+      );
+    }
 
-    // Analyze patterns
-    const insights = analyzeIntentAmountPatterns(mlModel);
+    // Derive insights from user profile
+    const insights = {
+      preferredCategories: profile.preferredCategories || [],
+      categoryBreakdown: profile.categoryPreferences
+        ? Object.entries(profile.categoryPreferences).map(([cat, data]) => ({
+            category: cat,
+            count: data.count,
+            totalSpend: data.totalSpend,
+            avgBenefit: data.avgBenefit,
+          }))
+        : [],
+      amountRanges: profile.amountRanges || {},
+      topCardsByUsage: profile.cardPerformance
+        ? Object.entries(profile.cardPerformance)
+            .sort((a, b) => (b[1].usageCount || 0) - (a[1].usageCount || 0))
+            .slice(0, 5)
+            .map(([cardId, data]) => ({
+              cardId,
+              usageCount: data.usageCount,
+              totalBenefit: data.totalBenefit,
+              avgBenefit: data.avgBenefit,
+            }))
+        : [],
+      timePatterns: profile.timePatterns || {},
+      avgTransactionAmount: profile.avgTransactionAmount || 0,
+    };
 
     return NextResponse.json(
       {
@@ -54,11 +86,10 @@ export async function GET(request) {
         mlEnabled: true,
         insights,
         modelStats: {
-          totalTransactions: mlModel.totalTransactions,
-          uniqueIntents: Object.keys(mlModel.intentPatterns).length,
-          uniqueAmountRanges: Object.keys(mlModel.amountPatterns).length,
-          uniqueCards: Object.keys(mlModel.cardIntentMatrix).length,
-          intentAmountCombinations: Object.keys(mlModel.intentAmountCardMap).length,
+          totalTransactions: profile.totalTransactions,
+          uniqueCategories: Object.keys(profile.categoryPreferences || {}).length,
+          uniqueAmountRanges: Object.keys(profile.amountRanges || {}).length,
+          uniqueCards: Object.keys(profile.cardPerformance || {}).length,
         },
       },
       { status: 200 }
