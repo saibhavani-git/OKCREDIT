@@ -23,6 +23,7 @@ const Page = () => {
     },
     bestFor: [],
     rewardRateText: '',
+    monthlyCap: '',
     perks: [],
     fees: {
       joining: 0,
@@ -108,12 +109,19 @@ const Page = () => {
   setError('');
 
   try {
+    const payload = {
+      ...formData,
+      monthlyCap:
+        formData.monthlyCap === "" || formData.monthlyCap == null
+          ? null
+          : Number(formData.monthlyCap),
+    };
     const response = await fetch(`/api/editcard/${params.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(payload),
     });
 
     const result = await response.json();
@@ -299,6 +307,23 @@ const Page = () => {
                   className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-xl text-gray-100 focus:outline-none focus:border-gray-500/50"
                   placeholder="e.g., 5% cashback on Amazon, Flipkart, Myntra"
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Monthly cap (₹)</label>
+                <input
+                  type="number"
+                  name="monthlyCap"
+                  min={0}
+                  value={formData.monthlyCap === null || formData.monthlyCap === undefined ? "" : formData.monthlyCap}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-xl text-gray-100 focus:outline-none focus:border-gray-500/50"
+                  placeholder="Leave empty for no cap"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Max total cashback / reward value (₹) per calendar month across categories. Recommendations subtract
+                  what you already logged this month.
+                </p>
               </div>
             </div>
 

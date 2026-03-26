@@ -14,6 +14,19 @@ export default function TransactionsPage() {
   const [transactions, setTransactions] = useState([]);
   const [userCards, setUserCards] = useState([]);
   const [filterCardId, setFilterCardId] = useState("");
+  const [reloadTick, setReloadTick] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitMsg, setSubmitMsg] = useState("");
+  const [form, setForm] = useState({
+    cardId: "",
+    category: "shopping",
+    intent: "manual-entry",
+    transactionDate: new Date().toISOString().slice(0, 10),
+    amount: "",
+    cashback: "",
+    rewardsValue: "",
+    perksValue: "",
+  });
 
   useEffect(() => {
     const load = async () => {
@@ -32,6 +45,9 @@ export default function TransactionsPage() {
         if (!txRes.ok) throw new Error(txData.message || "Failed to load transactions");
         setTransactions(Array.isArray(txData.transactions) ? txData.transactions : []);
         setUserCards(Array.isArray(summaryData.userCards) ? summaryData.userCards : []);
+        if (!form.cardId && Array.isArray(summaryData.userCards) && summaryData.userCards.length > 0) {
+          setForm((prev) => ({ ...prev, cardId: String(summaryData.userCards[0]._id) }));
+        }
       } catch (err) {
         setError(err.message || "Something went wrong");
       } finally {
@@ -39,7 +55,70 @@ export default function TransactionsPage() {
       }
     };
     load();
-  }, [filterCardId]);
+  }, [filterCardId, reloadTick]);
+
+  const onChangeForm = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const submitTransaction = async (e) => {
+    e.preventDefault();
+    setSubmitMsg("");
+    setError(null);
+    if (!form.cardId) {
+      setError("Please select a card");
+      return;
+    }
+    const amountNum = Number(form.amount);
+    if (!Number.isFinite(amountNum) || amountNum <= 0) {
+      setError("Please enter a valid amount");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const card = userCards.find((c) => String(c._id) === String(form.cardId));
+      const cashbackNum = Number(form.cashback) || 0;
+      const rewardsValueNum = Number(form.rewardsValue) || 0;
+      const perksValueNum = Number(form.perksValue) || 0;
+      const totalBenefit = cashbackNum + rewardsValueNum + perksValueNum;
+
+      const res = await fetch("/api/transactions", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cardId: form.cardId,
+          cardName: card?.cardName || "",
+          amount: amountNum,
+          intent: form.intent || "manual-entry",
+          transactionDate: form.transactionDate || undefined,
+          resolvedCategory: form.category,
+          cashback: cashbackNum,
+          rewards: 0,
+          rewardsValue: rewardsValueNum,
+          perksValue: perksValueNum,
+          totalBenefit,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to record transaction");
+
+      setSubmitMsg("Transaction added successfully.");
+      setForm((prev) => ({
+        ...prev,
+        amount: "",
+        cashback: "",
+        rewardsValue: "",
+        perksValue: "",
+      }));
+      setReloadTick((x) => x + 1);
+    } catch (err) {
+      setError(err.message || "Failed to add transaction");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black">
@@ -89,6 +168,106 @@ export default function TransactionsPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <form
+          onSubmit={submitTransaction}
+          className="bg-gray-900/60 border border-gray-800/60 rounded-2xl p-4 sm:p-5 mb-6"
+        >
+          <div className="flex items-center justify-between gap-3 mb-3">
+            <h2 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">
+              Add transaction
+            </h2>
+            {submitMsg ? <p className="text-xs text-emerald-400">{submitMsg}</p> : null}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <select
+              value={form.cardId}
+              onChange={(e) => onChangeForm("cardId", e.target.value)}
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+              required
+            >
+              <option value="">Select card</option>
+              {userCards.map((c) => (
+                <option key={c._id} value={c._id}>
+                  {c.cardName}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={form.category}
+              onChange={(e) => onChangeForm("category", e.target.value)}
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+            >
+              <option value="shopping">Shopping</option>
+              <option value="travel">Travel</option>
+              <option value="dining">Dining</option>
+              <option value="fuel">Fuel</option>
+              <option value="groceries">Groceries</option>
+            </select>
+
+            <input
+              type="number"
+              min="1"
+              step="0.01"
+              value={form.amount}
+              onChange={(e) => onChangeForm("amount", e.target.value)}
+              placeholder="Amount (₹)"
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+              required
+            />
+
+            <input
+              type="date"
+              value={form.transactionDate}
+              onChange={(e) => onChangeForm("transactionDate", e.target.value)}
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+            />
+
+            <input
+              type="text"
+              value={form.intent}
+              onChange={(e) => onChangeForm("intent", e.target.value)}
+              placeholder="Intent (e.g. grocery-bills)"
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+            />
+
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={form.cashback}
+              onChange={(e) => onChangeForm("cashback", e.target.value)}
+              placeholder="Cashback ₹ (optional)"
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+            />
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={form.rewardsValue}
+              onChange={(e) => onChangeForm("rewardsValue", e.target.value)}
+              placeholder="Rewards value ₹ (optional)"
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+            />
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={form.perksValue}
+              onChange={(e) => onChangeForm("perksValue", e.target.value)}
+              placeholder="Perks value ₹ (optional)"
+              className="bg-gray-950/70 border border-gray-700/60 rounded-xl px-3 py-2 text-sm text-gray-200"
+            />
+            <button
+              type="submit"
+              disabled={submitting}
+              className="rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-500/90 hover:bg-emerald-400 text-black disabled:opacity-60"
+            >
+              {submitting ? "Adding..." : "Add Transaction"}
+            </button>
+          </div>
+        </form>
+
         {error && (
           <div className="bg-red-900/20 border border-red-800/50 rounded-xl p-4 text-sm text-red-300 mb-6">
             {error}

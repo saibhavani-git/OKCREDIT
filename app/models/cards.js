@@ -58,6 +58,12 @@ const CreditCardSchema = new Schema({
     type: String
   },
 
+  /** Max total cashback / reward value (₹) earnable per calendar month across all categories. Null = no monthly cap. */
+  monthlyCap: {
+    type: Number,
+    default: null
+  },
+
   /* ---------- PERKS (FLEXIBLE) ---------- */
   perks: [{
     type: String,

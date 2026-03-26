@@ -6,6 +6,18 @@ import User from "../../../models/user";
 import Transaction from "../../../models/transaction";
 import CreditCard from "../../../models/cards";
 
+function parseMonthKey(monthKey) {
+  const raw = String(monthKey || "").trim();
+  const m = /^(\d{4})-(\d{2})$/.exec(raw);
+  if (!m) return null;
+  const year = Number(m[1]);
+  const month = Number(m[2]);
+  if (!Number.isFinite(year) || !Number.isFinite(month) || month < 1 || month > 12) return null;
+  const start = new Date(Date.UTC(year, month - 1, 1, 0, 0, 0, 0));
+  const end = new Date(Date.UTC(year, month, 1, 0, 0, 0, 0));
+  return { year, month, start, end, key: `${year}-${String(month).padStart(2, "0")}` };
+}
+
 export async function GET(request) {
   try {
     await dbConnect();
@@ -30,7 +42,13 @@ export async function GET(request) {
     const userObjId = mongoose.Types.ObjectId.isValid(userId)
       ? new mongoose.Types.ObjectId(userId)
       : userId;
+    const { searchParams } = new URL(request.url);
+    const monthKey = searchParams.get("month");
+    const period = parseMonthKey(monthKey);
     const matchFilter = { user: userObjId };
+    const scopedMatchFilter = period
+      ? { ...matchFilter, createdAt: { $gte: period.start, $lt: period.end } }
+      : matchFilter;
 
     // Aggregate monthly spend & savings for this user (or guest)
     const pipeline = [
@@ -84,14 +102,31 @@ export async function GET(request) {
     const lifetimeSavings = months.reduce((s, m) => s + (m.totalSavings || 0), 0);
     const savingsRate = lifetimeSpend > 0 ? lifetimeSavings / lifetimeSpend : 0;
 
+    const scopedTotalsAgg = await Transaction.aggregate([
+      { $match: scopedMatchFilter },
+      {
+        $group: {
+          _id: null,
+          totalSpend: { $sum: "$amount" },
+          totalSavings: { $sum: "$totalBenefit" },
+        },
+      },
+    ]);
+    const scopedTotalSpend = Number(scopedTotalsAgg?.[0]?.totalSpend) || 0;
+    const scopedTotalSavings = Number(scopedTotalsAgg?.[0]?.totalSavings) || 0;
+    const scopedSavingsRate = scopedTotalSpend > 0 ? scopedTotalSavings / scopedTotalSpend : 0;
+
     // Base 650, reward responsible savings up to 100 points
     const creditScoreEstimate = Math.round(
       650 + Math.min(100, savingsRate * 1000)
     );
+    const scopedCreditScoreEstimate = Math.round(
+      650 + Math.min(100, scopedSavingsRate * 1000)
+    );
 
     // Per-card totals: spend and savings (for view analysis)
     const perCardTotalsAgg = await Transaction.aggregate([
-      { $match: matchFilter },
+      { $match: scopedMatchFilter },
       {
         $group: {
           _id: "$card",
@@ -117,7 +152,7 @@ export async function GET(request) {
 
     // Spend by card and category (lifetime)
     const cardCategoryAgg = await Transaction.aggregate([
-      { $match: matchFilter },
+      { $match: scopedMatchFilter },
       {
         $group: {
           _id: { card: "$card", category: "$resolvedCategory" },
@@ -159,6 +194,7 @@ export async function GET(request) {
 
     return NextResponse.json({
       months,
+      selectedMonth: period?.key || null,
       userCards,
       perCardTotals,
       lifetime: {
@@ -166,6 +202,12 @@ export async function GET(request) {
         totalSavings: lifetimeSavings,
         savingsRate,
         creditScoreEstimate,
+      },
+      periodTotals: {
+        totalSpend: scopedTotalSpend,
+        totalSavings: scopedTotalSavings,
+        savingsRate: scopedSavingsRate,
+        creditScoreEstimate: scopedCreditScoreEstimate,
       },
       perCardCategory,
     });

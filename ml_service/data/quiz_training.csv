@@ -1,0 +1,2001 @@
+travel_score,shopping_score,dining_score,fuel_score,groceries_score,income,preferred_bank,target_card
+23,22,11,34,10,35000,IDFC First,First Classic Credit Card
+26,13,23,33,5,75000,Yes Bank,YES First Business Credit Card
+10,42,3,34,11,75000,Citibank,Cashback Credit Card
+11,39,4,29,17,25000,Standard Chartered,Super Value Titanium Credit Card
+6,35,33,20,5,120000,Citibank,Cashback Credit Card
+39,24,0,7,30,120000,IDFC First,First Wealth Credit Card
+7,30,30,13,20,75000,Kotak,PVR Platinum Credit Card
+21,25,20,10,24,25000,Standard Chartered,Flipkart Axis Bank Credit Card
+30,22,7,27,14,200000,Yes Bank,League Platinum Credit Card
+29,4,33,10,24,75000,Standard Chartered,Super Value Titanium Credit Card
+19,38,19,2,22,50000,Standard Chartered,League Platinum Credit Card
+9,28,36,21,7,25000,ICICI,Coral Credit Card
+32,34,4,15,15,120000,IDFC First,Vistara Infinite Credit Card
+19,7,34,15,26,50000,IDFC First,Cashback Credit Card
+19,16,21,14,29,120000,Citibank,Cashback Credit Card
+27,17,16,28,12,120000,IDFC First,First Wealth Credit Card
+10,1,43,28,18,35000,Citibank,Cashback Credit Card
+34,22,13,20,11,120000,Citibank,Cashback Credit Card
+7,0,17,8,69,35000,Citibank,Cashback Credit Card
+24,30,10,9,27,120000,Standard Chartered,Super Value Titanium Credit Card
+27,24,3,26,19,50000,ICICI,Amazon Pay Credit Card
+24,22,33,10,11,200000,Axis,Ace Credit Card
+23,5,26,14,32,200000,Yes Bank,Elite Credit Card
+22,15,14,29,19,35000,Citibank,Cashback Credit Card
+32,34,1,8,25,35000,Citibank,Cashback Credit Card
+11,26,6,36,20,50000,HDFC,Tata Neu Infinity Credit Card
+26,28,19,14,12,200000,Axis,Ace Credit Card
+6,39,6,27,21,120000,ICICI,Super Value Titanium Credit Card
+9,15,53,4,19,75000,Citibank,Cashback Credit Card
+17,40,14,21,9,120000,IDFC First,First Wealth Credit Card
+21,29,25,1,24,25000,Axis,Flipkart Axis Bank Credit Card
+36,11,10,20,24,75000,Citibank,Millennia Credit Card
+29,11,15,31,15,35000,RBL,BankBazaar Credit Card
+59,17,9,2,12,75000,SBI,Elite Credit Card
+10,13,6,64,6,35000,Standard Chartered,Super Value Titanium Credit Card
+33,12,10,32,13,50000,IDFC First,Vistara Infinite Credit Card
+32,10,28,20,10,35000,ICICI,Amazon Pay Credit Card
+14,35,30,2,19,35000,HDFC,Tata Neu Infinity Credit Card
+8,23,30,14,25,75000,Standard Chartered,Super Value Titanium Credit Card
+17,23,25,16,19,25000,IDFC First,First Classic Credit Card
+21,13,21,17,28,75000,Axis,Tata Neu Infinity Credit Card
+7,11,8,36,39,75000,Kotak,White Credit Card
+2,34,19,12,33,35000,Kotak,BankBazaar Credit Card
+5,27,9,52,8,120000,HDFC,Tata Neu Infinity Credit Card
+19,22,9,24,26,200000,HDFC,Millennia Credit Card
+3,42,3,52,0,50000,ICICI,Amazon Pay Credit Card
+24,32,23,7,14,75000,IDFC First,Regalia Gold
+13,20,31,27,9,75000,SBI,Coral Credit Card
+29,11,13,35,12,200000,ICICI,HPCL Super Saver Credit Card
+42,8,27,10,14,75000,RBL,BankBazaar Credit Card
+6,0,9,85,0,25000,HDFC,BPCL Octane Credit Card
+27,31,0,20,21,120000,Yes Bank,YES First Business Credit Card
+51,1,3,13,32,50000,Citibank,Cashback Credit Card
+7,16,24,29,23,120000,Standard Chartered,Super Value Titanium Credit Card
+33,31,9,11,17,35000,RBL,BankBazaar Credit Card
+14,23,14,44,5,75000,IDFC First,Vistara Infinite Credit Card
+62,7,15,8,7,200000,Standard Chartered,Super Value Titanium Credit Card
+15,15,25,20,25,120000,Kotak,PVR Platinum Credit Card
+17,17,23,9,35,25000,Axis,Ace Credit Card
+15,11,23,5,46,25000,Yes Bank,SimplyCLICK Credit Card
+43,14,22,12,9,120000,ICICI,HPCL Super Saver Credit Card
+36,41,0,10,13,25000,IDFC First,Flipkart Axis Bank Credit Card
+23,25,0,44,7,75000,IDFC First,Vistara Infinite Credit Card
+13,21,24,18,23,75000,Yes Bank,Super Value Titanium Credit Card
+27,24,12,0,37,50000,IDFC First,Vistara Infinite Credit Card
+10,25,18,19,28,120000,HDFC,Tata Neu Infinity Credit Card
+10,24,48,6,12,75000,HDFC,Regalia Gold
+4,28,20,26,22,25000,Axis,My Zone Credit Card
+13,13,23,37,14,50000,HDFC,Millennia Credit Card
+22,5,35,31,6,25000,Axis,My Zone Credit Card
+29,32,4,31,3,200000,Yes Bank,YES First Business Credit Card
+13,6,38,27,16,25000,HDFC,BPCL Octane Credit Card
+34,14,8,28,16,120000,IDFC First,Vistara Infinite Credit Card
+16,28,22,6,28,75000,IDFC First,First Wealth Credit Card
+27,16,23,26,8,35000,HDFC,Tata Neu Infinity Credit Card
+29,1,14,25,31,120000,RBL,BankBazaar Credit Card
+1,1,27,21,50,35000,IDFC First,First Classic Credit Card
+27,0,38,25,10,75000,HDFC,Regalia Gold
+17,1,27,30,24,75000,Kotak,White Credit Card
+26,16,21,7,29,75000,RBL,BankBazaar Credit Card
+31,12,17,22,18,25000,Yes Bank,Amazon Pay Credit Card
+8,21,28,31,11,120000,Kotak,PVR Platinum Credit Card
+21,36,14,0,28,200000,Axis,Flipkart Axis Bank Credit Card
+30,30,20,10,10,200000,Standard Chartered,My Zone Credit Card
+32,10,37,2,20,35000,ICICI,Tata Neu Infinity Credit Card
+16,14,2,36,32,50000,RBL,BankBazaar Credit Card
+51,2,15,29,2,25000,SBI,SimplyCLICK Credit Card
+43,20,11,4,23,200000,IDFC First,Regalia Gold
+17,13,16,20,35,25000,Yes Bank,BPCL Octane Credit Card
+23,13,21,18,24,200000,RBL,BankBazaar Credit Card
+18,6,35,31,10,35000,ICICI,HPCL Super Saver Credit Card
+12,40,12,25,11,35000,Citibank,Cashback Credit Card
+30,23,11,22,13,50000,Axis,Flipkart Axis Bank Credit Card
+18,23,18,27,15,75000,Citibank,Cashback Credit Card
+30,17,9,21,22,120000,ICICI,Amazon Pay Credit Card
+5,2,11,40,42,200000,Standard Chartered,Super Value Titanium Credit Card
+11,21,32,20,16,50000,Citibank,Cashback Credit Card
+18,22,19,24,17,200000,Axis,Flipkart Axis Bank Credit Card
+35,16,1,16,31,200000,IDFC First,Amazon Pay Credit Card
+51,6,5,4,34,200000,SBI,BPCL Octane Credit Card
+3,25,43,19,10,25000,Citibank,Amazon Pay Credit Card
+24,14,27,19,16,35000,SBI,BPCL Octane Credit Card
+16,25,14,18,28,35000,Axis,Ace Credit Card
+22,33,13,14,17,50000,Axis,Flipkart Axis Bank Credit Card
+26,5,20,28,20,75000,Axis,Flipkart Axis Bank Credit Card
+29,30,2,26,13,25000,Axis,My Zone Credit Card
+24,22,11,23,20,50000,HDFC,Tata Neu Infinity Credit Card
+25,36,25,14,0,25000,Kotak,Coral Credit Card
+27,24,26,16,8,50000,Axis,Ace Credit Card
+44,18,24,1,13,35000,IDFC First,First Classic Credit Card
+21,24,23,10,21,200000,Axis,Flipkart Axis Bank Credit Card
+12,3,31,27,27,75000,Citibank,Cashback Credit Card
+36,32,5,12,15,35000,Yes Bank,Flipkart Axis Bank Credit Card
+23,20,11,23,23,35000,RBL,BankBazaar Credit Card
+28,8,20,13,30,200000,Yes Bank,YES First Business Credit Card
+9,24,23,24,20,50000,SBI,SimplyCLICK Credit Card
+8,25,8,27,33,35000,ICICI,Coral Credit Card
+34,5,18,28,15,25000,Kotak,PVR Platinum Credit Card
+31,13,7,40,10,35000,Citibank,Cashback Credit Card
+56,29,0,14,1,25000,SBI,SimplySAVE Credit Card
+19,3,24,23,30,35000,Kotak,My Zone Credit Card
+25,7,40,16,12,35000,Yes Bank,Amazon Pay Credit Card
+14,33,17,25,12,50000,Kotak,White Credit Card
+25,1,22,26,26,200000,Standard Chartered,Super Value Titanium Credit Card
+6,15,32,12,34,75000,Kotak,White Credit Card
+33,21,17,21,8,25000,Kotak,PVR Platinum Credit Card
+34,29,11,19,6,35000,Kotak,PVR Platinum Credit Card
+4,17,27,16,36,120000,IDFC First,First Classic Credit Card
+13,20,27,34,6,200000,RBL,BankBazaar Credit Card
+8,3,29,29,31,200000,RBL,BankBazaar Credit Card
+23,12,24,23,19,200000,ICICI,Flipkart Axis Bank Credit Card
+21,5,51,17,6,200000,Axis,Flipkart Axis Bank Credit Card
+30,35,11,13,10,50000,IDFC First,Vistara Infinite Credit Card
+22,30,2,12,35,50000,Yes Bank,YES First Business Credit Card
+19,26,8,23,24,200000,SBI,SimplyCLICK Credit Card
+30,10,6,40,14,120000,IDFC First,First Classic Credit Card
+18,17,35,13,17,25000,ICICI,HPCL Super Saver Credit Card
+25,11,1,33,30,35000,Citibank,Cashback Credit Card
+5,22,6,42,25,50000,Axis,Ace Credit Card
+10,35,25,20,10,75000,Axis,Flipkart Axis Bank Credit Card
+6,1,26,38,29,200000,Citibank,White Credit Card
+35,1,17,16,31,120000,Axis,Flipkart Axis Bank Credit Card
+20,18,22,20,20,75000,Citibank,Regalia Gold
+22,15,28,16,20,25000,IDFC First,Ace Credit Card
+29,26,9,23,12,35000,Axis,Ace Credit Card
+8,27,35,20,10,120000,Yes Bank,YES First Business Credit Card
+24,9,30,26,11,50000,IDFC First,Vistara Infinite Credit Card
+26,15,10,16,32,75000,Kotak,League Platinum Credit Card
+29,24,7,1,40,25000,Kotak,Amazon Pay Credit Card
+19,22,27,10,22,25000,Citibank,Super Value Titanium Credit Card
+34,4,12,35,16,200000,Yes Bank,YES First Business Credit Card
+23,8,13,32,25,200000,Yes Bank,YES First Business Credit Card
+17,36,13,18,16,200000,SBI,SimplyCLICK Credit Card
+5,25,22,11,36,25000,SBI,BPCL Octane Credit Card
+7,9,11,39,34,25000,ICICI,Amazon Pay Credit Card
+29,19,14,18,21,120000,Yes Bank,YES First Business Credit Card
+16,13,25,27,19,75000,IDFC First,Vistara Infinite Credit Card
+9,24,32,15,21,35000,HDFC,SimplySAVE Credit Card
+12,15,37,6,31,25000,Kotak,PVR Platinum Credit Card
+1,19,26,49,6,50000,SBI,SimplyCLICK Credit Card
+14,26,3,27,29,50000,ICICI,HPCL Super Saver Credit Card
+28,25,10,14,23,200000,Standard Chartered,Super Value Titanium Credit Card
+16,17,32,14,20,25000,IDFC First,First Classic Credit Card
+4,33,19,35,9,50000,SBI,Flipkart Axis Bank Credit Card
+15,26,27,23,10,120000,Yes Bank,YES First Business Credit Card
+32,14,17,28,9,75000,Citibank,Cashback Credit Card
+11,25,18,20,26,35000,IDFC First,Flipkart Axis Bank Credit Card
+24,0,3,39,34,25000,IDFC First,First Classic Credit Card
+15,37,8,3,37,50000,HDFC,Tata Neu Infinity Credit Card
+30,14,18,17,21,35000,Yes Bank,Amazon Pay Credit Card
+16,20,14,27,23,50000,ICICI,Amazon Pay Credit Card
+29,27,24,6,14,120000,Yes Bank,YES First Business Credit Card
+34,37,7,13,8,200000,Standard Chartered,Super Value Titanium Credit Card
+23,19,17,22,19,35000,Citibank,Cashback Credit Card
+20,20,13,24,23,35000,Axis,Ace Credit Card
+39,11,31,15,4,120000,IDFC First,Vistara Infinite Credit Card
+24,6,29,30,11,25000,Standard Chartered,Super Value Titanium Credit Card
+25,23,4,24,23,35000,SBI,SimplyCLICK Credit Card
+3,32,28,18,19,35000,Citibank,Cashback Credit Card
+36,27,9,19,9,75000,Citibank,Cashback Credit Card
+31,2,12,38,16,200000,Kotak,White Credit Card
+37,12,6,39,6,75000,ICICI,Amazon Pay Credit Card
+20,41,9,23,6,35000,Kotak,SimplyCLICK Credit Card
+7,26,15,1,50,50000,Standard Chartered,Super Value Titanium Credit Card
+47,6,19,10,19,200000,SBI,SimplyCLICK Credit Card
+12,7,34,18,28,75000,IDFC First,Vistara Infinite Credit Card
+54,7,16,9,14,50000,Kotak,League Platinum Credit Card
+21,20,20,25,14,200000,Axis,Tata Neu Infinity Credit Card
+1,19,31,35,14,50000,Axis,HPCL Super Saver Credit Card
+22,26,29,17,6,35000,Axis,Ace Credit Card
+23,29,2,18,28,35000,RBL,BankBazaar Credit Card
+24,15,23,16,22,200000,IDFC First,Vistara Infinite Credit Card
+31,5,14,20,30,25000,RBL,BankBazaar Credit Card
+19,10,40,23,8,25000,Axis,Flipkart Axis Bank Credit Card
+31,24,3,10,33,25000,Kotak,PVR Platinum Credit Card
+24,33,7,32,4,25000,HDFC,BPCL Octane Credit Card
+20,25,24,24,7,120000,Axis,Flipkart Axis Bank Credit Card
+18,25,8,28,21,120000,Citibank,Cashback Credit Card
+12,10,25,41,12,120000,SBI,SimplySAVE Credit Card
+25,7,32,7,29,200000,Citibank,Cashback Credit Card
+22,9,35,19,16,120000,ICICI,Coral Credit Card
+25,15,36,15,9,120000,Kotak,PVR Platinum Credit Card
+5,57,12,19,7,50000,RBL,BankBazaar Credit Card
+14,40,24,13,9,35000,Citibank,SimplyCLICK Credit Card
+29,30,14,0,26,50000,RBL,BankBazaar Credit Card
+23,15,27,8,26,75000,SBI,Amazon Pay Credit Card
+32,24,23,9,12,25000,SBI,SimplyCLICK Credit Card
+13,17,24,21,24,120000,Standard Chartered,Super Value Titanium Credit Card
+53,34,2,4,7,200000,Citibank,Cashback Credit Card
+5,12,27,24,31,25000,Kotak,SimplySAVE Credit Card
+20,3,33,1,42,25000,Axis,Flipkart Axis Bank Credit Card
+20,13,34,27,6,35000,IDFC First,First Classic Credit Card
+14,33,35,7,11,120000,Citibank,Cashback Credit Card
+31,24,6,28,11,200000,RBL,Magnus Credit Card
+11,30,19,26,14,25000,Standard Chartered,Super Value Titanium Credit Card
+2,17,35,36,10,75000,RBL,BankBazaar Credit Card
+1,25,2,60,12,25000,HDFC,Amazon Pay Credit Card
+21,38,0,6,35,25000,HDFC,Super Value Titanium Credit Card
+28,8,26,17,20,75000,Citibank,Cashback Credit Card
+36,24,25,12,2,35000,SBI,SimplyCLICK Credit Card
+40,18,6,20,17,200000,HDFC,Millennia Credit Card
+23,6,19,41,10,35000,HDFC,Tata Neu Infinity Credit Card
+17,42,24,13,4,50000,Axis,SimplyCLICK Credit Card
+0,8,25,35,32,120000,ICICI,Coral Credit Card
+14,35,14,31,6,35000,Standard Chartered,Super Value Titanium Credit Card
+18,4,21,14,43,200000,HDFC,Millennia Credit Card
+12,5,22,32,28,50000,Axis,Flipkart Axis Bank Credit Card
+7,17,26,25,26,25000,HDFC,Amazon Pay Credit Card
+26,16,9,16,32,120000,RBL,BankBazaar Credit Card
+44,2,19,17,19,35000,Yes Bank,SimplyCLICK Credit Card
+14,33,34,5,15,120000,Standard Chartered,Super Value Titanium Credit Card
+48,13,7,5,27,35000,RBL,BankBazaar Credit Card
+23,29,13,22,14,200000,Standard Chartered,Super Value Titanium Credit Card
+19,2,39,21,18,25000,SBI,SimplySAVE Credit Card
+40,8,18,7,27,75000,SBI,BPCL Octane Credit Card
+4,27,20,36,13,25000,HDFC,Amazon Pay Credit Card
+17,5,31,3,44,25000,Standard Chartered,Super Value Titanium Credit Card
+6,36,15,17,26,200000,Yes Bank,YES First Business Credit Card
+34,11,42,12,1,35000,IDFC First,First Classic Credit Card
+36,34,3,2,24,200000,HDFC,Millennia Credit Card
+28,11,23,8,31,75000,Yes Bank,YES First Business Credit Card
+27,22,11,19,21,75000,Kotak,PVR Platinum Credit Card
+9,25,37,24,5,25000,Yes Bank,Ace Credit Card
+25,2,14,20,39,75000,RBL,BankBazaar Credit Card
+34,16,9,5,37,35000,ICICI,Super Value Titanium Credit Card
+27,3,31,31,8,200000,Axis,Flipkart Axis Bank Credit Card
+1,3,31,14,50,35000,Kotak,PVR Platinum Credit Card
+24,22,16,9,29,75000,HDFC,Regalia Gold
+5,29,19,25,22,75000,ICICI,HPCL Super Saver Credit Card
+27,25,0,35,14,50000,SBI,BPCL Octane Credit Card
+27,31,5,0,36,120000,Kotak,White Credit Card
+30,35,18,6,11,120000,ICICI,My Zone Credit Card
+44,31,22,3,0,25000,Citibank,SimplyCLICK Credit Card
+39,42,10,1,8,35000,ICICI,HPCL Super Saver Credit Card
+0,36,41,16,7,75000,Axis,Flipkart Axis Bank Credit Card
+11,18,3,38,30,120000,SBI,Elite Credit Card
+10,31,0,28,31,25000,IDFC First,First Classic Credit Card
+22,3,26,12,38,25000,Kotak,My Zone Credit Card
+15,19,23,24,19,50000,ICICI,Amazon Pay Credit Card
+19,12,29,23,18,50000,ICICI,Amazon Pay Credit Card
+31,24,27,0,18,120000,Citibank,Cashback Credit Card
+16,29,25,1,29,120000,Yes Bank,YES First Business Credit Card
+16,35,8,11,29,35000,Yes Bank,Flipkart Axis Bank Credit Card
+28,7,26,25,15,35000,Yes Bank,Flipkart Axis Bank Credit Card
+0,2,45,44,9,75000,Yes Bank,YES First Business Credit Card
+8,30,6,28,28,50000,Standard Chartered,Super Value Titanium Credit Card
+7,23,32,26,11,75000,IDFC First,First Wealth Credit Card
+27,28,33,1,11,35000,RBL,BankBazaar Credit Card
+35,25,8,7,25,50000,Citibank,Cashback Credit Card
+19,12,2,1,66,75000,Yes Bank,BPCL Octane Credit Card
+6,32,13,23,26,25000,RBL,BankBazaar Credit Card
+0,35,8,31,25,75000,RBL,BankBazaar Credit Card
+17,25,27,30,1,75000,HDFC,Regalia Gold
+13,33,29,15,10,75000,RBL,BankBazaar Credit Card
+36,11,2,30,21,200000,RBL,BankBazaar Credit Card
+28,23,17,2,30,50000,Standard Chartered,Super Value Titanium Credit Card
+41,12,40,5,2,50000,Axis,Flipkart Axis Bank Credit Card
+25,22,14,23,17,120000,ICICI,SimplyCLICK Credit Card
+24,39,7,18,13,35000,IDFC First,First Classic Credit Card
+21,5,37,24,13,120000,Kotak,White Credit Card
+9,16,12,32,30,50000,Kotak,PVR Platinum Credit Card
+13,25,17,18,26,25000,Kotak,Super Value Titanium Credit Card
+16,15,34,14,20,120000,ICICI,HPCL Super Saver Credit Card
+24,21,15,21,19,120000,SBI,Elite Credit Card
+16,29,25,5,25,120000,Axis,Vistara Infinite Credit Card
+6,3,26,31,34,25000,HDFC,Amazon Pay Credit Card
+9,18,19,24,30,35000,HDFC,Tata Neu Infinity Credit Card
+27,16,29,22,6,50000,Yes Bank,YES First Business Credit Card
+1,32,21,16,30,120000,Standard Chartered,Super Value Titanium Credit Card
+24,20,22,12,22,25000,HDFC,Super Value Titanium Credit Card
+1,27,41,6,25,50000,HDFC,Ace Credit Card
+2,30,13,31,25,200000,Standard Chartered,Super Value Titanium Credit Card
+26,12,28,6,27,120000,RBL,BankBazaar Credit Card
+20,14,6,35,26,75000,Axis,Flipkart Axis Bank Credit Card
+8,6,20,41,26,120000,Axis,Flipkart Axis Bank Credit Card
+16,28,27,11,18,75000,Yes Bank,YES First Business Credit Card
+41,12,14,6,27,25000,Standard Chartered,Super Value Titanium Credit Card
+0,3,32,33,32,75000,Kotak,White Credit Card
+10,6,30,21,33,120000,ICICI,HPCL Super Saver Credit Card
+32,26,26,6,10,35000,HDFC,Tata Neu Infinity Credit Card
+24,38,11,19,8,200000,ICICI,Emerald Private Metal
+25,12,17,40,6,200000,Standard Chartered,Super Value Titanium Credit Card
+21,28,15,22,14,75000,Citibank,BankBazaar Credit Card
+28,18,5,34,15,35000,HDFC,Tata Neu Infinity Credit Card
+34,12,11,11,31,200000,HDFC,Tata Neu Infinity Credit Card
+31,34,3,29,2,120000,Axis,Flipkart Axis Bank Credit Card
+29,11,26,8,25,75000,Standard Chartered,Super Value Titanium Credit Card
+27,22,23,21,8,50000,Axis,Flipkart Axis Bank Credit Card
+36,7,14,31,12,50000,ICICI,Amazon Pay Credit Card
+14,30,13,33,10,200000,Kotak,White Credit Card
+6,34,19,36,6,25000,Axis,My Zone Credit Card
+12,18,28,32,11,50000,IDFC First,Vistara Infinite Credit Card
+31,18,16,35,0,35000,Axis,Cashback Credit Card
+21,22,17,15,26,75000,ICICI,Amazon Pay Credit Card
+11,2,51,0,36,50000,Axis,Ace Credit Card
+30,21,29,14,6,120000,IDFC First,SimplySAVE Credit Card
+13,28,9,21,29,120000,Kotak,Millennia Credit Card
+6,45,6,33,10,200000,ICICI,Coral Credit Card
+8,6,22,7,58,25000,Standard Chartered,Super Value Titanium Credit Card
+10,32,29,12,17,50000,IDFC First,Vistara Infinite Credit Card
+18,31,3,6,42,25000,Standard Chartered,SimplySAVE Credit Card
+17,9,13,10,51,120000,RBL,BankBazaar Credit Card
+36,6,46,7,6,120000,HDFC,Coral Credit Card
+16,32,17,17,17,200000,HDFC,Diners Club Black
+13,2,41,22,22,120000,Kotak,White Credit Card
+44,6,17,4,29,25000,Yes Bank,Amazon Pay Credit Card
+15,39,2,26,18,75000,SBI,SimplyCLICK Credit Card
+26,5,19,20,30,75000,ICICI,Coral Credit Card
+16,40,8,18,18,25000,Standard Chartered,Super Value Titanium Credit Card
+12,12,35,10,30,200000,Axis,Ace Credit Card
+15,12,28,20,26,120000,IDFC First,Vistara Infinite Credit Card
+24,16,18,22,20,35000,RBL,BankBazaar Credit Card
+19,18,20,23,19,50000,ICICI,Coral Credit Card
+13,18,29,18,21,25000,Standard Chartered,Amazon Pay Credit Card
+5,28,22,19,26,35000,Citibank,Cashback Credit Card
+15,11,28,19,26,35000,Kotak,PVR Platinum Credit Card
+6,29,42,9,14,75000,RBL,BankBazaar Credit Card
+16,43,2,1,38,25000,Standard Chartered,HPCL Super Saver Credit Card
+17,5,19,18,41,25000,Axis,Flipkart Axis Bank Credit Card
+22,26,16,13,22,25000,Yes Bank,Amazon Pay Credit Card
+9,11,31,21,27,120000,SBI,SimplySAVE Credit Card
+35,21,17,6,21,35000,Citibank,Cashback Credit Card
+44,24,3,13,15,50000,Standard Chartered,Super Value Titanium Credit Card
+7,18,14,30,30,50000,Yes Bank,YES First Business Credit Card
+6,24,15,15,39,120000,Citibank,Cashback Credit Card
+21,21,12,22,24,75000,SBI,SimplyCLICK Credit Card
+10,25,18,14,33,120000,IDFC First,Vistara Infinite Credit Card
+21,18,26,16,18,25000,Standard Chartered,Super Value Titanium Credit Card
+7,16,15,32,30,50000,RBL,BankBazaar Credit Card
+3,7,13,15,63,200000,IDFC First,First Wealth Credit Card
+29,11,33,25,2,200000,HDFC,Tata Neu Infinity Credit Card
+2,24,30,28,16,35000,SBI,SimplyCLICK Credit Card
+10,17,9,49,16,35000,RBL,BankBazaar Credit Card
+15,30,8,23,24,25000,Axis,My Zone Credit Card
+31,17,12,4,37,75000,ICICI,HPCL Super Saver Credit Card
+17,38,3,22,20,35000,SBI,Coral Credit Card
+27,26,19,9,20,75000,RBL,BankBazaar Credit Card
+0,43,5,38,13,25000,Yes Bank,Amazon Pay Credit Card
+18,33,5,38,6,75000,IDFC First,Vistara Infinite Credit Card
+20,23,29,12,15,200000,Kotak,PVR Platinum Credit Card
+19,22,10,33,16,120000,Citibank,Cashback Credit Card
+30,25,0,30,15,35000,Standard Chartered,Super Value Titanium Credit Card
+18,19,15,23,25,75000,ICICI,Amazon Pay Credit Card
+30,30,7,16,18,75000,Axis,Ace Credit Card
+20,27,25,19,9,200000,Axis,Flipkart Axis Bank Credit Card
+16,39,23,2,20,35000,Standard Chartered,Super Value Titanium Credit Card
+28,26,17,26,2,200000,ICICI,Amazon Pay Credit Card
+13,17,21,41,9,120000,ICICI,Coral Credit Card
+8,43,22,21,6,25000,Axis,Flipkart Axis Bank Credit Card
+35,13,0,43,9,35000,ICICI,Amazon Pay Credit Card
+0,59,9,8,24,120000,Axis,Flipkart Axis Bank Credit Card
+14,4,30,38,14,75000,Standard Chartered,Super Value Titanium Credit Card
+6,16,31,22,25,200000,Citibank,Cashback Credit Card
+17,27,31,19,5,200000,Kotak,PVR Platinum Credit Card
+33,24,18,6,19,75000,Kotak,PVR Platinum Credit Card
+27,20,2,22,28,50000,Kotak,League Platinum Credit Card
+19,10,11,34,26,25000,Kotak,PVR Platinum Credit Card
+12,29,4,14,42,200000,Kotak,White Credit Card
+29,3,26,12,31,120000,Citibank,Cashback Credit Card
+40,24,30,1,5,25000,Kotak,Amazon Pay Credit Card
+33,49,4,10,3,200000,RBL,BankBazaar Credit Card
+29,12,22,9,29,35000,ICICI,Coral Credit Card
+4,11,32,30,24,75000,Axis,My Zone Credit Card
+37,28,12,21,2,75000,ICICI,HPCL Super Saver Credit Card
+15,34,24,26,1,35000,SBI,SimplyCLICK Credit Card
+22,15,37,14,12,120000,Yes Bank,YES First Business Credit Card
+27,19,29,20,6,50000,Axis,Flipkart Axis Bank Credit Card
+32,34,10,11,13,50000,Citibank,Cashback Credit Card
+14,19,34,24,9,35000,Yes Bank,SimplyCLICK Credit Card
+10,34,40,6,10,200000,Yes Bank,YES First Business Credit Card
+2,1,30,34,33,200000,Yes Bank,YES First Business Credit Card
+24,22,13,5,36,120000,Citibank,Tata Neu Infinity Credit Card
+31,30,11,27,0,35000,Standard Chartered,Super Value Titanium Credit Card
+24,15,24,26,11,120000,RBL,BankBazaar Credit Card
+34,8,1,32,25,25000,Axis,Ace Credit Card
+14,30,19,21,17,35000,Axis,My Zone Credit Card
+30,3,26,21,21,50000,Citibank,Cashback Credit Card
+33,25,26,2,14,120000,Standard Chartered,Super Value Titanium Credit Card
+23,11,25,4,37,35000,ICICI,Amazon Pay Credit Card
+3,33,9,25,30,75000,SBI,SimplySAVE Credit Card
+41,1,11,40,7,120000,Kotak,Diners Club Black
+19,26,24,6,25,50000,HDFC,Tata Neu Infinity Credit Card
+3,28,16,34,20,75000,Standard Chartered,Regalia Gold
+7,26,30,11,26,120000,Standard Chartered,Vistara Infinite Credit Card
+28,12,8,22,30,120000,HDFC,Diners Club Black
+11,23,34,27,5,25000,Axis,Flipkart Axis Bank Credit Card
+6,33,33,1,27,50000,RBL,BankBazaar Credit Card
+32,11,42,13,1,50000,IDFC First,Vistara Infinite Credit Card
+4,39,32,7,17,35000,HDFC,Tata Neu Infinity Credit Card
+20,18,18,38,6,200000,Axis,Flipkart Axis Bank Credit Card
+27,5,21,25,22,25000,RBL,BankBazaar Credit Card
+4,41,49,4,3,50000,SBI,SimplyCLICK Credit Card
+26,3,28,25,18,200000,HDFC,Regalia Gold
+8,20,20,29,24,35000,Kotak,PVR Platinum Credit Card
+15,30,5,10,40,35000,HDFC,Tata Neu Infinity Credit Card
+28,6,13,34,19,35000,RBL,BankBazaar Credit Card
+7,15,41,34,4,200000,HDFC,Millennia Credit Card
+31,17,10,18,24,50000,ICICI,Amazon Pay Credit Card
+9,31,33,8,19,35000,RBL,HPCL Super Saver Credit Card
+14,19,26,11,29,50000,Axis,My Zone Credit Card
+21,10,3,17,48,50000,IDFC First,Vistara Infinite Credit Card
+14,31,22,29,5,50000,HDFC,Tata Neu Infinity Credit Card
+1,29,1,51,18,75000,SBI,BPCL Octane Credit Card
+26,34,12,16,11,75000,HDFC,White Credit Card
+19,27,26,15,13,50000,Kotak,First Classic Credit Card
+13,27,16,21,23,35000,Citibank,Cashback Credit Card
+11,33,5,37,14,75000,Yes Bank,YES First Business Credit Card
+33,24,4,33,4,75000,IDFC First,First Wealth Credit Card
+37,28,0,24,12,120000,Standard Chartered,Super Value Titanium Credit Card
+17,2,23,28,30,25000,RBL,BankBazaar Credit Card
+31,29,15,10,14,50000,Standard Chartered,My Zone Credit Card
+13,26,14,36,10,120000,Yes Bank,YES First Business Credit Card
+21,13,12,25,28,120000,IDFC First,First Wealth Credit Card
+18,29,19,4,29,120000,RBL,BankBazaar Credit Card
+27,13,11,26,24,50000,Citibank,Cashback Credit Card
+12,33,9,32,14,75000,HDFC,Millennia Credit Card
+30,18,18,24,10,50000,HDFC,Coral Credit Card
+23,23,19,17,19,25000,Axis,Ace Credit Card
+38,36,20,3,4,200000,Citibank,Cashback Credit Card
+19,20,15,15,31,50000,RBL,BankBazaar Credit Card
+23,10,29,24,14,50000,HDFC,Millennia Credit Card
+25,38,1,14,22,25000,Kotak,Amazon Pay Credit Card
+1,13,47,34,5,50000,Yes Bank,YES First Business Credit Card
+1,30,34,30,5,25000,SBI,SimplyCLICK Credit Card
+4,24,21,21,30,25000,SBI,SimplyCLICK Credit Card
+27,33,4,27,9,25000,Citibank,Flipkart Axis Bank Credit Card
+22,34,24,19,1,25000,Yes Bank,Amazon Pay Credit Card
+33,1,27,13,26,120000,Axis,Flipkart Axis Bank Credit Card
+42,9,11,14,24,200000,Kotak,White Credit Card
+18,22,18,3,40,25000,RBL,BankBazaar Credit Card
+0,1,0,42,58,50000,HDFC,Millennia Credit Card
+17,16,14,17,35,50000,ICICI,HPCL Super Saver Credit Card
+27,9,3,33,29,35000,RBL,Millennia Credit Card
+23,21,24,18,15,35000,Axis,Ace Credit Card
+6,32,35,26,0,200000,ICICI,Amazon Pay Credit Card
+10,27,36,27,0,25000,SBI,BPCL Octane Credit Card
+27,23,27,4,19,75000,SBI,SimplyCLICK Credit Card
+15,15,23,22,25,200000,Standard Chartered,Super Value Titanium Credit Card
+53,8,30,6,3,75000,SBI,Elite Credit Card
+7,40,12,22,19,120000,Axis,Ace Credit Card
+33,34,0,0,33,75000,Kotak,League Platinum Credit Card
+15,22,29,4,30,120000,IDFC First,Regalia Gold
+38,9,0,23,29,200000,IDFC First,First Classic Credit Card
+10,22,42,17,9,200000,Yes Bank,YES First Business Credit Card
+14,1,1,59,25,75000,SBI,BPCL Octane Credit Card
+36,17,6,6,34,120000,ICICI,HPCL Super Saver Credit Card
+21,3,16,30,30,35000,Kotak,PVR Platinum Credit Card
+0,16,5,36,43,35000,ICICI,Amazon Pay Credit Card
+18,23,16,20,24,25000,Yes Bank,Cashback Credit Card
+9,27,19,22,23,25000,IDFC First,First Classic Credit Card
+20,19,27,12,22,35000,Yes Bank,Ace Credit Card
+22,24,15,25,15,200000,SBI,Elite Credit Card
+21,19,23,20,16,50000,Yes Bank,YES First Business Credit Card
+29,10,14,19,27,75000,ICICI,Coral Credit Card
+10,47,19,5,18,50000,Yes Bank,BPCL Octane Credit Card
+14,12,16,36,22,75000,RBL,BankBazaar Credit Card
+24,25,20,11,20,120000,Citibank,Cashback Credit Card
+1,35,26,33,6,25000,ICICI,HPCL Super Saver Credit Card
+9,22,27,25,17,50000,Standard Chartered,Super Value Titanium Credit Card
+9,9,31,27,24,50000,RBL,BankBazaar Credit Card
+30,31,20,3,16,50000,SBI,SimplyCLICK Credit Card
+16,4,32,13,35,200000,Yes Bank,YES First Business Credit Card
+32,28,29,4,7,25000,Citibank,Flipkart Axis Bank Credit Card
+17,50,7,12,14,35000,Axis,My Zone Credit Card
+1,23,26,3,48,25000,Axis,My Zone Credit Card
+24,2,4,37,33,50000,ICICI,HPCL Super Saver Credit Card
+6,30,7,16,41,35000,ICICI,Coral Credit Card
+24,5,24,41,6,200000,HDFC,Millennia Credit Card
+28,20,27,11,14,50000,Citibank,Tata Neu Infinity Credit Card
+4,45,8,39,3,120000,ICICI,Amazon Pay Credit Card
+19,24,11,24,22,200000,Standard Chartered,Super Value Titanium Credit Card
+1,9,38,46,5,50000,HDFC,Tata Neu Infinity Credit Card
+0,45,35,16,3,35000,Citibank,Cashback Credit Card
+27,17,21,21,14,200000,Yes Bank,YES First Business Credit Card
+36,37,8,14,6,35000,RBL,BankBazaar Credit Card
+23,33,3,17,23,75000,Citibank,Cashback Credit Card
+1,8,32,5,54,120000,HDFC,Millennia Credit Card
+37,35,4,8,16,25000,Citibank,Cashback Credit Card
+4,11,40,25,20,25000,IDFC First,Flipkart Axis Bank Credit Card
+19,30,25,21,4,75000,Axis,Millennia Credit Card
+20,22,22,24,13,25000,Kotak,Amazon Pay Credit Card
+37,17,11,23,11,120000,Yes Bank,YES First Business Credit Card
+5,36,25,11,22,120000,Axis,Flipkart Axis Bank Credit Card
+32,7,25,7,29,120000,SBI,SimplyCLICK Credit Card
+26,25,15,3,32,50000,SBI,BPCL Octane Credit Card
+28,17,16,7,31,35000,Standard Chartered,Super Value Titanium Credit Card
+10,27,12,23,28,120000,Citibank,Cashback Credit Card
+15,30,18,17,20,200000,Yes Bank,Flipkart Axis Bank Credit Card
+25,19,19,21,17,200000,SBI,BPCL Octane Credit Card
+25,17,25,12,21,200000,Axis,Vistara Infinite Credit Card
+11,4,16,29,41,35000,RBL,BankBazaar Credit Card
+32,13,11,16,28,120000,Axis,Flipkart Axis Bank Credit Card
+17,15,37,29,2,120000,Standard Chartered,Super Value Titanium Credit Card
+9,12,28,44,8,35000,SBI,SimplyCLICK Credit Card
+27,29,20,9,15,120000,Standard Chartered,Super Value Titanium Credit Card
+24,12,22,26,17,120000,Citibank,Cashback Credit Card
+23,1,11,24,42,35000,IDFC First,First Classic Credit Card
+19,22,7,27,26,35000,HDFC,Tata Neu Infinity Credit Card
+38,26,11,4,22,200000,Yes Bank,YES First Business Credit Card
+45,0,1,8,46,75000,Yes Bank,YES First Business Credit Card
+8,34,43,4,11,200000,IDFC First,Vistara Infinite Credit Card
+12,9,31,27,22,75000,IDFC First,Vistara Infinite Credit Card
+19,30,18,31,1,120000,Standard Chartered,Super Value Titanium Credit Card
+25,6,17,38,14,25000,HDFC,Flipkart Axis Bank Credit Card
+17,18,3,27,35,25000,HDFC,SimplySAVE Credit Card
+14,36,12,1,37,35000,Axis,Flipkart Axis Bank Credit Card
+37,25,17,16,6,75000,Citibank,Cashback Credit Card
+10,15,25,25,24,50000,ICICI,Amazon Pay Credit Card
+30,15,4,31,20,200000,HDFC,Diners Club Black
+20,19,18,20,22,75000,Citibank,Cashback Credit Card
+25,27,4,27,16,75000,Standard Chartered,Super Value Titanium Credit Card
+19,22,22,37,1,75000,RBL,BankBazaar Credit Card
+43,43,0,3,11,200000,RBL,Amazon Pay Credit Card
+22,36,1,37,3,35000,Kotak,PVR Platinum Credit Card
+6,27,24,11,32,200000,Kotak,PVR Platinum Credit Card
+1,38,12,22,27,200000,RBL,BankBazaar Credit Card
+18,12,20,35,16,50000,SBI,SimplyCLICK Credit Card
+32,19,24,16,9,200000,RBL,BankBazaar Credit Card
+33,25,28,13,1,120000,ICICI,Amazon Pay Credit Card
+21,11,25,24,19,35000,Yes Bank,SimplyCLICK Credit Card
+16,11,24,26,24,25000,Axis,Flipkart Axis Bank Credit Card
+20,4,30,10,36,25000,Standard Chartered,Super Value Titanium Credit Card
+21,27,15,22,15,35000,Axis,Flipkart Axis Bank Credit Card
+34,14,11,26,15,200000,Axis,Flipkart Axis Bank Credit Card
+22,22,24,6,25,200000,Yes Bank,YES First Business Credit Card
+23,17,14,15,31,200000,HDFC,Regalia Gold
+16,11,29,21,23,50000,IDFC First,BankBazaar Credit Card
+1,33,19,32,15,50000,Yes Bank,YES First Business Credit Card
+22,23,13,6,35,25000,Yes Bank,SimplySAVE Credit Card
+2,37,15,25,21,200000,Standard Chartered,PVR Platinum Credit Card
+15,35,35,11,4,25000,Axis,Flipkart Axis Bank Credit Card
+16,8,2,25,49,25000,Standard Chartered,Super Value Titanium Credit Card
+16,6,28,21,30,120000,Citibank,Cashback Credit Card
+23,20,13,27,17,25000,Standard Chartered,Super Value Titanium Credit Card
+22,10,30,23,16,25000,Yes Bank,Coral Credit Card
+23,14,7,24,33,25000,ICICI,Amazon Pay Credit Card
+19,17,4,33,28,200000,Axis,Coral Credit Card
+21,11,33,9,27,25000,Standard Chartered,Super Value Titanium Credit Card
+35,4,20,0,40,200000,Citibank,Cashback Credit Card
+21,26,19,12,22,50000,IDFC First,First Classic Credit Card
+4,3,1,46,47,75000,SBI,BPCL Octane Credit Card
+14,27,21,25,12,25000,IDFC First,First Classic Credit Card
+7,21,18,39,16,120000,Citibank,Cashback Credit Card
+10,25,27,28,10,35000,HDFC,Millennia Credit Card
+36,20,28,7,9,120000,Kotak,White Credit Card
+29,25,17,15,13,120000,IDFC First,First Wealth Credit Card
+1,30,25,35,10,35000,HDFC,Tata Neu Infinity Credit Card
+14,17,38,18,13,35000,HDFC,Tata Neu Infinity Credit Card
+29,14,22,2,33,75000,Axis,Ace Credit Card
+19,16,13,27,25,35000,IDFC First,First Classic Credit Card
+22,22,25,10,21,50000,IDFC First,Vistara Infinite Credit Card
+20,7,22,41,11,25000,Standard Chartered,Super Value Titanium Credit Card
+35,15,12,36,1,25000,HDFC,SimplySAVE Credit Card
+3,21,2,27,47,120000,HDFC,Millennia Credit Card
+44,4,19,18,15,35000,Citibank,Cashback Credit Card
+2,26,27,36,9,35000,HDFC,Millennia Credit Card
+23,27,23,19,8,25000,Yes Bank,Flipkart Axis Bank Credit Card
+38,18,10,28,6,25000,Citibank,Super Value Titanium Credit Card
+12,24,28,31,4,50000,HDFC,Coral Credit Card
+22,11,32,34,1,120000,Kotak,PVR Platinum Credit Card
+21,9,26,10,34,50000,Citibank,Cashback Credit Card
+11,30,14,24,22,200000,RBL,First Classic Credit Card
+3,13,24,36,24,200000,Yes Bank,YES First Business Credit Card
+35,24,13,28,0,50000,SBI,BPCL Octane Credit Card
+6,22,8,57,7,50000,SBI,BPCL Octane Credit Card
+16,18,11,23,33,120000,Yes Bank,YES First Business Credit Card
+18,17,25,26,15,200000,Kotak,League Platinum Credit Card
+24,36,17,9,14,50000,ICICI,Coral Credit Card
+5,28,12,28,27,25000,Kotak,Amazon Pay Credit Card
+9,13,33,28,17,200000,IDFC First,Vistara Infinite Credit Card
+16,16,29,2,37,120000,IDFC First,First Wealth Credit Card
+19,12,43,19,7,35000,HDFC,Tata Neu Infinity Credit Card
+15,10,33,14,28,25000,Kotak,PVR Platinum Credit Card
+26,30,14,15,14,50000,Standard Chartered,Super Value Titanium Credit Card
+19,16,2,40,22,50000,Axis,Flipkart Axis Bank Credit Card
+10,21,1,24,43,50000,Kotak,PVR Platinum Credit Card
+23,20,23,9,25,25000,Standard Chartered,Super Value Titanium Credit Card
+15,36,12,35,3,120000,HDFC,First Wealth Credit Card
+8,14,33,19,27,75000,Axis,Flipkart Axis Bank Credit Card
+10,25,29,5,31,200000,HDFC,Millennia Credit Card
+11,49,4,18,18,25000,ICICI,HPCL Super Saver Credit Card
+8,19,33,1,38,75000,IDFC First,Vistara Infinite Credit Card
+7,14,19,24,36,75000,ICICI,Amazon Pay Credit Card
+7,38,38,16,1,25000,Axis,My Zone Credit Card
+12,24,21,14,30,120000,HDFC,Millennia Credit Card
+34,7,5,22,32,75000,Standard Chartered,Super Value Titanium Credit Card
+22,28,32,5,12,35000,ICICI,Amazon Pay Credit Card
+30,12,18,29,11,120000,IDFC First,First Classic Credit Card
+11,12,5,70,2,200000,IDFC First,First Wealth Credit Card
+27,25,15,0,33,25000,Axis,SimplySAVE Credit Card
+37,24,1,7,31,35000,Standard Chartered,Super Value Titanium Credit Card
+20,24,21,8,27,200000,ICICI,Flipkart Axis Bank Credit Card
+2,22,10,16,51,35000,ICICI,Amazon Pay Credit Card
+13,39,19,28,1,120000,Kotak,PVR Platinum Credit Card
+7,17,24,9,43,75000,ICICI,HPCL Super Saver Credit Card
+29,29,4,5,33,50000,Citibank,Cashback Credit Card
+10,7,17,31,36,50000,IDFC First,Vistara Infinite Credit Card
+22,19,15,20,24,35000,ICICI,HPCL Super Saver Credit Card
+16,38,6,34,7,120000,SBI,Elite Credit Card
+29,29,12,27,2,120000,Yes Bank,YES First Business Credit Card
+16,30,25,9,21,50000,Standard Chartered,Super Value Titanium Credit Card
+29,18,5,22,26,35000,SBI,BPCL Octane Credit Card
+26,29,6,16,22,25000,Standard Chartered,Super Value Titanium Credit Card
+24,36,10,29,2,50000,Yes Bank,YES First Business Credit Card
+7,23,31,11,28,200000,IDFC First,Vistara Infinite Credit Card
+27,21,14,19,19,120000,Axis,Ace Credit Card
+20,7,24,24,25,35000,Citibank,Cashback Credit Card
+23,2,33,37,5,75000,Kotak,White Credit Card
+12,11,31,13,33,35000,IDFC First,First Classic Credit Card
+22,19,34,19,6,35000,Citibank,Cashback Credit Card
+33,5,11,31,20,200000,SBI,PVR Platinum Credit Card
+15,7,4,40,35,200000,Yes Bank,YES First Business Credit Card
+23,13,25,11,28,35000,ICICI,Amazon Pay Credit Card
+34,13,1,21,31,50000,Yes Bank,YES First Business Credit Card
+19,37,3,25,16,200000,SBI,BankBazaar Credit Card
+21,13,10,48,9,120000,Kotak,White Credit Card
+6,28,15,27,23,200000,Standard Chartered,Super Value Titanium Credit Card
+33,32,13,11,12,75000,Standard Chartered,Super Value Titanium Credit Card
+29,16,5,16,34,120000,Yes Bank,YES First Business Credit Card
+39,42,2,18,0,25000,Standard Chartered,My Zone Credit Card
+16,6,28,28,22,200000,RBL,BankBazaar Credit Card
+23,27,31,15,4,200000,IDFC First,First Wealth Credit Card
+16,41,10,31,1,75000,Axis,Flipkart Axis Bank Credit Card
+34,6,20,39,2,120000,Kotak,PVR Platinum Credit Card
+23,19,17,20,22,25000,Yes Bank,SimplyCLICK Credit Card
+21,22,14,33,10,35000,IDFC First,First Classic Credit Card
+11,9,25,36,19,50000,HDFC,Millennia Credit Card
+14,23,31,8,23,200000,ICICI,Amazon Pay Credit Card
+6,0,15,22,58,200000,Kotak,Tata Neu Infinity Credit Card
+13,24,22,19,22,75000,Kotak,League Platinum Credit Card
+29,27,27,6,11,75000,HDFC,Regalia Gold
+11,35,6,28,19,25000,Yes Bank,HPCL Super Saver Credit Card
+4,19,19,24,34,25000,RBL,BankBazaar Credit Card
+9,30,8,28,25,35000,Yes Bank,Cashback Credit Card
+50,20,16,4,10,25000,Axis,Ace Credit Card
+32,30,4,24,10,200000,Citibank,Cashback Credit Card
+9,3,26,50,12,50000,Axis,Flipkart Axis Bank Credit Card
+26,21,12,13,27,120000,Axis,Flipkart Axis Bank Credit Card
+25,17,40,8,9,25000,RBL,BankBazaar Credit Card
+2,50,19,5,23,75000,Yes Bank,YES First Business Credit Card
+4,21,43,15,18,25000,Kotak,PVR Platinum Credit Card
+4,14,33,36,13,35000,Axis,Flipkart Axis Bank Credit Card
+4,29,35,21,11,75000,Citibank,Cashback Credit Card
+1,35,12,25,27,50000,HDFC,Tata Neu Infinity Credit Card
+30,0,10,25,35,75000,IDFC First,BankBazaar Credit Card
+12,11,17,30,29,35000,ICICI,Amazon Pay Credit Card
+31,10,15,13,32,25000,ICICI,Amazon Pay Credit Card
+25,26,19,11,20,120000,Axis,My Zone Credit Card
+39,10,34,6,11,25000,Standard Chartered,Super Value Titanium Credit Card
+14,11,41,14,19,50000,IDFC First,Vistara Infinite Credit Card
+24,13,15,32,17,35000,Yes Bank,SimplyCLICK Credit Card
+29,33,15,13,9,25000,HDFC,Flipkart Axis Bank Credit Card
+27,21,14,20,18,25000,Standard Chartered,Super Value Titanium Credit Card
+10,6,40,34,10,50000,Standard Chartered,Super Value Titanium Credit Card
+22,14,23,24,17,200000,HDFC,Tata Neu Infinity Credit Card
+25,49,12,12,2,120000,ICICI,Amazon Pay Credit Card
+12,27,12,29,21,50000,SBI,SimplyCLICK Credit Card
+29,11,2,32,27,35000,HDFC,Tata Neu Infinity Credit Card
+28,18,3,28,23,75000,Axis,My Zone Credit Card
+19,5,11,38,27,35000,RBL,BankBazaar Credit Card
+11,19,41,2,27,50000,SBI,SimplyCLICK Credit Card
+2,21,21,28,29,75000,HDFC,Millennia Credit Card
+5,25,38,19,14,50000,RBL,BankBazaar Credit Card
+22,22,16,39,0,120000,Citibank,Cashback Credit Card
+32,3,39,2,25,75000,HDFC,Regalia Gold
+3,1,36,9,51,25000,Standard Chartered,Super Value Titanium Credit Card
+13,23,19,20,26,200000,RBL,BankBazaar Credit Card
+41,6,3,11,40,35000,HDFC,Tata Neu Infinity Credit Card
+23,11,33,16,17,120000,IDFC First,First Wealth Credit Card
+32,17,11,11,29,25000,Yes Bank,Cashback Credit Card
+12,11,29,22,26,120000,ICICI,Amazon Pay Credit Card
+48,19,8,4,19,120000,ICICI,Coral Credit Card
+18,13,16,26,26,75000,IDFC First,First Wealth Credit Card
+6,16,31,33,14,50000,RBL,BankBazaar Credit Card
+23,6,36,11,24,35000,IDFC First,First Classic Credit Card
+2,33,12,21,31,200000,RBL,BankBazaar Credit Card
+52,5,26,7,10,200000,Standard Chartered,Super Value Titanium Credit Card
+17,12,11,28,33,50000,SBI,Cashback Credit Card
+2,29,25,25,20,35000,Kotak,PVR Platinum Credit Card
+26,16,8,27,23,50000,Kotak,League Platinum Credit Card
+14,21,19,26,19,120000,HDFC,Diners Club Black
+20,19,20,15,25,50000,ICICI,Coral Credit Card
+30,15,23,10,22,50000,Kotak,White Credit Card
+19,34,16,11,20,200000,RBL,Amazon Pay Credit Card
+15,26,30,24,5,25000,IDFC First,First Classic Credit Card
+25,12,9,34,20,35000,SBI,SimplyCLICK Credit Card
+32,4,12,29,23,25000,ICICI,PVR Platinum Credit Card
+3,21,27,13,36,200000,RBL,BankBazaar Credit Card
+21,8,21,12,37,25000,IDFC First,First Classic Credit Card
+2,17,0,39,41,200000,SBI,SimplyCLICK Credit Card
+11,17,42,27,3,50000,ICICI,Amazon Pay Credit Card
+20,5,7,37,31,120000,Yes Bank,YES First Business Credit Card
+31,10,31,15,14,75000,SBI,SimplyCLICK Credit Card
+22,29,45,2,2,35000,RBL,SimplySAVE Credit Card
+14,30,2,24,29,200000,Yes Bank,YES First Business Credit Card
+37,0,17,28,19,35000,Yes Bank,Cashback Credit Card
+6,23,30,9,32,75000,IDFC First,Vistara Infinite Credit Card
+43,0,18,15,25,35000,Kotak,PVR Platinum Credit Card
+15,23,25,29,7,120000,IDFC First,Vistara Infinite Credit Card
+6,32,9,28,24,120000,HDFC,Diners Club Black
+13,32,1,11,43,25000,Kotak,Ace Credit Card
+8,1,46,43,2,200000,SBI,SimplyCLICK Credit Card
+40,36,16,1,7,50000,Citibank,Cashback Credit Card
+12,4,52,1,31,35000,RBL,BankBazaar Credit Card
+14,42,18,5,21,75000,Axis,My Zone Credit Card
+8,26,12,18,36,120000,IDFC First,First Classic Credit Card
+16,1,29,19,35,25000,IDFC First,BankBazaar Credit Card
+13,28,5,12,42,25000,ICICI,HPCL Super Saver Credit Card
+35,13,23,24,5,75000,Citibank,Cashback Credit Card
+23,17,38,14,8,75000,ICICI,Coral Credit Card
+30,17,11,31,12,200000,IDFC First,First Wealth Credit Card
+29,14,31,18,8,120000,Kotak,League Platinum Credit Card
+2,39,14,20,25,120000,ICICI,BankBazaar Credit Card
+14,5,30,41,10,75000,HDFC,Millennia Credit Card
+29,4,27,8,32,25000,Kotak,PVR Platinum Credit Card
+22,22,8,23,24,120000,Kotak,White Credit Card
+11,36,29,15,9,35000,IDFC First,First Classic Credit Card
+12,0,1,18,70,120000,Kotak,League Platinum Credit Card
+32,27,30,4,7,25000,SBI,SimplyCLICK Credit Card
+31,36,8,23,2,25000,Axis,Ace Credit Card
+37,16,27,16,4,200000,SBI,BPCL Octane Credit Card
+13,22,3,22,40,50000,SBI,SimplyCLICK Credit Card
+26,29,7,18,20,120000,HDFC,Tata Neu Infinity Credit Card
+39,15,0,20,25,75000,Kotak,PVR Platinum Credit Card
+4,42,29,6,19,35000,RBL,First Classic Credit Card
+22,28,10,6,34,75000,ICICI,Amazon Pay Credit Card
+5,23,35,23,14,25000,HDFC,Cashback Credit Card
+21,28,14,7,30,75000,Standard Chartered,Super Value Titanium Credit Card
+1,37,53,2,7,200000,Axis,Flipkart Axis Bank Credit Card
+25,4,30,30,10,120000,SBI,SimplyCLICK Credit Card
+29,22,24,6,20,200000,Standard Chartered,Super Value Titanium Credit Card
+20,29,7,22,21,75000,ICICI,Regalia Gold
+6,19,12,31,32,75000,Citibank,Cashback Credit Card
+18,25,16,27,13,35000,ICICI,Amazon Pay Credit Card
+18,21,5,47,10,200000,ICICI,HPCL Super Saver Credit Card
+25,30,5,8,32,25000,ICICI,Coral Credit Card
+39,18,19,15,9,35000,SBI,My Zone Credit Card
+27,7,15,22,29,35000,Yes Bank,Amazon Pay Credit Card
+22,24,19,11,23,120000,Standard Chartered,League Platinum Credit Card
+20,15,29,25,12,50000,Citibank,Cashback Credit Card
+22,26,2,22,28,200000,HDFC,Tata Neu Infinity Credit Card
+40,1,27,23,9,25000,RBL,BankBazaar Credit Card
+26,6,5,22,42,200000,IDFC First,First Wealth Credit Card
+31,39,19,4,7,120000,Yes Bank,YES First Business Credit Card
+13,10,26,23,28,120000,Axis,Flipkart Axis Bank Credit Card
+31,12,27,0,29,75000,Yes Bank,YES First Business Credit Card
+20,21,11,23,25,35000,Yes Bank,Millennia Credit Card
+38,16,0,19,27,35000,IDFC First,First Classic Credit Card
+28,8,29,6,29,35000,Axis,Flipkart Axis Bank Credit Card
+6,6,34,38,17,50000,ICICI,HPCL Super Saver Credit Card
+18,29,22,15,16,50000,RBL,BankBazaar Credit Card
+0,31,19,21,29,120000,ICICI,Amazon Pay Credit Card
+11,10,4,25,49,200000,RBL,BankBazaar Credit Card
+18,42,33,6,0,120000,ICICI,Amazon Pay Credit Card
+32,33,10,24,2,35000,Yes Bank,Millennia Credit Card
+25,12,10,27,26,75000,HDFC,Millennia Credit Card
+22,18,19,40,1,75000,Kotak,League Platinum Credit Card
+19,17,15,9,39,75000,IDFC First,Vistara Infinite Credit Card
+17,37,7,33,7,35000,Axis,Flipkart Axis Bank Credit Card
+36,10,17,0,37,25000,ICICI,HPCL Super Saver Credit Card
+19,14,28,18,21,50000,ICICI,Coral Credit Card
+22,31,28,14,5,35000,Citibank,Cashback Credit Card
+15,26,21,28,10,120000,Kotak,League Platinum Credit Card
+39,28,25,2,5,35000,Kotak,PVR Platinum Credit Card
+9,24,0,30,37,75000,Yes Bank,YES First Business Credit Card
+6,8,27,29,30,35000,Standard Chartered,Super Value Titanium Credit Card
+28,7,4,27,34,25000,RBL,Flipkart Axis Bank Credit Card
+18,8,29,16,28,200000,ICICI,Amazon Pay Credit Card
+50,8,3,8,32,120000,IDFC First,Vistara Infinite Credit Card
+24,34,40,2,0,200000,Kotak,PVR Platinum Credit Card
+11,36,8,38,7,35000,Yes Bank,SimplyCLICK Credit Card
+5,48,8,20,20,50000,Axis,Flipkart Axis Bank Credit Card
+8,30,11,29,21,25000,RBL,BankBazaar Credit Card
+17,27,14,12,31,75000,Yes Bank,HPCL Super Saver Credit Card
+35,1,16,18,29,35000,Axis,Flipkart Axis Bank Credit Card
+31,30,3,15,21,25000,IDFC First,First Classic Credit Card
+8,13,24,26,28,50000,Citibank,Cashback Credit Card
+27,21,2,24,27,75000,Kotak,League Platinum Credit Card
+7,30,24,27,12,200000,Axis,Flipkart Axis Bank Credit Card
+10,29,27,10,24,200000,RBL,BankBazaar Credit Card
+1,14,33,44,8,75000,Axis,Flipkart Axis Bank Credit Card
+14,33,11,5,37,25000,Citibank,BPCL Octane Credit Card
+16,1,26,17,40,120000,IDFC First,First Wealth Credit Card
+20,20,20,29,12,25000,ICICI,HPCL Super Saver Credit Card
+28,25,30,6,11,75000,Axis,League Platinum Credit Card
+15,26,47,9,3,25000,Axis,My Zone Credit Card
+26,9,38,6,20,200000,Axis,Magnus Credit Card
+24,24,14,25,13,35000,SBI,BPCL Octane Credit Card
+14,14,35,34,2,35000,Citibank,Cashback Credit Card
+23,12,8,29,28,75000,RBL,BankBazaar Credit Card
+10,10,10,12,57,35000,Kotak,PVR Platinum Credit Card
+30,25,5,12,28,120000,SBI,First Wealth Credit Card
+19,34,12,5,29,35000,ICICI,Amazon Pay Credit Card
+24,10,11,28,26,25000,SBI,Amazon Pay Credit Card
+9,14,28,30,20,75000,Axis,My Zone Credit Card
+14,17,21,24,25,200000,SBI,BPCL Octane Credit Card
+19,5,28,17,29,35000,ICICI,Amazon Pay Credit Card
+0,3,36,32,29,25000,Kotak,Cashback Credit Card
+47,35,1,1,16,25000,SBI,SimplyCLICK Credit Card
+26,14,22,19,20,75000,Axis,Ace Credit Card
+6,27,23,24,19,25000,Citibank,My Zone Credit Card
+17,15,2,37,28,50000,Axis,YES First Business Credit Card
+6,12,19,34,29,50000,Standard Chartered,Super Value Titanium Credit Card
+25,22,19,9,25,35000,RBL,BankBazaar Credit Card
+33,23,24,4,16,35000,IDFC First,First Classic Credit Card
+21,33,21,3,22,25000,IDFC First,First Classic Credit Card
+8,20,26,15,30,25000,Axis,Ace Credit Card
+24,24,7,22,23,200000,HDFC,Diners Club Black
+21,24,22,22,11,200000,Yes Bank,YES First Business Credit Card
+7,31,13,22,28,35000,HDFC,Tata Neu Infinity Credit Card
+27,3,25,14,30,25000,Axis,Flipkart Axis Bank Credit Card
+1,16,33,31,20,25000,IDFC First,Flipkart Axis Bank Credit Card
+22,4,14,22,38,200000,RBL,BankBazaar Credit Card
+9,23,45,19,5,25000,IDFC First,First Classic Credit Card
+17,38,18,24,4,50000,ICICI,Coral Credit Card
+22,26,14,16,22,35000,Yes Bank,Millennia Credit Card
+15,2,30,18,35,50000,Standard Chartered,Super Value Titanium Credit Card
+22,16,29,27,5,200000,Standard Chartered,Super Value Titanium Credit Card
+15,23,19,19,24,200000,Kotak,League Platinum Credit Card
+15,1,29,28,28,35000,RBL,BankBazaar Credit Card
+32,20,31,7,10,35000,Yes Bank,SimplySAVE Credit Card
+18,26,27,16,13,75000,RBL,BankBazaar Credit Card
+34,8,13,17,27,25000,Citibank,Flipkart Axis Bank Credit Card
+9,22,14,25,30,35000,HDFC,Tata Neu Infinity Credit Card
+26,17,29,9,19,75000,IDFC First,Vistara Infinite Credit Card
+6,29,27,17,21,25000,Standard Chartered,Super Value Titanium Credit Card
+27,11,35,1,26,50000,HDFC,SimplyCLICK Credit Card
+32,8,37,19,4,75000,Standard Chartered,Super Value Titanium Credit Card
+15,18,5,38,24,120000,Axis,Ace Credit Card
+19,26,15,25,15,35000,Kotak,My Zone Credit Card
+28,36,9,9,18,120000,Yes Bank,YES First Business Credit Card
+37,15,12,1,36,120000,HDFC,Millennia Credit Card
+2,46,7,45,0,120000,Standard Chartered,Super Value Titanium Credit Card
+6,11,41,27,15,75000,SBI,Elite Credit Card
+19,23,30,9,19,120000,Standard Chartered,Super Value Titanium Credit Card
+6,19,24,26,25,75000,RBL,BankBazaar Credit Card
+9,1,58,24,9,50000,RBL,Flipkart Axis Bank Credit Card
+20,42,18,18,2,50000,SBI,BPCL Octane Credit Card
+37,18,5,16,23,120000,ICICI,Amazon Pay Credit Card
+47,3,11,18,21,200000,Kotak,White Credit Card
+16,22,21,14,27,50000,Citibank,Cashback Credit Card
+3,28,32,34,3,35000,Yes Bank,Millennia Credit Card
+21,35,7,9,28,120000,Citibank,Cashback Credit Card
+25,18,25,12,21,50000,Yes Bank,YES First Business Credit Card
+36,6,15,4,39,25000,Citibank,Cashback Credit Card
+37,17,42,4,0,35000,RBL,BankBazaar Credit Card
+17,28,27,23,5,25000,Axis,SimplyCLICK Credit Card
+18,27,20,23,13,50000,SBI,SimplySAVE Credit Card
+19,16,19,31,15,35000,RBL,BankBazaar Credit Card
+10,59,27,3,1,50000,Kotak,League Platinum Credit Card
+4,31,25,35,5,200000,Axis,Flipkart Axis Bank Credit Card
+14,31,5,14,36,25000,Kotak,Flipkart Axis Bank Credit Card
+4,22,27,28,20,75000,Yes Bank,YES First Business Credit Card
+16,1,4,42,37,200000,SBI,SimplyCLICK Credit Card
+19,25,17,11,28,120000,SBI,BPCL Octane Credit Card
+4,26,32,6,32,50000,HDFC,Millennia Credit Card
+10,30,14,40,6,75000,Kotak,League Platinum Credit Card
+10,5,7,35,43,25000,HDFC,Ace Credit Card
+19,1,16,31,32,35000,Axis,Flipkart Axis Bank Credit Card
+42,7,13,34,5,120000,RBL,BankBazaar Credit Card
+6,28,22,20,24,50000,Citibank,Cashback Credit Card
+19,6,10,27,37,50000,Axis,Super Value Titanium Credit Card
+13,26,15,26,20,120000,Yes Bank,YES First Business Credit Card
+43,17,5,34,0,25000,Citibank,Cashback Credit Card
+24,10,17,26,22,35000,Kotak,PVR Platinum Credit Card
+25,23,2,31,18,50000,IDFC First,First Classic Credit Card
+42,8,41,1,9,120000,Standard Chartered,Super Value Titanium Credit Card
+26,10,2,14,48,120000,Yes Bank,YES First Business Credit Card
+31,25,18,25,1,25000,Citibank,Cashback Credit Card
+33,21,2,16,27,25000,IDFC First,First Classic Credit Card
+16,1,15,26,42,200000,Citibank,Cashback Credit Card
+20,34,21,1,23,200000,Standard Chartered,Super Value Titanium Credit Card
+17,20,17,23,24,25000,Yes Bank,HPCL Super Saver Credit Card
+33,30,25,2,10,75000,SBI,SimplyCLICK Credit Card
+16,28,12,4,40,50000,ICICI,YES First Business Credit Card
+27,3,40,20,10,35000,Standard Chartered,Super Value Titanium Credit Card
+22,17,28,30,4,50000,HDFC,Millennia Credit Card
+38,1,16,24,20,200000,Standard Chartered,Super Value Titanium Credit Card
+26,21,13,27,14,50000,RBL,BankBazaar Credit Card
+8,19,29,37,7,50000,Axis,Ace Credit Card
+21,30,12,28,8,200000,Yes Bank,YES First Business Credit Card
+0,18,17,54,11,50000,IDFC First,Vistara Infinite Credit Card
+16,32,26,7,19,200000,Citibank,Cashback Credit Card
+32,42,7,14,6,75000,HDFC,Millennia Credit Card
+12,24,29,24,11,75000,Citibank,Cashback Credit Card
+28,16,23,32,1,75000,RBL,BankBazaar Credit Card
+22,9,28,9,31,75000,Standard Chartered,Super Value Titanium Credit Card
+38,30,8,2,22,75000,Standard Chartered,Super Value Titanium Credit Card
+12,31,11,33,13,50000,RBL,BankBazaar Credit Card
+61,25,4,4,5,200000,Kotak,League Platinum Credit Card
+9,3,20,32,37,120000,HDFC,Tata Neu Infinity Credit Card
+36,29,14,3,17,50000,Standard Chartered,Super Value Titanium Credit Card
+6,4,39,45,6,50000,Standard Chartered,Millennia Credit Card
+27,1,8,34,31,50000,IDFC First,Vistara Infinite Credit Card
+5,5,9,38,44,50000,ICICI,Amazon Pay Credit Card
+12,27,23,22,16,25000,Yes Bank,Flipkart Axis Bank Credit Card
+1,27,24,21,27,120000,Standard Chartered,Super Value Titanium Credit Card
+18,7,18,24,33,25000,SBI,SimplyCLICK Credit Card
+19,28,23,5,24,200000,RBL,BankBazaar Credit Card
+14,24,11,25,25,25000,Standard Chartered,Super Value Titanium Credit Card
+24,17,37,5,17,75000,Kotak,White Credit Card
+4,57,0,15,24,35000,IDFC First,First Classic Credit Card
+31,18,32,17,1,75000,Kotak,PVR Platinum Credit Card
+3,10,23,30,34,25000,Kotak,Amazon Pay Credit Card
+21,21,28,8,22,120000,Kotak,White Credit Card
+21,43,5,14,16,35000,RBL,BankBazaar Credit Card
+27,19,26,26,1,50000,IDFC First,Vistara Infinite Credit Card
+3,33,28,19,16,35000,RBL,BankBazaar Credit Card
+11,23,14,21,31,25000,IDFC First,First Classic Credit Card
+20,18,16,38,8,75000,Axis,Flipkart Axis Bank Credit Card
+17,16,56,8,3,25000,IDFC First,First Classic Credit Card
+8,22,17,40,13,120000,Yes Bank,YES First Business Credit Card
+19,36,7,10,28,35000,Axis,Flipkart Axis Bank Credit Card
+18,21,21,13,27,120000,Citibank,Cashback Credit Card
+11,17,32,23,17,50000,ICICI,PVR Platinum Credit Card
+7,4,35,46,7,200000,ICICI,Amazon Pay Credit Card
+2,34,8,36,20,200000,ICICI,Emerald Private Metal
+29,13,32,0,27,25000,IDFC First,First Classic Credit Card
+45,7,15,13,21,35000,Axis,Ace Credit Card
+8,27,35,19,10,25000,Yes Bank,SimplyCLICK Credit Card
+28,3,30,9,30,75000,HDFC,Millennia Credit Card
+22,26,4,21,27,120000,Yes Bank,YES First Business Credit Card
+43,20,20,8,10,35000,ICICI,Amazon Pay Credit Card
+26,27,14,10,24,25000,ICICI,Coral Credit Card
+19,26,13,38,5,25000,Axis,Flipkart Axis Bank Credit Card
+34,23,21,6,16,35000,ICICI,HPCL Super Saver Credit Card
+37,26,1,7,29,25000,Standard Chartered,Super Value Titanium Credit Card
+6,31,1,39,23,35000,Standard Chartered,Super Value Titanium Credit Card
+26,24,7,14,28,25000,ICICI,HPCL Super Saver Credit Card
+35,24,7,15,19,35000,Citibank,Cashback Credit Card
+24,24,28,18,6,200000,Kotak,PVR Platinum Credit Card
+0,32,34,8,26,50000,IDFC First,Vistara Infinite Credit Card
+17,33,15,3,33,120000,Yes Bank,YES First Business Credit Card
+18,38,17,7,20,25000,Axis,Flipkart Axis Bank Credit Card
+24,9,15,31,21,120000,SBI,Tata Neu Infinity Credit Card
+53,33,3,6,5,200000,RBL,BankBazaar Credit Card
+17,21,17,28,18,200000,Citibank,Cashback Credit Card
+22,25,15,15,24,50000,RBL,BankBazaar Credit Card
+9,14,22,24,30,75000,SBI,BPCL Octane Credit Card
+9,13,26,30,22,200000,HDFC,Millennia Credit Card
+2,21,23,24,30,25000,Axis,Ace Credit Card
+10,12,5,48,25,35000,IDFC First,First Classic Credit Card
+25,37,15,16,7,200000,Yes Bank,YES First Business Credit Card
+20,21,22,22,15,50000,Citibank,Cashback Credit Card
+30,19,6,15,29,50000,Citibank,Cashback Credit Card
+20,23,25,17,17,25000,IDFC First,First Classic Credit Card
+30,22,0,41,7,35000,RBL,BankBazaar Credit Card
+13,28,17,23,19,35000,Axis,Ace Credit Card
+14,29,21,30,6,25000,SBI,SimplySAVE Credit Card
+23,35,5,31,6,120000,Standard Chartered,Super Value Titanium Credit Card
+23,10,31,14,22,35000,Citibank,Cashback Credit Card
+36,31,3,17,12,75000,Yes Bank,YES First Business Credit Card
+12,31,5,15,38,25000,RBL,BankBazaar Credit Card
+18,37,12,24,9,25000,Axis,Flipkart Axis Bank Credit Card
+24,6,33,31,7,120000,Citibank,Cashback Credit Card
+35,22,30,4,9,120000,Standard Chartered,Super Value Titanium Credit Card
+28,7,18,2,45,35000,Citibank,Cashback Credit Card
+1,41,14,22,21,200000,IDFC First,Vistara Infinite Credit Card
+8,23,19,13,37,25000,IDFC First,Amazon Pay Credit Card
+11,26,16,27,21,50000,ICICI,Amazon Pay Credit Card
+21,18,18,21,22,120000,SBI,Coral Credit Card
+26,17,3,32,21,50000,IDFC First,Vistara Infinite Credit Card
+16,19,5,17,43,25000,RBL,BankBazaar Credit Card
+51,3,0,40,6,200000,Kotak,SimplySAVE Credit Card
+17,22,36,13,11,75000,IDFC First,Vistara Infinite Credit Card
+14,0,29,33,24,25000,Citibank,Amazon Pay Credit Card
+0,6,42,36,15,75000,RBL,BankBazaar Credit Card
+15,6,30,22,26,35000,ICICI,Amazon Pay Credit Card
+5,9,14,36,36,35000,Yes Bank,Flipkart Axis Bank Credit Card
+12,21,17,25,25,120000,SBI,SimplyCLICK Credit Card
+4,19,31,27,20,200000,ICICI,Emerald Private Metal
+38,12,13,33,3,25000,Standard Chartered,Super Value Titanium Credit Card
+30,17,14,15,25,120000,ICICI,Amazon Pay Credit Card
+32,10,30,27,2,35000,RBL,BankBazaar Credit Card
+24,19,22,30,5,75000,RBL,BankBazaar Credit Card
+16,7,30,26,21,25000,Standard Chartered,Super Value Titanium Credit Card
+33,25,3,22,16,120000,ICICI,Amazon Pay Credit Card
+39,39,1,7,14,25000,RBL,BankBazaar Credit Card
+11,35,6,34,14,120000,Standard Chartered,Super Value Titanium Credit Card
+5,17,47,13,16,35000,Citibank,SimplyCLICK Credit Card
+5,34,38,19,5,200000,Axis,My Zone Credit Card
+34,15,34,7,11,35000,IDFC First,First Classic Credit Card
+22,24,2,52,0,200000,Standard Chartered,Super Value Titanium Credit Card
+23,31,5,11,30,35000,IDFC First,Coral Credit Card
+13,28,19,23,17,120000,Kotak,PVR Platinum Credit Card
+9,0,43,17,31,25000,Kotak,PVR Platinum Credit Card
+12,8,33,11,36,200000,RBL,BankBazaar Credit Card
+4,30,2,52,11,120000,Axis,Flipkart Axis Bank Credit Card
+24,4,28,30,14,50000,ICICI,Amazon Pay Credit Card
+41,32,0,20,7,200000,HDFC,Tata Neu Infinity Credit Card
+10,10,1,32,48,75000,Citibank,Cashback Credit Card
+1,39,25,28,8,50000,HDFC,Millennia Credit Card
+21,29,29,17,3,200000,HDFC,Regalia Gold
+2,26,48,18,5,50000,Axis,Flipkart Axis Bank Credit Card
+23,19,32,14,13,50000,IDFC First,Vistara Infinite Credit Card
+33,10,30,0,27,75000,ICICI,Coral Credit Card
+0,2,35,26,36,120000,SBI,SimplyCLICK Credit Card
+25,3,34,30,8,25000,HDFC,BPCL Octane Credit Card
+13,26,4,25,31,120000,IDFC First,First Classic Credit Card
+9,17,35,14,25,35000,SBI,SimplyCLICK Credit Card
+41,0,8,2,48,120000,Citibank,Cashback Credit Card
+27,0,30,33,9,200000,Yes Bank,YES First Business Credit Card
+13,14,30,26,18,200000,IDFC First,Vistara Infinite Credit Card
+27,27,0,25,21,120000,RBL,BankBazaar Credit Card
+27,7,30,20,16,25000,ICICI,Amazon Pay Credit Card
+34,22,11,5,28,75000,SBI,BPCL Octane Credit Card
+22,10,5,12,51,25000,RBL,BankBazaar Credit Card
+12,34,33,16,3,25000,RBL,BankBazaar Credit Card
+16,23,16,27,18,200000,ICICI,Amazon Pay Credit Card
+29,32,21,1,16,35000,Axis,Flipkart Axis Bank Credit Card
+28,14,14,10,34,200000,ICICI,YES First Business Credit Card
+38,6,1,21,34,120000,HDFC,Tata Neu Infinity Credit Card
+11,18,7,61,4,35000,ICICI,Coral Credit Card
+33,34,4,25,4,200000,SBI,SimplySAVE Credit Card
+24,31,37,7,2,25000,Axis,Flipkart Axis Bank Credit Card
+31,30,11,6,22,25000,ICICI,Amazon Pay Credit Card
+0,18,33,23,26,200000,Citibank,Cashback Credit Card
+2,23,30,37,8,200000,ICICI,Emerald Private Metal
+7,18,61,2,12,75000,RBL,BankBazaar Credit Card
+33,2,22,32,11,35000,Axis,Ace Credit Card
+7,7,41,10,34,25000,Axis,Flipkart Axis Bank Credit Card
+43,5,3,7,42,50000,RBL,BankBazaar Credit Card
+21,7,20,43,8,200000,SBI,League Platinum Credit Card
+1,12,28,29,30,35000,Citibank,Cashback Credit Card
+7,36,43,11,2,50000,RBL,Tata Neu Infinity Credit Card
+18,19,23,23,17,35000,HDFC,Tata Neu Infinity Credit Card
+19,9,15,33,25,120000,Standard Chartered,Super Value Titanium Credit Card
+5,21,25,22,26,50000,Yes Bank,YES First Business Credit Card
+35,5,2,13,44,120000,ICICI,Amazon Pay Credit Card
+27,3,32,7,31,25000,ICICI,Amazon Pay Credit Card
+18,12,10,27,33,35000,RBL,First Classic Credit Card
+13,24,20,20,23,75000,HDFC,Millennia Credit Card
+24,27,29,18,2,120000,RBL,BankBazaar Credit Card
+11,5,26,29,28,35000,RBL,BankBazaar Credit Card
+26,32,15,11,16,35000,SBI,SimplyCLICK Credit Card
+16,26,27,9,22,35000,RBL,BankBazaar Credit Card
+30,26,17,0,27,200000,Standard Chartered,Super Value Titanium Credit Card
+6,26,13,26,28,120000,ICICI,HPCL Super Saver Credit Card
+23,15,19,25,18,120000,HDFC,Elite Credit Card
+25,3,44,6,22,75000,RBL,BankBazaar Credit Card
+25,43,1,7,24,75000,Standard Chartered,Super Value Titanium Credit Card
+2,52,10,11,25,120000,Citibank,Cashback Credit Card
+22,11,9,23,35,75000,HDFC,Regalia Gold
+3,30,26,33,9,25000,Yes Bank,Super Value Titanium Credit Card
+14,16,19,44,7,120000,HDFC,Tata Neu Infinity Credit Card
+22,35,1,39,4,35000,HDFC,Millennia Credit Card
+0,18,32,23,27,120000,ICICI,Amazon Pay Credit Card
+26,22,16,23,13,25000,Kotak,Super Value Titanium Credit Card
+27,30,13,12,18,25000,Yes Bank,Flipkart Axis Bank Credit Card
+31,10,33,15,11,200000,RBL,BankBazaar Credit Card
+29,15,18,14,24,50000,Standard Chartered,Super Value Titanium Credit Card
+4,8,48,22,18,200000,Standard Chartered,Super Value Titanium Credit Card
+25,25,18,23,9,35000,Standard Chartered,Coral Credit Card
+12,36,18,20,14,200000,Citibank,Cashback Credit Card
+5,25,23,15,33,25000,HDFC,Amazon Pay Credit Card
+20,26,21,21,13,200000,IDFC First,Vistara Infinite Credit Card
+30,25,16,29,0,120000,Yes Bank,YES First Business Credit Card
+47,26,10,7,10,200000,Yes Bank,YES First Business Credit Card
+20,15,27,36,1,50000,ICICI,Amazon Pay Credit Card
+22,1,56,4,17,25000,SBI,SimplyCLICK Credit Card
+18,33,2,26,22,50000,Yes Bank,First Classic Credit Card
+24,28,28,1,18,35000,Standard Chartered,Super Value Titanium Credit Card
+32,29,3,15,21,75000,Axis,Flipkart Axis Bank Credit Card
+17,36,5,18,24,120000,SBI,BPCL Octane Credit Card
+14,15,30,32,9,75000,Standard Chartered,Super Value Titanium Credit Card
+35,39,14,1,12,75000,Yes Bank,YES First Business Credit Card
+21,16,25,21,18,75000,RBL,BankBazaar Credit Card
+24,9,17,19,31,75000,IDFC First,Vistara Infinite Credit Card
+33,18,13,14,22,35000,RBL,BankBazaar Credit Card
+20,29,19,13,19,50000,Yes Bank,YES First Business Credit Card
+26,22,21,6,25,75000,Citibank,Cashback Credit Card
+7,16,22,25,31,75000,IDFC First,Regalia Gold
+19,30,12,10,29,75000,RBL,BankBazaar Credit Card
+25,22,21,16,17,75000,HDFC,Regalia Gold
+21,5,27,11,36,50000,RBL,Millennia Credit Card
+27,13,24,14,22,75000,HDFC,Regalia Gold
+32,13,12,24,20,75000,Yes Bank,YES First Business Credit Card
+5,16,29,10,40,75000,HDFC,Millennia Credit Card
+21,9,25,22,24,200000,Standard Chartered,Super Value Titanium Credit Card
+33,27,2,23,15,25000,RBL,BankBazaar Credit Card
+33,22,35,2,8,35000,Standard Chartered,Super Value Titanium Credit Card
+18,15,31,31,4,200000,SBI,SimplyCLICK Credit Card
+18,42,23,16,0,75000,Axis,Flipkart Axis Bank Credit Card
+30,19,8,10,33,25000,HDFC,Coral Credit Card
+36,37,13,1,14,50000,Yes Bank,YES First Business Credit Card
+18,11,34,19,18,50000,HDFC,Millennia Credit Card
+29,17,19,3,32,25000,Citibank,SimplyCLICK Credit Card
+19,33,23,5,20,200000,Yes Bank,YES First Business Credit Card
+7,24,23,27,18,50000,HDFC,Tata Neu Infinity Credit Card
+20,10,32,24,14,75000,RBL,BankBazaar Credit Card
+20,20,21,18,22,200000,Axis,Ace Credit Card
+27,25,7,17,25,75000,Citibank,Cashback Credit Card
+36,17,12,14,20,120000,Axis,My Zone Credit Card
+45,11,37,1,7,50000,HDFC,Regalia Gold
+11,12,41,20,15,75000,Axis,Flipkart Axis Bank Credit Card
+14,4,30,29,22,200000,ICICI,Emerald Private Metal
+0,30,34,32,4,200000,Yes Bank,YES First Business Credit Card
+17,13,34,12,24,200000,ICICI,Tata Neu Infinity Credit Card
+13,29,9,30,19,75000,RBL,BankBazaar Credit Card
+27,23,8,39,4,200000,ICICI,HPCL Super Saver Credit Card
+31,15,16,9,29,35000,ICICI,HPCL Super Saver Credit Card
+20,16,13,30,21,120000,Kotak,League Platinum Credit Card
+26,17,42,8,7,35000,Kotak,PVR Platinum Credit Card
+15,17,22,34,11,35000,Yes Bank,SimplyCLICK Credit Card
+22,9,19,23,27,25000,Citibank,Amazon Pay Credit Card
+14,30,23,23,10,75000,Citibank,Cashback Credit Card
+5,31,9,27,28,75000,RBL,BankBazaar Credit Card
+20,5,35,4,36,200000,IDFC First,First Wealth Credit Card
+16,22,21,22,18,25000,ICICI,Amazon Pay Credit Card
+12,10,21,47,9,35000,Standard Chartered,Super Value Titanium Credit Card
+15,18,23,20,23,120000,SBI,SimplySAVE Credit Card
+19,18,15,10,38,25000,Citibank,Amazon Pay Credit Card
+37,21,19,5,19,75000,Standard Chartered,Super Value Titanium Credit Card
+7,22,16,25,30,120000,Yes Bank,YES First Business Credit Card
+28,2,10,33,27,35000,Citibank,Cashback Credit Card
+32,16,32,9,10,200000,RBL,BankBazaar Credit Card
+12,7,39,16,25,50000,ICICI,HPCL Super Saver Credit Card
+28,10,21,30,11,25000,RBL,BankBazaar Credit Card
+27,30,15,7,19,75000,Kotak,League Platinum Credit Card
+1,41,6,8,45,25000,Citibank,Cashback Credit Card
+5,20,21,27,26,75000,HDFC,Millennia Credit Card
+38,33,4,25,1,35000,Citibank,Cashback Credit Card
+21,21,22,14,23,75000,HDFC,Millennia Credit Card
+9,20,20,32,18,35000,Standard Chartered,Super Value Titanium Credit Card
+10,8,39,35,8,35000,IDFC First,First Classic Credit Card
+11,31,12,32,15,25000,SBI,SimplyCLICK Credit Card
+24,5,34,8,29,200000,RBL,Emerald Private Metal
+16,8,40,2,34,25000,Kotak,PVR Platinum Credit Card
+3,19,40,23,14,50000,IDFC First,First Classic Credit Card
+21,14,23,41,0,120000,Standard Chartered,Super Value Titanium Credit Card
+45,1,19,25,10,200000,Yes Bank,YES First Business Credit Card
+11,5,19,34,30,120000,RBL,BankBazaar Credit Card
+41,17,23,0,19,200000,Axis,Flipkart Axis Bank Credit Card
+29,30,20,12,9,200000,Axis,Flipkart Axis Bank Credit Card
+15,20,29,7,29,25000,IDFC First,First Classic Credit Card
+2,16,37,38,6,75000,Axis,Flipkart Axis Bank Credit Card
+2,17,23,26,32,200000,ICICI,Millennia Credit Card
+33,31,2,23,11,25000,Yes Bank,Flipkart Axis Bank Credit Card
+6,36,20,33,5,25000,RBL,BankBazaar Credit Card
+20,15,38,24,4,50000,Axis,My Zone Credit Card
+29,7,12,14,38,25000,HDFC,HPCL Super Saver Credit Card
+9,30,23,35,2,50000,SBI,SimplyCLICK Credit Card
+34,20,32,14,0,50000,Standard Chartered,Super Value Titanium Credit Card
+6,15,58,18,3,200000,SBI,Elite Credit Card
+11,23,22,22,22,75000,ICICI,HPCL Super Saver Credit Card
+22,15,17,43,4,200000,HDFC,Regalia Gold
+3,31,30,14,23,75000,SBI,Elite Credit Card
+36,8,6,12,37,25000,Citibank,Cashback Credit Card
+54,0,8,7,31,50000,RBL,BankBazaar Credit Card
+6,46,8,41,0,50000,HDFC,Millennia Credit Card
+26,12,15,27,20,120000,SBI,SimplySAVE Credit Card
+23,15,24,22,16,200000,Citibank,Cashback Credit Card
+17,25,11,25,22,35000,HDFC,Tata Neu Infinity Credit Card
+5,36,8,38,12,25000,Citibank,SimplyCLICK Credit Card
+31,39,13,9,8,35000,SBI,SimplySAVE Credit Card
+17,23,27,7,26,75000,Standard Chartered,Super Value Titanium Credit Card
+22,34,8,4,32,120000,Citibank,Cashback Credit Card
+28,11,12,14,36,120000,Citibank,Cashback Credit Card
+37,33,24,5,1,200000,Yes Bank,YES First Business Credit Card
+21,14,10,29,26,35000,HDFC,Tata Neu Infinity Credit Card
+49,6,16,23,7,200000,HDFC,Diners Club Black
+24,11,29,26,11,200000,RBL,BankBazaar Credit Card
+34,13,10,18,24,50000,IDFC First,Vistara Infinite Credit Card
+19,21,30,6,23,75000,Yes Bank,YES First Business Credit Card
+10,40,14,34,3,200000,Yes Bank,YES First Business Credit Card
+14,2,25,40,19,120000,Axis,Flipkart Axis Bank Credit Card
+36,30,1,12,22,120000,Axis,Flipkart Axis Bank Credit Card
+16,11,25,20,28,120000,HDFC,Super Value Titanium Credit Card
+29,1,16,24,31,120000,ICICI,Amazon Pay Credit Card
+1,13,38,41,7,25000,Citibank,SimplyCLICK Credit Card
+21,13,5,38,23,50000,SBI,BPCL Octane Credit Card
+24,22,5,17,33,75000,Yes Bank,YES First Business Credit Card
+31,26,19,22,3,75000,Kotak,Millennia Credit Card
+33,26,1,31,10,50000,Yes Bank,YES First Business Credit Card
+6,28,30,22,14,35000,Yes Bank,Tata Neu Infinity Credit Card
+15,4,34,18,29,50000,Citibank,Cashback Credit Card
+19,6,43,5,27,50000,Standard Chartered,Super Value Titanium Credit Card
+2,14,32,19,33,75000,Kotak,League Platinum Credit Card
+6,2,32,34,27,25000,Yes Bank,HPCL Super Saver Credit Card
+17,2,34,37,10,75000,Axis,Ace Credit Card
+25,15,12,27,21,200000,SBI,SimplyCLICK Credit Card
+23,7,34,15,21,25000,RBL,BankBazaar Credit Card
+12,31,26,17,14,25000,SBI,SimplyCLICK Credit Card
+28,17,28,14,13,75000,Axis,Flipkart Axis Bank Credit Card
+24,27,25,10,14,200000,Kotak,White Credit Card
+35,24,13,2,25,75000,ICICI,Amazon Pay Credit Card
+33,23,5,34,5,35000,ICICI,Super Value Titanium Credit Card
+11,12,0,25,52,120000,SBI,SimplyCLICK Credit Card
+24,18,1,22,36,200000,SBI,Elite Credit Card
+23,22,18,15,22,35000,Standard Chartered,Super Value Titanium Credit Card
+42,9,14,10,25,35000,Yes Bank,Millennia Credit Card
+18,18,27,17,20,75000,RBL,BankBazaar Credit Card
+3,25,26,20,26,25000,Axis,My Zone Credit Card
+25,12,16,23,24,35000,Kotak,PVR Platinum Credit Card
+13,29,10,46,2,120000,Citibank,Cashback Credit Card
+11,27,17,37,8,120000,SBI,Elite Credit Card
+17,9,39,18,18,200000,HDFC,Tata Neu Infinity Credit Card
+36,18,19,21,6,25000,RBL,BankBazaar Credit Card
+9,26,31,18,16,75000,Standard Chartered,Super Value Titanium Credit Card
+37,23,12,28,1,25000,ICICI,Amazon Pay Credit Card
+12,5,31,10,42,200000,Axis,Magnus Credit Card
+26,16,14,17,26,25000,Kotak,Amazon Pay Credit Card
+25,22,15,18,20,75000,HDFC,Millennia Credit Card
+24,20,17,9,30,50000,RBL,BankBazaar Credit Card
+35,21,5,8,30,75000,Citibank,Cashback Credit Card
+18,22,26,32,1,120000,Kotak,League Platinum Credit Card
+1,19,33,20,27,75000,Axis,YES First Business Credit Card
+21,5,9,26,39,25000,HDFC,Cashback Credit Card
+10,30,11,12,38,75000,RBL,BankBazaar Credit Card
+21,7,4,33,35,200000,Kotak,League Platinum Credit Card
+18,1,8,48,24,25000,Standard Chartered,Super Value Titanium Credit Card
+30,22,29,7,12,200000,Yes Bank,YES First Business Credit Card
+25,20,29,21,6,75000,Yes Bank,YES First Business Credit Card
+29,26,21,8,15,50000,Yes Bank,YES First Business Credit Card
+6,28,8,31,27,200000,SBI,SimplyCLICK Credit Card
+35,25,11,18,11,75000,Citibank,Cashback Credit Card
+3,20,15,10,52,35000,RBL,BankBazaar Credit Card
+22,13,16,32,17,25000,Yes Bank,SimplyCLICK Credit Card
+16,16,31,28,9,25000,Citibank,Flipkart Axis Bank Credit Card
+0,18,22,22,38,75000,RBL,BankBazaar Credit Card
+11,1,41,3,43,120000,IDFC First,Vistara Infinite Credit Card
+7,14,27,19,33,35000,Standard Chartered,Super Value Titanium Credit Card
+22,26,7,18,27,200000,Standard Chartered,Super Value Titanium Credit Card
+14,9,41,26,10,35000,Citibank,Cashback Credit Card
+16,32,20,27,6,25000,Axis,Flipkart Axis Bank Credit Card
+35,9,13,4,39,200000,Citibank,Flipkart Axis Bank Credit Card
+14,28,11,25,22,120000,Citibank,Cashback Credit Card
+15,3,17,32,32,25000,IDFC First,First Classic Credit Card
+2,19,29,25,25,50000,SBI,SimplySAVE Credit Card
+8,20,28,26,18,50000,ICICI,Amazon Pay Credit Card
+21,16,21,22,20,25000,SBI,SimplyCLICK Credit Card
+8,25,11,20,36,35000,Citibank,BPCL Octane Credit Card
+26,22,25,12,15,200000,Citibank,PVR Platinum Credit Card
+32,38,1,15,12,120000,IDFC First,First Wealth Credit Card
+3,43,17,0,36,200000,HDFC,Millennia Credit Card
+25,12,22,15,26,35000,HDFC,Tata Neu Infinity Credit Card
+3,27,37,22,10,50000,Standard Chartered,Super Value Titanium Credit Card
+5,25,22,24,25,200000,Yes Bank,YES First Business Credit Card
+37,28,3,15,17,35000,SBI,BPCL Octane Credit Card
+15,17,43,4,21,25000,Standard Chartered,Super Value Titanium Credit Card
+29,15,25,28,3,50000,Standard Chartered,Super Value Titanium Credit Card
+9,39,5,42,5,120000,Axis,Flipkart Axis Bank Credit Card
+8,18,23,23,27,120000,SBI,SimplySAVE Credit Card
+44,7,8,32,8,200000,SBI,SimplyCLICK Credit Card
+35,9,1,21,34,50000,Citibank,Cashback Credit Card
+22,21,21,8,28,120000,IDFC First,BankBazaar Credit Card
+23,13,29,10,24,25000,ICICI,HPCL Super Saver Credit Card
+9,21,31,14,25,50000,SBI,SimplySAVE Credit Card
+4,35,17,4,40,50000,Yes Bank,YES First Business Credit Card
+21,12,21,16,29,25000,Kotak,SimplySAVE Credit Card
+18,2,30,19,32,75000,Standard Chartered,Super Value Titanium Credit Card
+17,21,8,39,15,50000,Kotak,White Credit Card
+24,42,7,9,18,35000,Citibank,Cashback Credit Card
+10,25,18,15,32,75000,ICICI,HPCL Super Saver Credit Card
+14,21,15,24,26,35000,Kotak,PVR Platinum Credit Card
+29,7,19,28,17,75000,Kotak,White Credit Card
+18,10,18,42,12,25000,ICICI,Amazon Pay Credit Card
+15,32,20,7,26,25000,Yes Bank,Flipkart Axis Bank Credit Card
+26,21,27,21,5,35000,Kotak,PVR Platinum Credit Card
+18,18,22,16,26,25000,SBI,SimplySAVE Credit Card
+14,19,5,25,36,25000,ICICI,HPCL Super Saver Credit Card
+29,9,28,24,10,75000,Axis,My Zone Credit Card
+24,27,28,9,12,200000,Kotak,Vistara Infinite Credit Card
+10,22,10,1,57,25000,ICICI,Amazon Pay Credit Card
+18,39,18,12,12,120000,SBI,SimplyCLICK Credit Card
+6,36,6,38,14,25000,SBI,SimplyCLICK Credit Card
+20,18,27,17,17,25000,ICICI,Amazon Pay Credit Card
+3,32,24,30,12,50000,Kotak,League Platinum Credit Card
+5,23,25,15,31,50000,Axis,My Zone Credit Card
+26,6,13,29,26,200000,SBI,Elite Credit Card
+2,12,28,25,33,200000,Axis,HPCL Super Saver Credit Card
+7,20,18,17,39,75000,SBI,Elite Credit Card
+29,10,24,17,19,25000,SBI,SimplyCLICK Credit Card
+37,15,18,27,3,35000,Axis,Flipkart Axis Bank Credit Card
+24,26,29,4,16,35000,Axis,BPCL Octane Credit Card
+9,9,22,13,47,35000,ICICI,Amazon Pay Credit Card
+7,33,8,19,33,120000,Kotak,HPCL Super Saver Credit Card
+17,17,4,34,28,75000,IDFC First,Regalia Gold
+31,6,32,21,10,120000,SBI,SimplySAVE Credit Card
+12,23,22,23,20,35000,Yes Bank,SimplyCLICK Credit Card
+0,22,39,34,4,200000,Kotak,White Credit Card
+19,16,27,36,2,25000,HDFC,HPCL Super Saver Credit Card
+9,24,22,18,27,120000,Axis,Flipkart Axis Bank Credit Card
+24,28,11,18,19,25000,Citibank,Cashback Credit Card
+8,11,38,40,3,120000,Citibank,Cashback Credit Card
+6,33,36,4,21,50000,Axis,Flipkart Axis Bank Credit Card
+4,13,52,6,25,120000,SBI,SimplyCLICK Credit Card
+20,10,6,48,15,50000,Citibank,League Platinum Credit Card
+0,19,41,31,8,75000,Citibank,Cashback Credit Card
+23,20,15,21,21,200000,ICICI,Amazon Pay Credit Card
+34,12,15,9,29,50000,SBI,SimplyCLICK Credit Card
+49,23,8,2,18,50000,ICICI,Amazon Pay Credit Card
+30,28,4,17,21,25000,Standard Chartered,Super Value Titanium Credit Card
+12,26,24,0,38,25000,Kotak,PVR Platinum Credit Card
+28,13,26,26,8,75000,ICICI,Amazon Pay Credit Card
+29,30,18,1,21,25000,SBI,SimplyCLICK Credit Card
+23,48,8,1,20,120000,Standard Chartered,Super Value Titanium Credit Card
+29,43,3,22,3,35000,RBL,BankBazaar Credit Card
+36,37,14,6,7,50000,Kotak,PVR Platinum Credit Card
+22,38,1,13,25,120000,RBL,BankBazaar Credit Card
+2,8,34,18,39,25000,Standard Chartered,Super Value Titanium Credit Card
+12,21,24,16,27,50000,Axis,Flipkart Axis Bank Credit Card
+23,16,19,27,16,35000,ICICI,PVR Platinum Credit Card
+14,5,20,27,33,120000,ICICI,HPCL Super Saver Credit Card
+58,13,4,17,9,25000,HDFC,Flipkart Axis Bank Credit Card
+25,40,6,18,11,75000,HDFC,Millennia Credit Card
+38,2,32,29,0,75000,Kotak,League Platinum Credit Card
+22,34,9,34,1,50000,ICICI,Cashback Credit Card
+16,27,23,12,22,25000,RBL,BankBazaar Credit Card
+10,35,3,25,28,50000,Citibank,Cashback Credit Card
+22,10,23,26,19,75000,HDFC,Millennia Credit Card
+5,37,24,17,17,75000,SBI,BPCL Octane Credit Card
+5,22,28,24,21,120000,RBL,BankBazaar Credit Card
+9,13,40,30,9,75000,Axis,Flipkart Axis Bank Credit Card
+23,13,37,7,20,75000,Standard Chartered,Super Value Titanium Credit Card
+10,5,35,32,18,25000,Standard Chartered,Super Value Titanium Credit Card
+9,8,40,24,18,75000,IDFC First,First Classic Credit Card
+14,4,5,48,28,120000,Yes Bank,YES First Business Credit Card
+29,40,9,10,12,120000,Citibank,Cashback Credit Card
+7,25,32,1,35,25000,RBL,BankBazaar Credit Card
+11,21,33,26,9,35000,Kotak,PVR Platinum Credit Card
+25,13,18,5,39,50000,Axis,Flipkart Axis Bank Credit Card
+40,4,27,17,13,120000,Yes Bank,YES First Business Credit Card
+25,12,1,29,33,50000,RBL,Amazon Pay Credit Card
+14,25,24,13,25,25000,Yes Bank,Amazon Pay Credit Card
+1,3,23,9,63,50000,SBI,SimplySAVE Credit Card
+18,35,9,38,0,35000,Kotak,PVR Platinum Credit Card
+28,26,8,8,31,200000,Citibank,Cashback Credit Card
+13,23,22,20,22,200000,IDFC First,First Wealth Credit Card
+21,22,17,15,25,50000,Citibank,PVR Platinum Credit Card
+15,29,20,8,28,120000,ICICI,HPCL Super Saver Credit Card
+56,0,1,13,30,200000,RBL,BankBazaar Credit Card
+31,8,24,6,31,50000,Yes Bank,YES First Business Credit Card
+14,32,30,8,17,120000,Kotak,PVR Platinum Credit Card
+31,19,8,32,10,25000,Standard Chartered,Super Value Titanium Credit Card
+22,17,29,10,21,75000,RBL,BankBazaar Credit Card
+13,31,22,26,8,50000,HDFC,Regalia Gold
+32,25,16,5,22,200000,RBL,BankBazaar Credit Card
+7,50,17,6,21,35000,ICICI,Amazon Pay Credit Card
+17,12,35,22,14,25000,HDFC,First Classic Credit Card
+23,4,33,13,28,75000,Kotak,PVR Platinum Credit Card
+9,20,31,13,27,35000,Standard Chartered,Super Value Titanium Credit Card
+13,24,2,33,27,25000,Standard Chartered,Super Value Titanium Credit Card
+11,30,17,28,14,120000,ICICI,HPCL Super Saver Credit Card
+23,8,16,29,24,75000,RBL,BankBazaar Credit Card
+25,32,10,5,27,35000,Citibank,Cashback Credit Card
+3,22,11,31,32,120000,SBI,SimplyCLICK Credit Card
+31,3,46,14,7,120000,Axis,Flipkart Axis Bank Credit Card
+25,35,13,17,9,120000,SBI,Elite Credit Card
+36,22,28,9,5,200000,Axis,Ace Credit Card
+31,24,20,22,3,75000,Kotak,PVR Platinum Credit Card
+25,6,29,18,23,120000,Yes Bank,YES First Business Credit Card
+34,7,7,51,2,120000,Yes Bank,YES First Business Credit Card
+10,4,39,8,38,35000,HDFC,Tata Neu Infinity Credit Card
+24,7,33,4,32,75000,SBI,SimplyCLICK Credit Card
+24,8,22,32,14,35000,Axis,Flipkart Axis Bank Credit Card
+29,20,35,10,5,35000,IDFC First,First Classic Credit Card
+28,41,23,7,0,75000,IDFC First,Vistara Infinite Credit Card
+30,27,16,0,26,50000,ICICI,PVR Platinum Credit Card
+41,9,5,19,26,50000,Kotak,League Platinum Credit Card
+26,9,10,54,1,35000,Citibank,Cashback Credit Card
+30,14,16,21,19,25000,Standard Chartered,Super Value Titanium Credit Card
+28,22,20,25,4,120000,Citibank,Cashback Credit Card
+10,17,35,10,27,120000,Yes Bank,YES First Business Credit Card
+25,24,9,7,36,200000,Yes Bank,First Wealth Credit Card
+0,21,26,46,6,75000,Standard Chartered,Super Value Titanium Credit Card
+17,27,19,31,6,200000,Kotak,White Credit Card
+20,19,2,39,20,25000,ICICI,Amazon Pay Credit Card
+12,29,29,14,17,75000,SBI,SimplyCLICK Credit Card
+16,5,17,40,22,35000,IDFC First,First Classic Credit Card
+20,11,15,28,27,25000,Standard Chartered,Super Value Titanium Credit Card
+25,12,24,13,26,120000,Axis,Ace Credit Card
+12,21,27,17,23,35000,RBL,BankBazaar Credit Card
+6,10,32,30,22,50000,Citibank,Cashback Credit Card
+15,26,40,11,7,200000,SBI,Elite Credit Card
+6,25,5,30,35,25000,Citibank,Flipkart Axis Bank Credit Card
+19,30,17,30,4,120000,Yes Bank,YES First Business Credit Card
+21,7,17,29,26,120000,SBI,SimplyCLICK Credit Card
+33,20,18,1,28,75000,Citibank,Cashback Credit Card
+1,20,22,36,21,200000,IDFC First,First Wealth Credit Card
+23,9,22,32,13,35000,Standard Chartered,Super Value Titanium Credit Card
+24,25,25,16,11,25000,ICICI,Coral Credit Card
+12,25,33,27,2,25000,RBL,BankBazaar Credit Card
+24,25,3,2,47,75000,HDFC,Millennia Credit Card
+12,19,27,33,9,25000,SBI,SimplyCLICK Credit Card
+21,12,26,8,33,75000,SBI,League Platinum Credit Card
+8,12,8,24,49,50000,SBI,BPCL Octane Credit Card
+19,20,23,17,20,50000,RBL,BankBazaar Credit Card
+13,31,19,29,8,200000,Kotak,White Credit Card
+19,24,20,19,17,25000,Standard Chartered,Super Value Titanium Credit Card
+14,34,33,7,12,75000,Kotak,White Credit Card
+8,21,11,30,29,50000,Kotak,White Credit Card
+7,7,32,28,26,120000,Standard Chartered,Diners Club Black
+46,1,32,1,20,25000,Kotak,Super Value Titanium Credit Card
+10,46,31,9,3,75000,RBL,Vistara Infinite Credit Card
+21,20,23,29,7,75000,Standard Chartered,Super Value Titanium Credit Card
+20,20,15,34,11,75000,Axis,Ace Credit Card
+2,36,12,24,26,75000,Axis,Flipkart Axis Bank Credit Card
+40,33,7,10,10,120000,Citibank,Cashback Credit Card
+28,23,31,15,3,120000,Yes Bank,Vistara Infinite Credit Card
+30,16,33,2,19,35000,Citibank,Amazon Pay Credit Card
+11,26,5,25,33,25000,IDFC First,First Classic Credit Card
+47,17,22,11,2,25000,Kotak,PVR Platinum Credit Card
+47,31,0,16,6,200000,Yes Bank,YES First Business Credit Card
+14,31,16,14,25,25000,Citibank,Flipkart Axis Bank Credit Card
+28,9,32,15,16,25000,Axis,Flipkart Axis Bank Credit Card
+21,29,19,3,28,25000,HDFC,Amazon Pay Credit Card
+9,34,2,30,25,50000,Kotak,PVR Platinum Credit Card
+13,11,31,19,26,35000,Standard Chartered,Super Value Titanium Credit Card
+21,18,38,2,22,35000,SBI,SimplyCLICK Credit Card
+27,41,17,3,12,25000,Yes Bank,BankBazaar Credit Card
+9,24,15,28,25,50000,SBI,SimplySAVE Credit Card
+42,12,8,15,22,120000,Axis,Flipkart Axis Bank Credit Card
+24,9,5,46,16,50000,HDFC,Millennia Credit Card
+17,24,8,42,9,25000,SBI,SimplySAVE Credit Card
+16,25,16,24,19,120000,IDFC First,Vistara Infinite Credit Card
+30,32,15,6,17,120000,ICICI,Amazon Pay Credit Card
+16,25,26,20,13,200000,Standard Chartered,Super Value Titanium Credit Card
+16,11,20,35,18,50000,RBL,BankBazaar Credit Card
+13,3,56,26,1,50000,ICICI,HPCL Super Saver Credit Card
+2,34,34,9,21,200000,Yes Bank,YES First Business Credit Card
+40,31,16,9,3,25000,IDFC First,First Classic Credit Card
+2,27,27,18,26,25000,Yes Bank,Flipkart Axis Bank Credit Card
+41,11,2,10,37,25000,Axis,Flipkart Axis Bank Credit Card
+14,20,12,16,38,35000,IDFC First,First Classic Credit Card
+1,27,22,17,33,25000,Standard Chartered,Super Value Titanium Credit Card
+6,11,36,25,22,35000,Citibank,Cashback Credit Card
+6,30,15,36,13,200000,IDFC First,Vistara Infinite Credit Card
+17,18,50,8,8,120000,Standard Chartered,Super Value Titanium Credit Card
+27,1,20,22,30,50000,Citibank,Cashback Credit Card
+5,32,9,27,27,25000,IDFC First,First Classic Credit Card
+5,1,38,2,53,50000,Yes Bank,YES First Business Credit Card
+26,8,4,30,32,25000,Standard Chartered,My Zone Credit Card
+26,0,13,35,26,25000,IDFC First,First Classic Credit Card
+6,43,6,10,36,200000,Yes Bank,YES First Business Credit Card
+23,12,26,29,10,75000,Standard Chartered,Super Value Titanium Credit Card
+24,16,24,18,18,120000,Kotak,White Credit Card
+1,56,30,8,6,35000,IDFC First,First Classic Credit Card
+35,1,26,11,26,200000,Kotak,League Platinum Credit Card
+19,30,17,19,14,50000,SBI,BPCL Octane Credit Card
+38,1,30,13,18,75000,Axis,Flipkart Axis Bank Credit Card
+36,17,21,25,1,35000,Citibank,Cashback Credit Card
+46,17,0,12,25,50000,IDFC First,Vistara Infinite Credit Card
+2,18,45,29,7,75000,ICICI,Millennia Credit Card
+13,22,25,24,15,35000,HDFC,Tata Neu Infinity Credit Card
+4,35,11,17,33,120000,Axis,Elite Credit Card
+32,5,17,15,30,75000,Yes Bank,Coral Credit Card
+20,13,28,14,25,25000,IDFC First,First Classic Credit Card
+11,9,41,17,22,25000,IDFC First,First Classic Credit Card
+27,30,6,21,16,25000,Kotak,Amazon Pay Credit Card
+13,15,35,8,28,120000,Citibank,Cashback Credit Card
+41,38,2,10,9,120000,Citibank,Cashback Credit Card
+22,9,29,21,18,200000,Kotak,White Credit Card
+12,14,26,29,19,25000,Kotak,SimplyCLICK Credit Card
+27,2,20,27,25,75000,Kotak,PVR Platinum Credit Card
+26,50,1,22,0,200000,Axis,Magnus Credit Card
+12,32,16,35,5,35000,Kotak,SimplySAVE Credit Card
+22,12,15,35,16,120000,ICICI,Coral Credit Card
+25,27,26,20,2,75000,Citibank,Cashback Credit Card
+9,17,28,26,21,25000,RBL,BankBazaar Credit Card
+28,31,2,27,12,25000,SBI,SimplySAVE Credit Card
+23,32,21,2,23,35000,Kotak,PVR Platinum Credit Card
+31,27,8,25,9,25000,Yes Bank,Amazon Pay Credit Card
+46,27,12,3,12,50000,RBL,BankBazaar Credit Card
+28,10,19,12,30,25000,RBL,BankBazaar Credit Card
+2,11,35,40,12,200000,Citibank,Cashback Credit Card
+32,4,11,5,48,35000,HDFC,Tata Neu Infinity Credit Card
+7,3,24,59,8,75000,Axis,Ace Credit Card
+38,13,9,1,39,75000,HDFC,BPCL Octane Credit Card
+18,32,14,23,13,200000,ICICI,HPCL Super Saver Credit Card
+8,18,33,36,6,25000,RBL,BankBazaar Credit Card
+25,1,22,17,34,75000,Kotak,PVR Platinum Credit Card
+28,34,0,23,15,25000,IDFC First,First Classic Credit Card
+33,3,19,10,36,50000,Standard Chartered,Super Value Titanium Credit Card
+1,32,28,25,13,50000,Kotak,PVR Platinum Credit Card
+21,1,0,23,55,50000,Kotak,PVR Platinum Credit Card
+13,41,9,14,23,25000,ICICI,HPCL Super Saver Credit Card
+5,32,23,19,19,25000,Citibank,Cashback Credit Card
+1,31,33,33,2,75000,IDFC First,First Wealth Credit Card
+26,18,5,36,15,75000,ICICI,Amazon Pay Credit Card
+17,9,22,26,26,25000,ICICI,Amazon Pay Credit Card
+19,9,26,23,22,35000,Standard Chartered,Super Value Titanium Credit Card
+29,12,16,31,12,50000,Standard Chartered,Super Value Titanium Credit Card
+13,21,7,21,38,120000,Yes Bank,YES First Business Credit Card
+4,29,30,31,8,35000,IDFC First,First Classic Credit Card
+18,21,14,32,16,75000,Axis,Flipkart Axis Bank Credit Card
+36,8,12,6,39,50000,HDFC,BankBazaar Credit Card
+31,13,20,25,11,25000,RBL,BankBazaar Credit Card
+21,32,23,14,10,50000,HDFC,Millennia Credit Card
+18,14,20,31,16,75000,Citibank,Cashback Credit Card
+27,27,13,33,1,25000,Axis,Flipkart Axis Bank Credit Card
+35,38,13,6,7,200000,SBI,BPCL Octane Credit Card
+15,17,24,25,19,25000,IDFC First,First Classic Credit Card
+30,27,0,32,10,50000,RBL,BankBazaar Credit Card
+19,15,18,39,9,120000,HDFC,Tata Neu Infinity Credit Card
+46,4,8,22,21,75000,Standard Chartered,Super Value Titanium Credit Card
+30,41,2,6,21,25000,SBI,SimplySAVE Credit Card
+14,32,16,32,5,120000,ICICI,Coral Credit Card
+17,17,23,12,32,120000,Kotak,White Credit Card
+29,3,19,28,21,25000,Citibank,Cashback Credit Card
+14,21,48,7,10,35000,Kotak,PVR Platinum Credit Card
+8,10,28,39,15,35000,Standard Chartered,Super Value Titanium Credit Card
+17,11,25,26,21,75000,Citibank,Cashback Credit Card
+40,15,31,1,12,25000,ICICI,Amazon Pay Credit Card
+11,25,7,34,23,200000,ICICI,Amazon Pay Credit Card
+15,36,29,12,8,35000,SBI,SimplyCLICK Credit Card
+7,26,25,16,26,75000,ICICI,Amazon Pay Credit Card
+11,4,28,45,12,200000,ICICI,Amazon Pay Credit Card
+21,22,28,26,3,25000,Standard Chartered,Super Value Titanium Credit Card
+2,27,31,12,28,200000,Yes Bank,YES First Business Credit Card
+30,27,19,20,5,25000,Kotak,PVR Platinum Credit Card
+29,19,11,29,12,25000,Citibank,Flipkart Axis Bank Credit Card
+15,37,3,5,39,75000,Kotak,League Platinum Credit Card
+37,10,0,1,53,25000,RBL,Flipkart Axis Bank Credit Card
+10,24,44,13,9,120000,ICICI,First Classic Credit Card
+13,16,15,29,27,35000,SBI,SimplySAVE Credit Card
+21,19,28,13,19,50000,Kotak,League Platinum Credit Card
+24,23,2,32,19,200000,Citibank,Cashback Credit Card
+25,5,22,26,22,75000,IDFC First,First Classic Credit Card
+29,15,15,27,14,25000,IDFC First,First Classic Credit Card
+24,22,44,1,9,50000,Yes Bank,YES First Business Credit Card
+21,21,21,20,17,75000,IDFC First,First Classic Credit Card
+25,10,13,28,25,50000,Citibank,Cashback Credit Card
+14,30,39,5,11,75000,RBL,BankBazaar Credit Card
+24,20,24,24,8,120000,ICICI,Coral Credit Card
+35,16,30,10,8,120000,ICICI,Amazon Pay Credit Card
+31,20,24,7,18,75000,HDFC,Tata Neu Infinity Credit Card
+20,25,5,25,24,75000,SBI,Elite Credit Card
+32,8,11,22,28,200000,ICICI,Amazon Pay Credit Card
+31,27,16,24,2,75000,Axis,Flipkart Axis Bank Credit Card
+3,37,4,35,20,75000,ICICI,Cashback Credit Card
+3,20,11,46,19,25000,Citibank,Cashback Credit Card
+34,26,8,26,6,35000,Yes Bank,Cashback Credit Card
+36,16,23,7,18,35000,Yes Bank,Ace Credit Card
+2,35,24,39,2,50000,Standard Chartered,Super Value Titanium Credit Card
+17,26,4,23,30,120000,Citibank,Cashback Credit Card
+41,27,8,7,16,50000,Axis,Ace Credit Card
+30,11,9,15,35,75000,SBI,BPCL Octane Credit Card
+22,13,17,44,4,200000,Standard Chartered,Super Value Titanium Credit Card
+6,31,11,20,32,25000,Yes Bank,Amazon Pay Credit Card
+14,25,26,5,30,75000,Citibank,Elite Credit Card
+14,47,8,22,10,50000,RBL,BankBazaar Credit Card
+22,19,19,34,6,75000,HDFC,Regalia Gold
+21,15,29,26,9,75000,HDFC,Tata Neu Infinity Credit Card
+22,16,40,0,22,200000,Axis,Magnus Credit Card
+11,27,18,7,37,120000,HDFC,Tata Neu Infinity Credit Card
+51,13,7,29,0,200000,ICICI,Amazon Pay Credit Card
+11,32,17,23,18,75000,Axis,Ace Credit Card
+26,17,27,8,22,35000,Yes Bank,Millennia Credit Card
+11,30,9,43,7,200000,Axis,Elite Credit Card
+16,8,26,32,19,50000,Yes Bank,YES First Business Credit Card
+33,5,12,43,7,75000,ICICI,Amazon Pay Credit Card
+0,39,10,11,40,25000,Axis,Flipkart Axis Bank Credit Card
+25,24,26,4,21,35000,HDFC,Tata Neu Infinity Credit Card
+53,10,2,27,9,75000,Kotak,White Credit Card
+14,31,13,21,22,25000,Axis,Ace Credit Card
+13,2,13,49,22,200000,SBI,Amazon Pay Credit Card
+15,0,30,28,26,50000,IDFC First,SimplyCLICK Credit Card
+7,3,9,24,57,120000,Standard Chartered,Super Value Titanium Credit Card
+0,24,31,27,19,25000,HDFC,Flipkart Axis Bank Credit Card
+46,6,28,3,16,25000,Citibank,Coral Credit Card
+2,25,14,29,29,200000,ICICI,Amazon Pay Credit Card
+58,9,2,26,4,25000,Axis,My Zone Credit Card
+1,26,9,37,27,75000,HDFC,Regalia Gold
+36,43,4,2,14,120000,Standard Chartered,Ace Credit Card
+11,1,36,44,8,25000,Kotak,Flipkart Axis Bank Credit Card
+14,7,13,34,32,200000,ICICI,HPCL Super Saver Credit Card
+18,16,37,26,3,50000,IDFC First,Vistara Infinite Credit Card
+20,13,24,2,41,200000,Kotak,White Credit Card
+7,11,22,30,30,50000,IDFC First,First Classic Credit Card
+28,16,6,31,19,120000,Citibank,Cashback Credit Card
+11,26,26,26,11,200000,HDFC,Tata Neu Infinity Credit Card
+17,11,37,19,16,35000,SBI,BPCL Octane Credit Card
+31,29,8,14,18,35000,Yes Bank,Flipkart Axis Bank Credit Card
+20,18,21,20,21,50000,Citibank,Cashback Credit Card
+2,40,7,17,35,120000,Axis,My Zone Credit Card
+51,1,18,23,7,75000,Yes Bank,YES First Business Credit Card
+17,19,20,27,17,200000,Citibank,Cashback Credit Card
+8,8,31,24,29,25000,Citibank,SimplyCLICK Credit Card
+5,10,50,25,10,50000,HDFC,Super Value Titanium Credit Card
+19,28,18,29,6,200000,Yes Bank,Diners Club Black
+14,27,4,43,11,75000,IDFC First,Vistara Infinite Credit Card
+22,20,16,22,19,50000,IDFC First,Vistara Infinite Credit Card
+5,33,29,13,20,25000,Kotak,Amazon Pay Credit Card
+33,21,19,24,3,50000,HDFC,Tata Neu Infinity Credit Card
+29,8,33,7,23,35000,Standard Chartered,Super Value Titanium Credit Card
+19,1,27,33,19,120000,Axis,Flipkart Axis Bank Credit Card
+9,23,23,25,20,50000,Yes Bank,YES First Business Credit Card
+22,26,19,18,13,200000,Kotak,League Platinum Credit Card
+4,27,34,31,5,200000,Standard Chartered,SimplySAVE Credit Card
+33,38,5,10,14,35000,RBL,BankBazaar Credit Card
+30,1,29,37,3,35000,IDFC First,First Classic Credit Card
+28,2,2,31,36,120000,Yes Bank,YES First Business Credit Card
+41,10,36,3,10,75000,RBL,BankBazaar Credit Card
+8,33,41,2,15,200000,HDFC,Diners Club Black
+19,12,15,24,30,50000,Standard Chartered,Super Value Titanium Credit Card
+27,12,1,34,26,35000,Citibank,Cashback Credit Card
+22,27,8,18,25,35000,Standard Chartered,Super Value Titanium Credit Card
+50,25,12,2,11,50000,RBL,BankBazaar Credit Card
+20,22,32,11,14,120000,SBI,SimplyCLICK Credit Card
+26,19,8,24,23,50000,Kotak,YES First Business Credit Card
+15,7,14,52,13,25000,Axis,Flipkart Axis Bank Credit Card
+18,36,32,1,13,75000,IDFC First,First Wealth Credit Card
+9,42,22,15,12,25000,Yes Bank,Coral Credit Card
+36,27,8,14,15,50000,SBI,SimplySAVE Credit Card
+22,1,31,31,15,75000,SBI,Elite Credit Card
+9,0,14,51,26,35000,Axis,Flipkart Axis Bank Credit Card
+25,35,23,14,4,25000,Kotak,SimplyCLICK Credit Card
+26,17,24,28,5,200000,Axis,Ace Credit Card
+40,0,14,18,28,25000,RBL,BankBazaar Credit Card
+25,8,37,2,28,75000,SBI,BPCL Octane Credit Card
+21,39,9,25,6,35000,HDFC,Tata Neu Infinity Credit Card
+7,35,28,6,25,35000,RBL,BankBazaar Credit Card
+24,19,29,25,4,120000,RBL,BankBazaar Credit Card
+11,13,28,32,17,200000,Standard Chartered,Super Value Titanium Credit Card
+5,44,4,6,41,35000,SBI,BPCL Octane Credit Card
+21,25,5,22,28,25000,RBL,BankBazaar Credit Card
+3,28,19,33,19,25000,RBL,BankBazaar Credit Card
+23,2,9,45,22,35000,SBI,BPCL Octane Credit Card
+7,20,30,24,19,75000,Kotak,White Credit Card
+2,23,31,18,26,50000,HDFC,Tata Neu Infinity Credit Card
+26,23,22,7,21,75000,HDFC,Tata Neu Infinity Credit Card
+35,10,10,14,32,50000,HDFC,Tata Neu Infinity Credit Card
+34,35,26,1,4,200000,Citibank,Cashback Credit Card
+27,0,30,7,36,75000,Kotak,White Credit Card
+6,23,29,36,7,25000,Axis,My Zone Credit Card
+30,18,5,22,24,75000,ICICI,Amazon Pay Credit Card
+7,27,29,23,14,120000,ICICI,HPCL Super Saver Credit Card
+3,33,37,12,15,50000,SBI,BPCL Octane Credit Card
+20,21,22,19,18,75000,Yes Bank,YES First Business Credit Card
+17,19,34,13,17,25000,Yes Bank,Flipkart Axis Bank Credit Card
+2,20,9,40,29,35000,RBL,BankBazaar Credit Card
+34,35,10,15,6,50000,Citibank,Cashback Credit Card
+30,15,42,6,6,25000,ICICI,HPCL Super Saver Credit Card
+12,18,21,20,29,200000,Yes Bank,YES First Business Credit Card
+18,5,24,24,29,75000,IDFC First,Vistara Infinite Credit Card
+6,25,15,31,23,75000,ICICI,Amazon Pay Credit Card
+17,17,30,25,11,75000,Standard Chartered,Super Value Titanium Credit Card
+31,12,6,20,32,200000,Standard Chartered,Super Value Titanium Credit Card
+19,23,10,25,23,200000,Yes Bank,YES First Business Credit Card
+46,23,4,4,23,50000,IDFC First,Vistara Infinite Credit Card
+0,5,40,29,26,25000,SBI,BPCL Octane Credit Card
+8,21,23,15,33,200000,Yes Bank,YES First Business Credit Card
+20,29,1,31,20,50000,HDFC,Millennia Credit Card
+31,11,15,20,23,35000,HDFC,Tata Neu Infinity Credit Card
+8,31,12,32,17,200000,ICICI,Emerald Private Metal
+21,20,24,7,27,50000,Axis,My Zone Credit Card
+2,10,40,8,40,25000,Kotak,Cashback Credit Card
+39,19,11,26,5,75000,Axis,My Zone Credit Card
+3,0,40,26,31,50000,Axis,YES First Business Credit Card
+5,31,13,17,34,75000,Kotak,White Credit Card
+60,15,0,22,3,75000,SBI,BPCL Octane Credit Card
+22,0,23,33,21,35000,Citibank,Cashback Credit Card
+3,12,5,34,46,200000,Kotak,League Platinum Credit Card
+16,16,2,39,27,35000,RBL,BankBazaar Credit Card
+13,28,19,22,17,200000,ICICI,Millennia Credit Card
+26,23,26,13,13,75000,SBI,Elite Credit Card
+11,29,24,17,18,120000,Axis,Flipkart Axis Bank Credit Card
+17,10,22,23,29,25000,SBI,BPCL Octane Credit Card
+16,10,39,11,24,35000,HDFC,Tata Neu Infinity Credit Card
+10,27,20,22,22,50000,Kotak,League Platinum Credit Card
+3,30,26,17,24,50000,Citibank,Cashback Credit Card
+17,17,25,17,24,120000,Citibank,Cashback Credit Card
+30,20,26,14,10,120000,Yes Bank,YES First Business Credit Card
+4,46,27,0,22,50000,Kotak,White Credit Card
+23,10,18,17,32,120000,HDFC,Regalia Gold
+8,18,26,31,17,75000,SBI,SimplyCLICK Credit Card
+1,33,10,55,2,50000,Axis,Ace Credit Card
+32,27,15,0,25,120000,IDFC First,Vistara Infinite Credit Card
+33,15,14,27,10,120000,ICICI,Amazon Pay Credit Card
+12,7,33,13,36,25000,ICICI,Amazon Pay Credit Card
+30,2,25,28,15,50000,Kotak,League Platinum Credit Card
+42,8,31,13,6,25000,Axis,Flipkart Axis Bank Credit Card
+23,21,3,26,26,35000,Yes Bank,Tata Neu Infinity Credit Card
+8,15,27,38,12,200000,SBI,SimplySAVE Credit Card
+11,29,30,19,11,35000,RBL,BankBazaar Credit Card
+37,28,7,19,9,35000,HDFC,HPCL Super Saver Credit Card
+22,27,16,25,10,50000,Standard Chartered,Super Value Titanium Credit Card
+8,18,25,35,13,35000,SBI,SimplySAVE Credit Card
+18,16,21,28,18,35000,Yes Bank,My Zone Credit Card
+40,9,16,7,27,50000,SBI,Super Value Titanium Credit Card
+11,40,9,10,30,50000,Citibank,Cashback Credit Card
+17,5,16,37,24,25000,Standard Chartered,Super Value Titanium Credit Card
+36,6,18,36,4,200000,ICICI,Amazon Pay Credit Card
+32,11,1,30,27,120000,RBL,BankBazaar Credit Card
+21,22,27,2,28,50000,ICICI,Amazon Pay Credit Card
+20,26,13,19,23,200000,Standard Chartered,Millennia Credit Card
+21,14,9,25,31,75000,IDFC First,First Wealth Credit Card
+22,24,18,21,14,25000,Kotak,PVR Platinum Credit Card
+19,31,23,3,24,75000,Kotak,SimplyCLICK Credit Card
+12,36,1,48,3,50000,Standard Chartered,Tata Neu Infinity Credit Card
+23,26,14,10,27,120000,Standard Chartered,Super Value Titanium Credit Card
+11,19,31,6,32,35000,Axis,Flipkart Axis Bank Credit Card
+11,19,18,16,35,50000,Yes Bank,YES First Business Credit Card
+17,13,29,21,21,120000,ICICI,HPCL Super Saver Credit Card
+11,15,19,26,29,200000,ICICI,Amazon Pay Credit Card
+8,32,22,31,7,75000,SBI,SimplyCLICK Credit Card
+8,22,35,4,32,25000,Standard Chartered,Super Value Titanium Credit Card
+25,13,0,25,37,50000,Standard Chartered,Super Value Titanium Credit Card
+12,2,20,45,21,120000,Standard Chartered,Super Value Titanium Credit Card
+31,3,12,27,27,50000,Axis,My Zone Credit Card
+0,36,14,14,36,200000,ICICI,Amazon Pay Credit Card
+43,34,7,6,9,50000,Kotak,Cashback Credit Card
+17,35,29,8,11,200000,Kotak,White Credit Card
+20,13,22,16,29,75000,ICICI,Amazon Pay Credit Card
+3,4,29,41,24,50000,ICICI,Coral Credit Card
+17,15,34,30,5,120000,Standard Chartered,YES First Business Credit Card
+17,46,7,8,22,75000,RBL,BankBazaar Credit Card
+20,18,11,39,12,25000,RBL,BankBazaar Credit Card
+35,11,20,21,13,120000,HDFC,Diners Club Black
+36,9,23,12,20,50000,Standard Chartered,Super Value Titanium Credit Card
+11,32,6,30,21,120000,ICICI,Amazon Pay Credit Card
+22,28,11,22,16,35000,ICICI,Amazon Pay Credit Card
+32,3,7,22,37,35000,Citibank,Cashback Credit Card
+2,18,25,7,49,25000,SBI,SimplyCLICK Credit Card
+26,14,25,22,14,25000,ICICI,HPCL Super Saver Credit Card
+11,23,18,13,35,75000,ICICI,HPCL Super Saver Credit Card
+17,8,14,54,7,200000,Kotak,PVR Platinum Credit Card
+18,16,40,20,6,75000,HDFC,Millennia Credit Card
+7,13,31,33,16,25000,ICICI,Amazon Pay Credit Card
+6,7,24,31,32,200000,SBI,Elite Credit Card
+34,27,16,20,4,50000,RBL,BankBazaar Credit Card
+28,18,26,17,10,200000,ICICI,Emerald Private Metal
+21,26,22,21,9,25000,Kotak,PVR Platinum Credit Card
+12,41,33,4,10,35000,Yes Bank,Tata Neu Infinity Credit Card
+22,27,32,11,8,50000,HDFC,Tata Neu Infinity Credit Card
+44,12,16,27,1,25000,IDFC First,Super Value Titanium Credit Card
+18,18,22,33,9,25000,SBI,SimplySAVE Credit Card
+22,8,25,33,12,50000,IDFC First,Vistara Infinite Credit Card
+24,19,26,17,13,35000,Yes Bank,Flipkart Axis Bank Credit Card
+26,8,25,16,25,120000,RBL,BankBazaar Credit Card
+6,30,14,30,20,120000,RBL,BankBazaar Credit Card
+33,24,19,8,16,25000,RBL,BankBazaar Credit Card
+14,18,35,15,17,35000,RBL,BankBazaar Credit Card
+16,12,30,23,20,75000,Citibank,Cashback Credit Card
+14,36,12,11,26,200000,HDFC,Tata Neu Infinity Credit Card
+22,15,12,24,26,120000,Yes Bank,YES First Business Credit Card
+22,30,12,1,35,35000,Standard Chartered,Super Value Titanium Credit Card
+15,19,42,22,3,25000,RBL,BankBazaar Credit Card
+15,29,21,22,13,200000,Standard Chartered,Super Value Titanium Credit Card
+21,22,21,26,10,200000,RBL,BankBazaar Credit Card
+22,20,25,24,9,75000,ICICI,Coral Credit Card
+42,24,13,12,10,75000,RBL,BankBazaar Credit Card
+17,28,4,24,27,120000,Standard Chartered,Super Value Titanium Credit Card
+34,22,13,22,7,50000,SBI,BPCL Octane Credit Card
+7,16,33,28,17,200000,HDFC,Tata Neu Infinity Credit Card
+30,9,32,25,4,25000,Citibank,Amazon Pay Credit Card
+11,12,27,5,46,25000,HDFC,My Zone Credit Card
+9,33,15,30,13,120000,RBL,BankBazaar Credit Card
+28,21,10,1,40,75000,Axis,My Zone Credit Card
+40,6,28,14,11,120000,HDFC,Tata Neu Infinity Credit Card
+9,8,21,8,55,120000,Kotak,League Platinum Credit Card
+26,18,26,2,28,35000,SBI,SimplyCLICK Credit Card
+13,29,25,4,30,120000,RBL,BankBazaar Credit Card
+19,29,15,23,14,75000,IDFC First,First Classic Credit Card
+20,52,1,15,12,75000,HDFC,Tata Neu Infinity Credit Card
+44,29,9,14,4,200000,Kotak,PVR Platinum Credit Card
+2,15,13,31,39,25000,HDFC,Amazon Pay Credit Card
+19,6,51,4,20,25000,SBI,BPCL Octane Credit Card
+0,14,45,24,16,200000,RBL,BankBazaar Credit Card
+12,38,7,28,16,35000,SBI,BPCL Octane Credit Card
+13,50,11,7,21,35000,Axis,Ace Credit Card
+32,32,19,8,9,50000,ICICI,Coral Credit Card
+21,28,24,26,0,50000,ICICI,HPCL Super Saver Credit Card
+30,26,8,22,14,200000,ICICI,Amazon Pay Credit Card
+27,25,1,36,11,120000,Standard Chartered,Super Value Titanium Credit Card
+22,28,18,28,3,50000,Yes Bank,YES First Business Credit Card
+2,24,34,28,13,120000,IDFC First,First Classic Credit Card
+28,3,37,22,10,25000,Yes Bank,Amazon Pay Credit Card
+9,30,35,22,5,120000,SBI,SimplyCLICK Credit Card
+16,18,25,31,10,200000,ICICI,Amazon Pay Credit Card
+6,33,41,1,19,50000,SBI,SimplySAVE Credit Card
+20,2,37,17,24,120000,Yes Bank,YES First Business Credit Card
+3,11,35,26,25,120000,IDFC First,First Classic Credit Card
+29,25,14,2,29,120000,SBI,Tata Neu Infinity Credit Card
+26,5,18,29,23,35000,Kotak,PVR Platinum Credit Card
+13,25,22,20,20,50000,SBI,SimplyCLICK Credit Card
+26,18,25,9,21,200000,RBL,BankBazaar Credit Card
+10,22,26,9,33,25000,Citibank,Cashback Credit Card
+36,15,21,17,12,75000,Kotak,White Credit Card
+34,0,16,11,39,200000,Axis,Magnus Credit Card
+27,26,23,4,20,50000,RBL,BankBazaar Credit Card
+10,21,8,23,38,25000,HDFC,Coral Credit Card
+33,12,21,11,23,50000,Kotak,PVR Platinum Credit Card
+13,18,38,24,8,200000,Yes Bank,YES First Business Credit Card
+17,2,32,27,22,75000,Citibank,Cashback Credit Card
+4,60,9,10,17,200000,SBI,SimplyCLICK Credit Card
+24,18,22,18,18,35000,IDFC First,First Classic Credit Card
+28,26,15,6,26,35000,ICICI,Amazon Pay Credit Card
+11,29,13,10,36,35000,ICICI,Amazon Pay Credit Card
+16,7,0,42,34,35000,Yes Bank,Millennia Credit Card
+1,23,38,9,29,35000,Citibank,Cashback Credit Card
+15,33,8,33,11,200000,HDFC,Vistara Infinite Credit Card
+21,31,22,7,18,200000,Citibank,Cashback Credit Card
+18,27,39,0,16,120000,Yes Bank,YES First Business Credit Card
+19,26,5,34,15,25000,Standard Chartered,Super Value Titanium Credit Card
+39,6,28,6,21,50000,Standard Chartered,Super Value Titanium Credit Card
+26,25,9,24,17,200000,RBL,BankBazaar Credit Card
+25,12,42,9,12,35000,ICICI,HPCL Super Saver Credit Card
+12,2,30,27,28,25000,Kotak,HPCL Super Saver Credit Card
+39,3,31,25,3,50000,RBL,BankBazaar Credit Card
+14,25,17,11,33,120000,HDFC,Regalia Gold
+19,23,27,12,19,200000,HDFC,Diners Club Black
+18,7,31,10,35,200000,RBL,BankBazaar Credit Card
+6,25,43,15,12,200000,Axis,Ace Credit Card
+23,0,25,26,27,75000,Citibank,Cashback Credit Card
+29,9,35,14,14,50000,HDFC,Millennia Credit Card
+24,2,30,12,31,200000,IDFC First,Elite Credit Card
+36,23,23,2,16,75000,IDFC First,First Wealth Credit Card
+25,11,32,20,12,50000,Kotak,PVR Platinum Credit Card
+10,2,25,34,28,75000,HDFC,Millennia Credit Card
+22,14,12,30,21,25000,SBI,My Zone Credit Card
+32,16,3,6,43,120000,Citibank,Cashback Credit Card
+20,5,31,30,15,75000,Citibank,Cashback Credit Card
+1,32,27,13,27,200000,RBL,BankBazaar Credit Card
+5,38,26,30,1,75000,Standard Chartered,Super Value Titanium Credit Card
+29,23,32,15,1,35000,RBL,BankBazaar Credit Card
+4,43,42,11,0,50000,Standard Chartered,Super Value Titanium Credit Card
+14,30,5,12,40,35000,Citibank,Cashback Credit Card
+13,18,20,19,29,50000,RBL,BankBazaar Credit Card
+20,8,9,27,37,35000,ICICI,Amazon Pay Credit Card
+19,9,30,31,11,35000,IDFC First,First Classic Credit Card
+3,13,18,38,27,200000,RBL,BankBazaar Credit Card
+25,15,12,24,25,50000,SBI,BPCL Octane Credit Card
+12,33,8,39,8,200000,Yes Bank,YES First Business Credit Card
+24,13,21,18,23,25000,HDFC,Flipkart Axis Bank Credit Card
+12,27,13,16,31,75000,HDFC,Tata Neu Infinity Credit Card
+14,28,5,31,21,120000,RBL,First Wealth Credit Card
+27,32,24,7,10,75000,Yes Bank,YES First Business Credit Card
+7,33,18,32,10,75000,SBI,SimplyCLICK Credit Card
+17,36,17,2,29,50000,ICICI,Amazon Pay Credit Card
+0,41,40,13,6,200000,RBL,BankBazaar Credit Card
+17,27,32,23,2,120000,Axis,Flipkart Axis Bank Credit Card
+18,30,11,11,30,75000,HDFC,Millennia Credit Card
+15,28,9,24,25,35000,Citibank,Tata Neu Infinity Credit Card
+41,1,41,11,5,25000,IDFC First,First Classic Credit Card
+29,34,19,4,15,120000,Axis,Ace Credit Card
+2,63,4,28,4,35000,Axis,Flipkart Axis Bank Credit Card
+12,8,13,26,41,120000,ICICI,Amazon Pay Credit Card
+17,26,17,12,28,35000,Yes Bank,Flipkart Axis Bank Credit Card
+9,21,27,20,23,25000,Kotak,PVR Platinum Credit Card
+37,14,35,14,0,75000,HDFC,Millennia Credit Card
+26,23,35,7,8,200000,Kotak,PVR Platinum Credit Card
+41,0,20,28,10,200000,HDFC,Tata Neu Infinity Credit Card
+36,15,17,23,9,50000,Standard Chartered,Super Value Titanium Credit Card
+24,18,12,25,20,25000,Citibank,HPCL Super Saver Credit Card
+34,9,10,15,32,200000,Yes Bank,YES First Business Credit Card
+8,36,15,13,28,75000,RBL,BankBazaar Credit Card
+38,3,40,3,15,75000,RBL,BankBazaar Credit Card
+22,15,6,27,31,35000,Yes Bank,PVR Platinum Credit Card
+26,13,19,20,21,200000,Kotak,League Platinum Credit Card
+21,23,24,7,25,75000,HDFC,SimplyCLICK Credit Card
+9,11,30,42,8,50000,SBI,BPCL Octane Credit Card
+21,21,26,21,12,120000,SBI,Tata Neu Infinity Credit Card
+44,24,3,19,10,75000,Citibank,Cashback Credit Card
+2,18,25,0,56,50000,Axis,Flipkart Axis Bank Credit Card
+8,17,10,46,19,50000,IDFC First,First Classic Credit Card
+16,19,15,23,26,25000,SBI,BPCL Octane Credit Card
+16,15,26,20,23,25000,Axis,Flipkart Axis Bank Credit Card
+14,15,22,40,10,50000,Yes Bank,YES First Business Credit Card
+20,25,16,9,31,25000,IDFC First,First Classic Credit Card
+6,29,11,21,32,50000,SBI,SimplySAVE Credit Card
+17,14,24,30,15,25000,RBL,PVR Platinum Credit Card
+30,18,16,29,6,35000,SBI,SimplySAVE Credit Card
+26,26,26,1,21,200000,Kotak,League Platinum Credit Card
+20,7,20,21,32,75000,IDFC First,First Wealth Credit Card
+33,4,25,7,31,120000,Kotak,League Platinum Credit Card
+25,13,40,1,21,35000,ICICI,HPCL Super Saver Credit Card
+25,18,6,14,37,25000,SBI,SimplySAVE Credit Card
+25,27,25,3,21,50000,Yes Bank,YES First Business Credit Card
+21,41,18,2,17,25000,Standard Chartered,Super Value Titanium Credit Card
+27,0,45,14,14,120000,IDFC First,Vistara Infinite Credit Card
+29,16,27,21,7,35000,Standard Chartered,Super Value Titanium Credit Card
+22,21,19,17,20,75000,Standard Chartered,First Wealth Credit Card
+29,4,34,7,26,25000,Standard Chartered,Super Value Titanium Credit Card
+23,28,26,10,12,200000,SBI,SimplySAVE Credit Card
+1,37,23,40,0,200000,Kotak,League Platinum Credit Card
+7,25,35,16,17,50000,RBL,BankBazaar Credit Card
+27,20,6,26,22,25000,RBL,BankBazaar Credit Card
+23,14,1,4,58,50000,HDFC,Millennia Credit Card
+21,16,25,12,26,25000,Axis,Ace Credit Card
+0,32,24,13,30,120000,Citibank,Cashback Credit Card
+12,23,6,22,37,25000,IDFC First,First Classic Credit Card
+0,6,49,37,8,50000,Kotak,White Credit Card
+14,0,29,24,32,75000,HDFC,Tata Neu Infinity Credit Card
+28,15,17,33,8,120000,SBI,BPCL Octane Credit Card
+27,44,2,27,1,200000,ICICI,YES First Business Credit Card
+24,12,26,20,17,75000,Yes Bank,YES First Business Credit Card
+18,40,13,14,14,120000,Kotak,PVR Platinum Credit Card
+23,31,14,17,14,35000,HDFC,Millennia Credit Card
+31,12,7,41,8,200000,HDFC,Tata Neu Infinity Credit Card
+27,5,36,31,0,200000,RBL,BankBazaar Credit Card
+2,18,15,31,34,50000,Axis,Flipkart Axis Bank Credit Card
+7,30,12,23,29,120000,SBI,Elite Credit Card
+35,4,12,38,11,25000,SBI,SimplyCLICK Credit Card
+32,30,25,14,0,120000,Axis,Flipkart Axis Bank Credit Card
+24,9,30,7,32,75000,SBI,SimplySAVE Credit Card
+17,11,19,25,27,200000,Axis,Ace Credit Card
+9,11,34,30,15,120000,ICICI,Coral Credit Card
+3,13,28,23,32,75000,HDFC,Millennia Credit Card
+40,22,3,9,26,35000,HDFC,Tata Neu Infinity Credit Card
+49,11,6,9,24,75000,HDFC,Regalia Gold
+4,32,29,22,13,75000,RBL,First Classic Credit Card
+5,12,29,12,41,75000,RBL,BankBazaar Credit Card
+37,36,13,0,14,50000,Kotak,League Platinum Credit Card
+25,12,6,29,29,200000,Citibank,Cashback Credit Card
+37,14,5,11,34,75000,Citibank,Cashback Credit Card
+17,25,21,7,30,75000,ICICI,Amazon Pay Credit Card
+31,7,25,11,26,35000,Citibank,Cashback Credit Card
+31,0,12,27,30,75000,RBL,BankBazaar Credit Card
+23,27,10,26,14,75000,Axis,Flipkart Axis Bank Credit Card
+29,17,6,6,42,25000,Citibank,Cashback Credit Card
+44,6,21,7,21,50000,SBI,SimplyCLICK Credit Card
+23,28,17,30,1,200000,RBL,BankBazaar Credit Card
+14,19,46,15,6,50000,IDFC First,Vistara Infinite Credit Card
+21,21,19,15,24,120000,Citibank,HPCL Super Saver Credit Card
+26,1,30,3,40,75000,Standard Chartered,Super Value Titanium Credit Card
+17,16,42,6,18,25000,Citibank,Cashback Credit Card
+20,27,6,10,37,120000,RBL,BankBazaar Credit Card
+15,42,32,8,4,50000,Yes Bank,YES First Business Credit Card
+22,29,6,13,30,35000,Yes Bank,Amazon Pay Credit Card
+12,31,7,24,25,75000,Axis,My Zone Credit Card
+36,9,3,27,24,50000,Yes Bank,YES First Business Credit Card
+7,39,35,13,6,25000,Axis,Ace Credit Card
+14,16,31,5,35,120000,Yes Bank,YES First Business Credit Card
+43,1,6,39,11,120000,Kotak,League Platinum Credit Card
+25,12,22,34,7,120000,Kotak,PVR Platinum Credit Card
+31,11,27,7,25,25000,Kotak,Amazon Pay Credit Card
+21,19,11,25,23,120000,Yes Bank,YES First Business Credit Card
+14,53,3,13,18,120000,ICICI,Amazon Pay Credit Card
+10,35,3,24,29,120000,Citibank,Cashback Credit Card
+29,4,11,26,29,35000,HDFC,Tata Neu Infinity Credit Card
+13,23,28,18,18,75000,Standard Chartered,Flipkart Axis Bank Credit Card
+25,12,40,6,18,200000,SBI,Elite Credit Card
+20,24,17,20,18,35000,HDFC,Millennia Credit Card
+35,6,20,12,27,35000,RBL,BankBazaar Credit Card
+22,5,42,3,29,35000,HDFC,Tata Neu Infinity Credit Card
+36,7,20,7,31,75000,IDFC First,Vistara Infinite Credit Card
+21,0,16,32,30,200000,RBL,BankBazaar Credit Card
+29,9,29,5,27,120000,IDFC First,SimplySAVE Credit Card
+14,2,34,14,35,200000,Yes Bank,YES First Business Credit Card
+9,32,25,18,16,35000,Axis,Flipkart Axis Bank Credit Card
+22,29,12,9,28,200000,HDFC,Tata Neu Infinity Credit Card
+22,23,4,23,29,200000,Kotak,League Platinum Credit Card
+4,46,6,27,18,25000,Axis,Ace Credit Card
+22,22,10,14,31,35000,ICICI,Amazon Pay Credit Card
+25,2,21,18,34,120000,IDFC First,Vistara Infinite Credit Card
+38,1,1,39,21,50000,Kotak,PVR Platinum Credit Card
+9,31,28,24,8,50000,Standard Chartered,Super Value Titanium Credit Card
+4,25,31,26,15,50000,Standard Chartered,Super Value Titanium Credit Card
+30,16,12,25,17,35000,HDFC,Tata Neu Infinity Credit Card
+11,36,35,5,13,35000,Yes Bank,Amazon Pay Credit Card
+33,12,9,10,35,50000,HDFC,Millennia Credit Card
+1,45,39,6,9,25000,ICICI,PVR Platinum Credit Card
+34,22,5,22,17,200000,RBL,BankBazaar Credit Card
+32,11,3,33,20,25000,Yes Bank,BankBazaar Credit Card
+26,7,26,26,16,200000,ICICI,Amazon Pay Credit Card
+18,32,24,22,3,50000,ICICI,Amazon Pay Credit Card
+7,11,29,30,24,25000,SBI,SimplyCLICK Credit Card
+27,26,17,9,20,35000,HDFC,Tata Neu Infinity Credit Card
+7,26,33,15,19,200000,SBI,Elite Credit Card
+20,17,14,30,19,120000,HDFC,Millennia Credit Card
+28,9,23,23,16,75000,Axis,Ace Credit Card
+27,3,29,28,13,25000,Axis,Flipkart Axis Bank Credit Card
+2,27,27,18,26,50000,IDFC First,Vistara Infinite Credit Card
+29,3,23,24,21,50000,ICICI,HPCL Super Saver Credit Card
+20,34,9,29,8,75000,Axis,My Zone Credit Card
+4,46,1,34,15,75000,HDFC,Millennia Credit Card
+8,34,31,7,20,25000,Kotak,Amazon Pay Credit Card
+28,23,5,22,22,75000,Kotak,White Credit Card
+16,14,36,12,23,75000,Citibank,Cashback Credit Card
+29,8,26,32,5,25000,Axis,Flipkart Axis Bank Credit Card
+24,20,23,22,11,25000,Kotak,Flipkart Axis Bank Credit Card
+33,25,18,14,10,35000,Standard Chartered,Super Value Titanium Credit Card
+11,39,25,12,13,50000,Kotak,White Credit Card
+2,33,10,27,27,120000,Yes Bank,YES First Business Credit Card
+1,23,46,21,9,120000,RBL,BankBazaar Credit Card
+27,3,19,19,32,35000,Yes Bank,SimplySAVE Credit Card
+21,10,5,29,35,50000,HDFC,Tata Neu Infinity Credit Card
+27,11,22,8,33,50000,Kotak,League Platinum Credit Card

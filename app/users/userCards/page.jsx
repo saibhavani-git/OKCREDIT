@@ -199,7 +199,7 @@ const Page = () => {
             </svg>
           </button>
           <button
-            onClick={() => router.push("/users/cardToBuyRecommend")}
+            onClick={() => router.push("/users/quiz")}
             className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-gray-800/60 bg-gray-900/60 hover:bg-gray-800/50 hover:border-gray-700/60 text-left transition-all group"
           >
             <div className="w-12 h-12 rounded-xl bg-gray-800/80 border border-gray-700/50 flex items-center justify-center group-hover:bg-gray-700/60">

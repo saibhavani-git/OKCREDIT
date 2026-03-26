@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 import dbConnect from "../../lib/db";
 import User from "../../models/user";
 import CreditCard from "../../models/cards";
 import Offer from "../../models/offers";
+import Transaction from "../../models/transaction";
 import { verifyAuth } from "../../lib/auth";
 import { recommendCard } from "../../lib/recommendCard";
 
@@ -119,13 +121,39 @@ export async function POST(request) {
         : card;
     });
 
-    const result = recommendCard(
-      category,
-      amount,
-      merchantName,
-      userOwnedCards,
-      allCards
-    );
+    const userObjId = mongoose.Types.ObjectId.isValid(user._id)
+      ? new mongoose.Types.ObjectId(String(user._id))
+      : user._id;
+    const startOfMonth = new Date();
+    startOfMonth.setUTCDate(1);
+    startOfMonth.setUTCHours(0, 0, 0, 0);
+
+    const usedAgg = await Transaction.aggregate([
+      {
+        $match: {
+          user: userObjId,
+          createdAt: { $gte: startOfMonth },
+        },
+      },
+      {
+        $group: {
+          _id: "$card",
+          usedInr: {
+            $sum: {
+              $add: [{ $ifNull: ["$cashback", 0] }, { $ifNull: ["$rewardsValue", 0] }],
+            },
+          },
+        },
+      },
+    ]);
+    const usedMonthlyRewardInrByCardId = {};
+    for (const row of usedAgg) {
+      usedMonthlyRewardInrByCardId[String(row._id)] = Number(row.usedInr) || 0;
+    }
+
+    const result = recommendCard(category, amount, merchantName, userOwnedCards, allCards, {
+      usedMonthlyRewardInrByCardId,
+    });
 
     // Fetch active offers (valid now) to add to card benefits
     const now = new Date();
@@ -178,6 +206,7 @@ export async function POST(request) {
         fitReason: isCashback
           ? `Expected cashback ₹${rawReward.toFixed(2)}`
           : `Expected ${rawReward.toFixed(0)} pts (₹${rewardInr.toFixed(2)} value)`,
+        monthlyCapHit: Boolean(r.monthlyCapHit),
       };
     });
 

@@ -31,6 +31,24 @@ function normalizeCategoryValue(val) {
  * @param {string} category - Transaction category (shopping, fuel, dining, travel, groceries, etc.)
  * @returns {{ rate: number, maxCap: number }}
  */
+/**
+ * Card-level monthly reward cap in ₹ (cashback already in ₹; points/miles compared in ₹ after conversion).
+ * @returns {number} Positive cap, or Infinity if unset.
+ */
+export function getMonthlyCapInr(card) {
+  const m = Number(card?.monthlyCap);
+  return Number.isFinite(m) && m > 0 ? m : Infinity;
+}
+
+/**
+ * Clamp a monthly reward total (already in INR) to the card’s monthlyCap.
+ */
+export function applyCardMonthlyCapInr(card, monthlyTotalInr) {
+  const cap = getMonthlyCapInr(card);
+  const v = Number(monthlyTotalInr) || 0;
+  return Math.min(v, cap);
+}
+
 export function getRewardRate(card, category) {
   const catConfig = card.categories?.[category];
   if (catConfig != null) {
@@ -126,16 +144,18 @@ export function calculateScore(card, rewardInr, merchant) {
  * @param {string} merchant - Merchant name (e.g. Amazon, Swiggy)
  * @param {string[]} userOwnedCards - Array of card names the user owns
  * @param {Object[]} allCards - Array of all card objects (full catalog)
+ * @param {{ usedMonthlyRewardInrByCardId?: Record<string, number> }} [options] - INR already earned this month per card id (cashback + rewardsValue) to enforce monthlyCap on this txn.
  * @returns {{
  *   bestOwnedCard: { cardName: string, expectedReward: number } | null,
  *   bestOverallCard: { cardName: string, expectedReward: number } | null,
  *   recommendedCards: Array<{ cardName: string, expectedReward: number, score: number, card?: Object }>
  * }}
  */
-export function recommendCard(category, amount, merchant, userOwnedCards, allCards) {
+export function recommendCard(category, amount, merchant, userOwnedCards, allCards, options = {}) {
   const ownedSet = new Set(
     (userOwnedCards || []).map((name) => (name || "").toString().trim()).filter(Boolean)
   );
+  const usedByCard = options.usedMonthlyRewardInrByCardId || {};
 
   // Step 1 & 2: Build list of results, skipping cards with insufficient limit
   const results = [];
@@ -147,14 +167,34 @@ export function recommendCard(category, amount, merchant, userOwnedCards, allCar
     }
 
     const { rate, maxCap } = getRewardRate(card, category);
-    const rawReward = calculateReward(rate, amount, maxCap);
-    const rewardInr = rewardToInr(card, rawReward);
+    const rawUncapped = calculateReward(rate, amount, maxCap);
+    const rewardInrUncapped = rewardToInr(card, rawUncapped);
+
+    const cardId = String(card?._id ?? "");
+    const usedThisMonth = Number(usedByCard[cardId]) || 0;
+    const monthlyCap = getMonthlyCapInr(card);
+    const remaining =
+      monthlyCap === Infinity ? Infinity : Math.max(0, monthlyCap - usedThisMonth);
+
+    let rewardInr = rewardInrUncapped;
+    let rawReward = rawUncapped;
+    if (remaining !== Infinity && rewardInrUncapped > remaining) {
+      rewardInr = remaining;
+      if (rewardInrUncapped <= 0) {
+        rawReward = 0;
+      } else {
+        const scale = rewardInr / rewardInrUncapped;
+        rawReward = rawUncapped * scale;
+      }
+    }
+
     const score = calculateScore(card, rewardInr, merchant);
 
     results.push({
       cardName: (card.cardName || "Unknown").toString(),
       expectedReward: rawReward,
       expectedRewardInr: rewardInr,
+      monthlyCapHit: remaining !== Infinity && rewardInrUncapped > remaining,
       score,
       card,
     });
@@ -191,6 +231,7 @@ export function recommendCard(category, amount, merchant, userOwnedCards, allCar
     cardName: r.cardName,
     expectedReward: r.expectedReward,
     expectedRewardInr: r.expectedRewardInr,
+    monthlyCapHit: r.monthlyCapHit,
     score: r.score,
     card: r.card,
   }));
@@ -203,6 +244,7 @@ export function recommendCard(category, amount, merchant, userOwnedCards, allCar
       cardName: r.cardName,
       expectedReward: r.expectedReward,
       expectedRewardInr: r.expectedRewardInr,
+      monthlyCapHit: r.monthlyCapHit,
       score: r.score,
       card: r.card,
     }));

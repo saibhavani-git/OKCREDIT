@@ -48,10 +48,10 @@ const Navbar = ({ userRole, userName, userEmail }) => {
               <button
                 type="button"
                 onClick={() => setShowEmail((v) => !v)}
-                className="text-zinc-400 font-medium hover:text-white transition-colors"
+                className="text-zinc-400 font-semibold hover:text-white transition-colors"
                 title={showEmail ? "Hide email" : "Show email"}
               >
-                {userName || "Profile"}
+                👨🏻‍💻{userName || "Profile"}
               </button>
               {showEmail && userEmail && (
                 <div className="absolute top-full left-0 mt-1.5 py-2 px-3 rounded-lg bg-gray-900 border border-gray-700 text-zinc-300 text-xs shadow-lg z-50 min-w-[180px]">
@@ -63,6 +63,7 @@ const Navbar = ({ userRole, userName, userEmail }) => {
           )}
           <Link href="/" className="hover:text-white font-semibold">Home</Link>
           <Link href="/users/userCards" className="hover:text-white font-semibold">Cards</Link>
+          
           <Link href="/users/transactions" className="hover:text-white font-semibold">Transactions</Link>
           <Link href="/users/tips" className="hover:text-white font-semibold">Tips</Link>
           <button onClick={handleLogout} className="hover:text-white font-semibold">

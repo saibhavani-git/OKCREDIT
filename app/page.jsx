@@ -68,29 +68,11 @@ export default function Home() {
             tailored to your needs.
           </p>
 
-          <div className="mt-10 flex gap-4">
-            <Link
-              href="/users/userCards"
-              className="rounded-full px-8 py-3 text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
-              style={{
-                background: "linear-gradient(90deg, #5f676a, #f0f0f0, #5f676a)",
-                color: "#000",
-              }}
-            >
-              Explore Cards
-            </Link>
-
-            <Link
-              href="/register"
-              className="rounded-full border font-semibold border-gray-500/50 px-8 py-3 text-sm hover:bg-gray-900/30 transition text-gray-300"
-            >
-              Get Started
-            </Link>
-          </div>
+          
         </main>
 
         <footer className="pb-6 text-center text-xs text-zinc-500">
-          © 2025 OKCREDIT
+          © 2026 OKCREDIT
         </footer>
       </div>
     </div>

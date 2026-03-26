@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { QuizTopPickHero, QuizRunnerUpBlock, fmtRupee as fmt } from "../../components/QuizRichResult";
 
-const RUPEE = "\u20B9";
 const CATEGORY_COLORS = {
   travel: "#4ade80",
   fuel: "#f97316",
@@ -11,79 +11,6 @@ const CATEGORY_COLORS = {
   groceries: "#a855f7",
   shopping: "#eab308",
 };
-
-const fmt = (n) =>
-  `${RUPEE}${(Number(n) || 0).toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
-
-function CardTile({ card, rank, compact = false }) {
-  const isTop = rank === 0;
-  return (
-    <div
-      className={`rounded-2xl border bg-gray-900/80 overflow-hidden ${
-        isTop ? "border-gray-600/60 ring-1 ring-gray-500/20" : "border-gray-800/60"
-      } ${compact ? "p-4" : "p-6"}`}
-    >
-      {isTop && (
-        <div className="bg-gray-800/80 text-gray-200 text-xs font-semibold uppercase tracking-wider px-6 py-2 border-b border-gray-700/50">
-          Our top pick
-        </div>
-      )}
-      <div className={compact ? "space-y-2" : "space-y-4"}>
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <p className="text-[11px] text-gray-500 uppercase tracking-wide">{card.bank}</p>
-            <h3 className={`font-bold text-white ${compact ? "text-base" : "text-xl"}`}>
-              {card.cardName}
-            </h3>
-            <span className="inline-block mt-1 px-2 py-0.5 rounded text-[11px] bg-gray-800/80 text-gray-300 border border-gray-700/50">
-              {card.cardType || card.rewardType}
-            </span>
-          </div>
-          {!compact && (
-            <div className="text-right">
-              <p className="text-[11px] text-gray-500">Est. yearly value</p>
-              <p className="text-lg font-bold text-gray-200">{fmt(card.netValue)}</p>
-            </div>
-          )}
-        </div>
-        <div className={`grid grid-cols-2 gap-2 text-sm ${compact ? "text-xs" : ""}`}>
-          <div>
-            <span className="text-gray-500">Rewards (yr) </span>
-            <span className="text-gray-200 font-medium">{fmt(card.yearlyRewardInr)}</span>
-          </div>
-          <div>
-            <span className="text-gray-500">Annual fee </span>
-            <span className="text-gray-200 font-medium">{fmt(card.annualFee)}</span>
-          </div>
-          {compact && (
-            <div className="col-span-2">
-              <span className="text-gray-500">Net value </span>
-              <span className="text-gray-200 font-semibold">{fmt(card.netValue)}</span>
-            </div>
-          )}
-        </div>
-        {!compact && card.rewardRateText && (
-          <div className="pt-2 border-t border-gray-800/60">
-            <p className="text-[11px] text-gray-500 uppercase tracking-wide mb-1">Why we recommend it</p>
-            <p className="text-gray-400 text-sm">{card.rewardRateText}</p>
-          </div>
-        )}
-        {!compact && Array.isArray(card.perks) && card.perks.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {card.perks.slice(0, 4).map((p, i) => (
-              <span
-                key={i}
-                className="px-2 py-0.5 rounded bg-gray-800/60 text-[11px] text-gray-400 border border-gray-700/50"
-              >
-                {String(p).replace(/_/g, " ")}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
 
 function QuizStep({ question, stepIndex, totalSteps, selectedValue, onSelect, onNext, onBack, isFirst, isLast }) {
   return (
@@ -210,6 +137,7 @@ export default function CardToBuyRecommendPage() {
       if (!res.ok) throw new Error(data.message || "Failed to get recommendations");
       setResults({
         chartData: Array.isArray(data.chartData) ? data.chartData : [],
+        quizSummary: data.quizSummary || "",
         recommendedCard: data.recommendedCard || null,
         topCards: Array.isArray(data.topCards) ? data.topCards : [],
       });
@@ -349,28 +277,22 @@ export default function CardToBuyRecommendPage() {
             </section>
 
             <section>
-              <h2 className="text-lg font-semibold text-white mb-1">Recommended for you</h2>
+              <h2 className="text-lg font-semibold text-white mb-1">Your quiz results</h2>
               <p className="text-sm text-gray-500 mb-6">
-                Only cards you don’t already have. Ranked by estimated net value.
+                Only cards you don’t already have. Smart Match scores how closely each card lines up with your
+                answers and estimated rewards.
               </p>
 
               {!results.topCards?.length ? (
                 <p className="text-gray-500 text-sm">No matching cards right now. Try different answers.</p>
               ) : (
-                <div className="space-y-4">
-                  {results.topCards[0] && <CardTile card={results.topCards[0]} rank={0} />}
-                  {results.topCards.length > 1 && (
-                    <div>
-                      <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
-                        Other cards to consider
-                      </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {results.topCards.slice(1, 5).map((card, i) => (
-                          <CardTile key={card._id || i} card={card} rank={i + 1} compact />
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                <div>
+                  <QuizTopPickHero
+                    card={results.topCards[0]}
+                    quizSummary={results.quizSummary}
+                    onApply={() => router.push("/users/addCards")}
+                  />
+                  <QuizRunnerUpBlock cards={results.topCards.slice(1, 3)} />
                 </div>
               )}
             </section>

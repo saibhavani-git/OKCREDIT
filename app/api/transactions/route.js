@@ -5,6 +5,19 @@ import { verifyAuth } from "../../lib/auth";
 import CreditCard from "../../models/cards";
 import Transaction from "../../models/transaction";
 
+function parseMonthKey(monthKey) {
+  const raw = String(monthKey || "").trim();
+  const m = /^(\d{4})-(\d{2})$/.exec(raw);
+  if (!m) return null;
+  const year = Number(m[1]);
+  const month = Number(m[2]);
+  if (!Number.isFinite(year) || !Number.isFinite(month) || month < 1 || month > 12) return null;
+  return {
+    start: new Date(Date.UTC(year, month - 1, 1, 0, 0, 0, 0)),
+    end: new Date(Date.UTC(year, month, 1, 0, 0, 0, 0)),
+  };
+}
+
 /** GET: List all transactions for the logged-in user. Query: cardId (optional), limit (default 100). */
 export async function GET(request) {
   try {
@@ -23,10 +36,14 @@ export async function GET(request) {
       : userId;
     const { searchParams } = new URL(request.url);
     const cardId = searchParams.get("cardId") || null;
+    const period = parseMonthKey(searchParams.get("month"));
     const limit = Math.min(Number(searchParams.get("limit")) || 100, 500);
     const match = { user: userObjId };
     if (cardId && mongoose.Types.ObjectId.isValid(cardId)) {
       match.card = new mongoose.Types.ObjectId(cardId);
+    }
+    if (period) {
+      match.createdAt = { $gte: period.start, $lt: period.end };
     }
     const transactions = await Transaction.find(match)
       .sort({ createdAt: -1 })
@@ -66,6 +83,7 @@ export async function POST(request) {
       cardName: bodyCardName,
       amount,
       intent,
+      transactionDate,
       resolvedCategory,
       cashback = 0,
       rewards = 0,
@@ -98,6 +116,13 @@ export async function POST(request) {
     }
 
     const cardName = bodyCardName || card.cardName || "Unknown Card";
+    let createdAtValue;
+    if (transactionDate != null && String(transactionDate).trim() !== "") {
+      const dt = new Date(transactionDate);
+      if (!Number.isNaN(dt.getTime())) {
+        createdAtValue = dt;
+      }
+    }
     const userObjId = mongoose.Types.ObjectId.isValid(userId)
       ? new mongoose.Types.ObjectId(userId)
       : userId;
@@ -123,6 +148,7 @@ export async function POST(request) {
       rewardsValue: rewardsValueNum,
       perksValue: perksValueNum,
       totalBenefit: totalBenefitNum,
+      ...(createdAtValue ? { createdAt: createdAtValue } : {}),
     });
 
     // Attach this transaction to the card's transaction history array

@@ -2,24 +2,24 @@
  * Recommend a card to buy: simulate yearly rewards from monthly category spend,
  * subtract annual fee, filter by eligibility, pick highest net value.
  */
-import { getRewardRate, calculateReward, rewardToInr } from "./recommendCard";
+import { getRewardRate, calculateReward, rewardToInr, applyCardMonthlyCapInr } from "./recommendCard";
 
 const CATEGORIES = ["shopping", "travel", "fuel", "dining", "groceries"];
 
 /**
  * Simulate monthly reward (INR) for a card given monthly spend per category.
- * Sum over categories: reward = rate * spend / 100, capped; convert to INR for points/miles.
+ * Per category: category maxCap, then convert each leg to ₹; sum; then apply card.monthlyCap (₹/month).
  */
 export function simulateMonthlyRewardInr(card, monthlyCategorySpend) {
-  let totalRaw = 0;
+  let totalInr = 0;
   for (const cat of CATEGORIES) {
     const spend = Number(monthlyCategorySpend[cat]) || 0;
     if (spend <= 0) continue;
     const { rate, maxCap } = getRewardRate(card, cat);
     const rawReward = calculateReward(rate, spend, maxCap);
-    totalRaw += rawReward;
+    totalInr += rewardToInr(card, rawReward);
   }
-  return rewardToInr(card, totalRaw);
+  return applyCardMonthlyCapInr(card, totalInr);
 }
 
 /**
@@ -117,4 +117,11 @@ export function recommendCardToBuy(allCards, monthlyCategorySpend, userIncome, u
     recommendedCard: best,
     allSimulations: withNet,
   };
+}
+
+/**
+ * Extra rule-based score for “card to buy” flows (goal + top category). Used with XGBoost hybrid.
+ */
+export function ruleAlignmentBoost(card, goal, topCategory) {
+  return (cardMatchesGoal(card, goal) ? 300 : 0) + categoryBoost(card, topCategory);
 }

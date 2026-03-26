@@ -1,3 +1,8 @@
+/**
+ * Catalog seed data. `monthlyCap` = max total reward value (₹) per calendar month on the card
+ * (aligned with issuer T&Cs / FAQs where available). `null` = no published monthly cap in our model.
+ * Quarterly caps (e.g. Flipkart Axis) use a rough monthly proxy for simulation.
+ */
 const creditCards=[
   {
     "bank": "HDFC",
@@ -32,7 +37,8 @@ const creditCards=[
       "available": 250000
     },
     "billingDate": 5,
-    "popularityScore": 88
+    "popularityScore": 88,
+    "monthlyCap": 2000
   },
   {
     "bank": "HDFC",
@@ -67,7 +73,8 @@ const creditCards=[
       "available": 500000
     },
     "billingDate": 10,
-    "popularityScore": 85
+    "popularityScore": 85,
+    "monthlyCap": 8000
   },
   {
     "bank": "HDFC",
@@ -102,7 +109,8 @@ const creditCards=[
       "available": 800000
     },
     "billingDate": 15,
-    "popularityScore": 82
+    "popularityScore": 82,
+    "monthlyCap": null
   },
   {
     "bank": "ICICI",
@@ -137,7 +145,8 @@ const creditCards=[
       "available": 200000
     },
     "billingDate": 7,
-    "popularityScore": 92
+    "popularityScore": 92,
+    "monthlyCap": null
   },
   {
     "bank": "ICICI",
@@ -172,7 +181,8 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 12,
-    "popularityScore": 72
+    "popularityScore": 72,
+    "monthlyCap": 4000
   },
   {
     "bank": "ICICI",
@@ -207,7 +217,8 @@ const creditCards=[
       "available": 1000000
     },
     "billingDate": 20,
-    "popularityScore": 80
+    "popularityScore": 80,
+    "monthlyCap": null
   },
   {
     "bank": "SBI",
@@ -242,7 +253,8 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 3,
-    "popularityScore": 84
+    "popularityScore": 84,
+    "monthlyCap": 750
   },
   {
     "bank": "SBI",
@@ -277,7 +289,8 @@ const creditCards=[
       "available": 600000
     },
     "billingDate": 8,
-    "popularityScore": 82
+    "popularityScore": 82,
+    "monthlyCap": 10000
   },
   {
     "bank": "SBI",
@@ -312,7 +325,8 @@ const creditCards=[
       "available": 200000
     },
     "billingDate": 18,
-    "popularityScore": 78
+    "popularityScore": 78,
+    "monthlyCap": 4000
   },
   {
     "bank": "Axis",
@@ -347,7 +361,8 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 14,
-    "popularityScore": 90
+    "popularityScore": 90,
+    "monthlyCap": 5000
   },
   {
     "bank": "Axis",
@@ -382,7 +397,8 @@ const creditCards=[
       "available": 1200000
     },
     "billingDate": 22,
-    "popularityScore": 84
+    "popularityScore": 84,
+    "monthlyCap": null
   },
   {
     "bank": "Axis",
@@ -417,7 +433,8 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 6,
-    "popularityScore": 76
+    "popularityScore": 76,
+    "monthlyCap": 1000
   },
   {
     "bank": "Kotak",
@@ -452,7 +469,8 @@ const creditCards=[
       "available": 400000
     },
     "billingDate": 11,
-    "popularityScore": 78
+    "popularityScore": 78,
+    "monthlyCap": 6000
   },
   {
     "bank": "Kotak",
@@ -487,7 +505,8 @@ const creditCards=[
       "available": 200000
     },
     "billingDate": 16,
-    "popularityScore": 74
+    "popularityScore": 74,
+    "monthlyCap": 4000
   },
   {
     "bank": "IDFC First",
@@ -522,7 +541,8 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 9,
-    "popularityScore": 68
+    "popularityScore": 68,
+    "monthlyCap": 3000
   },
   {
     "bank": "IDFC First",
@@ -557,7 +577,8 @@ const creditCards=[
       "available": 600000
     },
     "billingDate": 13,
-    "popularityScore": 82
+    "popularityScore": 82,
+    "monthlyCap": 15000
   },
   {
     "bank": "Standard Chartered",
@@ -592,7 +613,8 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 4,
-    "popularityScore": 74
+    "popularityScore": 74,
+    "monthlyCap": 1000
   },
   {
     "bank": "Citibank",
@@ -627,7 +649,8 @@ const creditCards=[
       "available": 250000
     },
     "billingDate": 16,
-    "popularityScore": 80
+    "popularityScore": 80,
+    "monthlyCap": 1000
   },
   {
     "bank": "Yes Bank",
@@ -662,7 +685,8 @@ const creditCards=[
       "available": 400000
     },
     "billingDate": 19,
-    "popularityScore": 80
+    "popularityScore": 80,
+    "monthlyCap": 12000
   },
   {
     "bank": "RBL",
@@ -697,7 +721,8 @@ const creditCards=[
       "available": 100000
     },
     "billingDate": 21,
-    "popularityScore": 66
+    "popularityScore": 66,
+    "monthlyCap": 2000
   },
   {
     "bank": "HDFC",
@@ -732,7 +757,8 @@ const creditCards=[
       "available": 300000
     },
     "billingDate": 17,
-    "popularityScore": 86
+    "popularityScore": 86,
+    "monthlyCap": 1000
   },
   {
     "bank": "ICICI",
@@ -767,7 +793,8 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 23,
-    "popularityScore": 76
+    "popularityScore": 76,
+    "monthlyCap": 2500
   },
   {
     "bank": "SBI",
@@ -802,7 +829,8 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 24,
-    "popularityScore": 73
+    "popularityScore": 73,
+    "monthlyCap": 1000
   },
   {
     "bank": "Axis",
@@ -837,7 +865,8 @@ const creditCards=[
       "available": 150000
     },
     "billingDate": 25,
-    "popularityScore": 72
+    "popularityScore": 72,
+    "monthlyCap": 5000
   },
   {
     "bank": "Kotak",
@@ -872,7 +901,8 @@ const creditCards=[
       "available": 500000
     },
     "billingDate": 26,
-    "popularityScore": 80
+    "popularityScore": 80,
+    "monthlyCap": 10000
   },
   {
     "bank": "IDFC First",
@@ -907,7 +937,8 @@ const creditCards=[
       "available": 500000
     },
     "billingDate": 27,
-    "popularityScore": 84
+    "popularityScore": 84,
+    "monthlyCap": 15000
   }
 ]
 

@@ -4,6 +4,19 @@ import dbConnect from "../../../../lib/db";
 import { verifyAuth } from "../../../../lib/auth";
 import Transaction from "../../../../models/transaction";
 
+function parseMonthKey(monthKey) {
+  const raw = String(monthKey || "").trim();
+  const m = /^(\d{4})-(\d{2})$/.exec(raw);
+  if (!m) return null;
+  const year = Number(m[1]);
+  const month = Number(m[2]);
+  if (!Number.isFinite(year) || !Number.isFinite(month) || month < 1 || month > 12) return null;
+  return {
+    start: new Date(Date.UTC(year, month - 1, 1, 0, 0, 0, 0)),
+    end: new Date(Date.UTC(year, month, 1, 0, 0, 0, 0)),
+  };
+}
+
 export async function GET(request, { params }) {
   try {
     await dbConnect();
@@ -35,8 +48,15 @@ export async function GET(request, { params }) {
 
     const userObjId = new mongoose.Types.ObjectId(userId);
 
+    const { searchParams } = new URL(request.url);
+    const period = parseMonthKey(searchParams.get("month"));
+    const filter = { user: userObjId, card: cardId };
+    if (period) {
+      filter.createdAt = { $gte: period.start, $lt: period.end };
+    }
+
     const txns = await Transaction.find(
-      { user: userObjId, card: cardId },
+      filter,
       {
         amount: 1,
         intent: 1,

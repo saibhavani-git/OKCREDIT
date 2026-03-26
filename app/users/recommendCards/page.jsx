@@ -235,7 +235,7 @@
 
 
 'use client'
-import React, { Suspense, useEffect, useState } from "react"
+import React, { Suspense, useCallback, useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
 const RUPEE = "\u20B9"
@@ -397,24 +397,27 @@ const RecommendCardsContent = () => {
   // Pre-compute role labels for the current set of cards
   const rolesByIndex = deriveRolesForCards(recommendedCards)
 
-  useEffect(() => {
-    if (!amount || !intent) {
-      setError("Amount and intent are required.")
-      setLoading(false)
-      return
-    }
+  const fetchRecommendations = useCallback(
+    async (options = {}) => {
+      const afterPay = options.afterPay === true
+      if (!amount || !intent) {
+        setError("Amount and intent are required.")
+        setLoading(false)
+        return
+      }
 
-    const fetchRecommendations = async () => {
       setLoading(true)
       setError(null)
-      setRecommendedCards([])
-      setBestOwnedCard(null)
-      setBestOverallCard(null)
-      setPaySuccessMessage("")
+      if (!afterPay) {
+        setRecommendedCards([])
+        setBestOwnedCard(null)
+        setBestOverallCard(null)
+        setPaySuccessMessage("")
+      }
 
       try {
-        const res  = await fetch("/api/getrecommendation", {
-          method:  "POST",
+        const res = await fetch("/api/getrecommendation", {
+          method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
           body: JSON.stringify({ amount, intent }),
@@ -435,10 +438,18 @@ const RecommendCardsContent = () => {
       } finally {
         setLoading(false)
       }
-    }
+    },
+    [amount, intent]
+  )
 
-    fetchRecommendations()
-  }, [amount, intent])
+  useEffect(() => {
+    if (!amount || !intent) {
+      setError("Amount and intent are required.")
+      setLoading(false)
+      return
+    }
+    fetchRecommendations({ afterPay: false })
+  }, [amount, intent, fetchRecommendations])
 
   return (
     <div className="min-h-screen bg-black">
@@ -663,7 +674,13 @@ const RecommendCardsContent = () => {
                           if (!res.ok) {
                             throw new Error(data.message || "Failed to record transaction")
                           }
-                          setPaySuccessMessage(`Recorded: ${RUPEE}${Number(amount).toLocaleString("en-IN")} added to card spend, ${RUPEE}${(card.totalBenefit ?? 0).toFixed(2)} added to card savings. View in Monthly Savings.`)
+                          setPaySuccessMessage(
+                            `Recorded: ${RUPEE}${Number(amount).toLocaleString("en-IN")} on this card; savings updated. Refreshing picks so the next spend uses your updated monthly caps…`
+                          )
+                          await fetchRecommendations({ afterPay: true })
+                          setPaySuccessMessage(
+                            `Recorded: ${RUPEE}${Number(amount).toLocaleString("en-IN")} added to card spend, ${RUPEE}${(card.totalBenefit ?? 0).toFixed(2)} added to card savings. Rankings below use this month’s usage so far.`
+                          )
                         } catch (err) {
                           console.error(err)
                           setError(err.message || "Failed to record transaction")

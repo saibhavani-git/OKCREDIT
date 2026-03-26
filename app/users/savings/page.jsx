@@ -25,6 +25,7 @@ export default function SavingsPage() {
   const [perCardCategory, setPerCardCategory] = useState([]);
   const [perCardTotals, setPerCardTotals] = useState({});
   const [selectedCardId, setSelectedCardId] = useState(null);
+  const [selectedMonthKey, setSelectedMonthKey] = useState("");
   const [cardTransactions, setCardTransactions] = useState([]);
   const [recentTxns, setRecentTxns] = useState([]);
 
@@ -33,15 +34,23 @@ export default function SavingsPage() {
       setLoading(true);
       setError(null);
       try {
+        const summaryUrl = selectedMonthKey
+          ? `/api/transactions/summary?month=${encodeURIComponent(selectedMonthKey)}`
+          : "/api/transactions/summary";
+        const txUrl = selectedMonthKey
+          ? `/api/transactions?limit=10&month=${encodeURIComponent(selectedMonthKey)}`
+          : "/api/transactions?limit=10";
         const [summaryRes, txRes] = await Promise.all([
-          fetch("/api/transactions/summary", { method: "GET", credentials: "include" }),
-          fetch("/api/transactions?limit=10", { method: "GET", credentials: "include" }),
+          fetch(summaryUrl, { method: "GET", credentials: "include" }),
+          fetch(txUrl, { method: "GET", credentials: "include" }),
         ]);
         const data = await summaryRes.json();
         const txData = await txRes.json();
         if (!summaryRes.ok) throw new Error(data.message || "Failed to load analysis");
         setMonths(Array.isArray(data.months) ? data.months : []);
-        setLifetime(data.lifetime || null);
+        setLifetime(
+          selectedMonthKey ? data.periodTotals || data.lifetime || null : data.lifetime || null
+        );
         setUserCards(Array.isArray(data.userCards) ? data.userCards : []);
         setPerCardCategory(Array.isArray(data.perCardCategory) ? data.perCardCategory : []);
         setPerCardTotals(
@@ -50,6 +59,11 @@ export default function SavingsPage() {
             : {}
         );
         setRecentTxns(Array.isArray(txData.transactions) ? txData.transactions : []);
+        if (!selectedMonthKey && Array.isArray(data.months) && data.months.length > 0) {
+          const latest = data.months[0];
+          const monthKey = `${latest.year}-${String(latest.month).padStart(2, "0")}`;
+          setSelectedMonthKey(monthKey);
+        }
         if (data.userCards?.length && !selectedCardId) {
           setSelectedCardId(String(data.userCards[0]._id));
         }
@@ -61,7 +75,7 @@ export default function SavingsPage() {
       }
     };
     load();
-  }, []);
+  }, [selectedMonthKey]);
 
   useEffect(() => {
     if (!selectedCardId) {
@@ -70,7 +84,10 @@ export default function SavingsPage() {
     }
     const loadTxns = async () => {
       try {
-        const res = await fetch(`/api/transactions/card/${selectedCardId}`, {
+        const cardUrl = selectedMonthKey
+          ? `/api/transactions/card/${selectedCardId}?month=${encodeURIComponent(selectedMonthKey)}`
+          : `/api/transactions/card/${selectedCardId}`;
+        const res = await fetch(cardUrl, {
           method: "GET",
           credentials: "include",
         });
@@ -85,7 +102,7 @@ export default function SavingsPage() {
       }
     };
     loadTxns();
-  }, [selectedCardId]);
+  }, [selectedCardId, selectedMonthKey]);
 
   const totalByCategory = perCardCategory.reduce((acc, row) => {
     const cat = row.category || "shopping";
@@ -126,6 +143,24 @@ export default function SavingsPage() {
               <p className="text-gray-500 text-sm mt-0.5">
                 Overview, spending by category, trends and per-card breakdown
               </p>
+              {months.length > 0 ? (
+                <div className="mt-2">
+                  <select
+                    value={selectedMonthKey}
+                    onChange={(e) => setSelectedMonthKey(e.target.value)}
+                    className="bg-gray-900/70 border border-gray-700/60 rounded-lg px-3 py-1.5 text-xs text-gray-200"
+                  >
+                    {months.map((m) => {
+                      const key = `${m.year}-${String(m.month).padStart(2, "0")}`;
+                      return (
+                        <option key={key} value={key}>
+                          {m.label}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -153,12 +188,12 @@ export default function SavingsPage() {
                 <div className="bg-gray-900/60 border border-gray-800/60 rounded-xl p-5">
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Total spend</p>
                   <p className="text-2xl font-bold text-white">{fmt(lifetime?.totalSpend)}</p>
-                  <p className="text-xs text-gray-500 mt-1">Lifetime</p>
+                  <p className="text-xs text-gray-500 mt-1">Selected month</p>
                 </div>
                 <div className="bg-gray-900/60 border border-gray-800/60 rounded-xl p-5">
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Total savings</p>
                   <p className="text-2xl font-bold text-emerald-400">{fmt(lifetime?.totalSavings)}</p>
-                  <p className="text-xs text-gray-500 mt-1">Rewards & cashback</p>
+                  <p className="text-xs text-gray-500 mt-1">In selected month</p>
                 </div>
                 <div className="bg-gray-900/60 border border-gray-800/60 rounded-xl p-5">
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Savings rate</p>
