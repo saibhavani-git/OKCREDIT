@@ -52,7 +52,7 @@ const painPointOptions = [
   { value: "hidden charges", label: "Hidden charges", icon: <span aria-hidden>⚠️</span> },
 ];
 
-const totalSteps = 5;
+const totalSteps = 6;
 const RUPEE = "\u20B9";
 const fmt = (n) =>
   `${RUPEE}${(Number(n) || 0).toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
@@ -69,6 +69,7 @@ export default function QuizPage() {
     rewardPreference: "",
     feePreference: "",
     painPoint: "",
+    monthlySpend: "",
   });
 
   const canContinue = useMemo(() => {
@@ -77,6 +78,7 @@ export default function QuizPage() {
     if (step === 3) return Boolean(answers.rewardPreference);
     if (step === 4) return Boolean(answers.feePreference);
     if (step === 5) return Boolean(answers.painPoint);
+    if (step === 6) return Number(answers.monthlySpend) > 0;
     return false;
   }, [step, answers]);
 
@@ -100,7 +102,11 @@ export default function QuizPage() {
     setSubmitting(true);
     setError(null);
     try {
-      const payload = buildRecommendationPayload(answers, 10000);
+      const monthlySpend = Number(answers.monthlySpend);
+      const payload = buildRecommendationPayload(
+        answers,
+        Number.isFinite(monthlySpend) && monthlySpend > 0 ? monthlySpend : 10000
+      );
       const res = await fetch("/api/recommend", {
         method: "POST",
         credentials: "include",
@@ -190,6 +196,25 @@ export default function QuizPage() {
                 onSelect={(value) => updateSingle("painPoint", value)}
               />
             )}
+            {step === 6 && (
+              <div className="space-y-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
+                  Enter your monthly expenses
+                </h3>
+                <p className="text-sm text-gray-400">
+                  We will use this amount for recommendation calculation.
+                </p>
+                <input
+                  type="number"
+                  min={1000}
+                  max={200000}
+                  value={answers.monthlySpend}
+                  onChange={(e) => updateSingle("monthlySpend", e.target.value)}
+                  placeholder="e.g. 25000"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-700/60 bg-gray-800/40 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-500/80"
+                />
+              </div>
+            )}
 
             {error ? <p className="text-red-400 text-sm">{error}</p> : null}
 
@@ -261,6 +286,7 @@ export default function QuizPage() {
                     rewardPreference: "",
                     feePreference: "",
                     painPoint: "",
+                    monthlySpend: "",
                   });
                 }}
                 className="px-4 py-2 rounded-xl border border-gray-800/60 text-gray-300 hover:text-white hover:bg-gray-900/60 text-sm"
