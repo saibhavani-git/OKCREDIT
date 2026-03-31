@@ -7,7 +7,7 @@ Or from ml_service:    uvicorn main:app --reload
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, List
+from typing import Any, Dict, List
 
 import joblib
 import numpy as np
@@ -23,6 +23,7 @@ app = FastAPI(title="OKCredit ML Service", version="1.0.0")
 _transaction_bundle = None
 _monthly_bundle = None
 _quiz_bundle = None
+_monthly_spend_bundle = None
 
 
 def _load_joblib(name: str):
@@ -51,6 +52,13 @@ def get_quiz_bundle():
     if _quiz_bundle is None:
         _quiz_bundle = _load_joblib("quiz_tree.joblib")
     return _quiz_bundle
+
+
+def get_monthly_spend_bundle():
+    global _monthly_spend_bundle
+    if _monthly_spend_bundle is None:
+        _monthly_spend_bundle = _load_joblib("monthly_category_spend_xgb.joblib")
+    return _monthly_spend_bundle
 
 
 def _encode_category(le, cat: str) -> int:
@@ -127,6 +135,34 @@ def predict_monthly(body: MonthlyBody):
     return {"recommended_card": card, "confidence": round(conf, 4), "expected_savings": expected_savings}
 
 
+class PredictNextMonthSpendBody(BaseModel):
+    """Chronological monthly rows (oldest first). Each row: category INR + optional month YYYY-MM."""
+
+    history: List[Dict[str, Any]]
+    predict_month: str | None = None
+
+
+@app.post("/predict-next-month-spend")
+def predict_next_month_spend(body: PredictNextMonthSpendBody):
+    from monthly_spend_inference import predictions_dict
+
+    bundle = get_monthly_spend_bundle()
+    if bundle is None:
+        raise HTTPException(
+            503,
+            "monthly_category_spend_xgb.joblib not found — run train_monthly_category_spend_xgb.py",
+        )
+    if not body.history or len(body.history) < 1:
+        raise HTTPException(400, "history must include at least one month (3+ recommended)")
+    preds, used_month = predictions_dict(bundle, body.history, body.predict_month)
+    by_cat = {k: v for k, v in preds.items() if k != "total_predicted"}
+    return {
+        "predict_for_month": used_month,
+        "predicted_spend_inr": by_cat,
+        "total_predicted_inr": int(preds.get("total_predicted", 0)),
+    }
+
+
 class QuizBody(BaseModel):
     travel_score: int = Field(ge=0, le=100)
     shopping_score: int = Field(ge=0, le=100)
@@ -179,4 +215,5 @@ def health():
         "transaction_model": get_transaction_bundle() is not None,
         "monthly_model": get_monthly_bundle() is not None,
         "quiz_model": get_quiz_bundle() is not None,
+        "monthly_category_spend_model": get_monthly_spend_bundle() is not None,
     }

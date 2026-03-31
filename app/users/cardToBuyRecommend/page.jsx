@@ -13,6 +13,10 @@ const CATEGORY_COLORS = {
 };
 
 function QuizStep({ question, stepIndex, totalSteps, selectedValue, onSelect, onNext, onBack, isFirst, isLast }) {
+  const isNumberInput = question?.inputType === "number";
+  const canProceed = isNumberInput
+    ? Number(selectedValue) > 0
+    : !(selectedValue == null || selectedValue === "");
   return (
     <div className="bg-gray-900/60 border border-gray-800/60 rounded-2xl p-6 sm:p-8">
       <p className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-1">
@@ -23,20 +27,32 @@ function QuizStep({ question, stepIndex, totalSteps, selectedValue, onSelect, on
         <p className="text-gray-400 text-sm mb-6">{question.description}</p>
       )}
       <div className="space-y-3">
-        {(question?.options || []).map((opt) => (
-          <button
-            key={opt.value}
-            type="button"
-            onClick={() => onSelect(opt.value)}
-            className={`w-full text-left px-4 py-3 rounded-xl border transition-all ${
-              selectedValue === opt.value
-                ? "border-gray-500/80 bg-gray-700/50 text-white"
-                : "border-gray-700/60 bg-gray-800/40 text-gray-300 hover:border-gray-600 hover:bg-gray-800/60"
-            }`}
-          >
-            {opt.label}
-          </button>
-        ))}
+        {isNumberInput ? (
+          <input
+            type="number"
+            min={question?.min ?? 0}
+            max={question?.max ?? 1000000}
+            value={selectedValue ?? ""}
+            onChange={(e) => onSelect(e.target.value)}
+            placeholder={question?.placeholder || "Enter amount"}
+            className="w-full text-left px-4 py-3 rounded-xl border border-gray-700/60 bg-gray-800/40 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-500/80"
+          />
+        ) : (
+          (question?.options || []).map((opt) => (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => onSelect(opt.value)}
+              className={`w-full text-left px-4 py-3 rounded-xl border transition-all ${
+                selectedValue === opt.value
+                  ? "border-gray-500/80 bg-gray-700/50 text-white"
+                  : "border-gray-700/60 bg-gray-800/40 text-gray-300 hover:border-gray-600 hover:bg-gray-800/60"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))
+        )}
       </div>
       <div className="flex justify-between mt-8">
         <button
@@ -50,7 +66,7 @@ function QuizStep({ question, stepIndex, totalSteps, selectedValue, onSelect, on
         <button
           type="button"
           onClick={onNext}
-          disabled={selectedValue == null || selectedValue === ""}
+          disabled={!canProceed}
           className="px-6 py-3 rounded-xl font-semibold text-sm transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
           style={{
             background: "linear-gradient(90deg, #888, #fff, #888)",
@@ -74,6 +90,17 @@ export default function CardToBuyRecommendPage() {
   const [answers, setAnswers] = useState({});
   const [results, setResults] = useState(null);
 
+  const monthlySpendFallbackQuestion = {
+    id: "monthlySpend",
+    field: "monthlySpend",
+    label: "How much do you spend per month (₹)?",
+    description: "Enter your actual monthly expense so recommendations are calculated from it.",
+    inputType: "number",
+    min: 1000,
+    max: 200000,
+    placeholder: "e.g. 25000",
+  };
+
   const loadQuestions = useCallback(async () => {
     setLoadingQuestions(true);
     setError(null);
@@ -81,7 +108,9 @@ export default function CardToBuyRecommendPage() {
       const res = await fetch("/api/card-to-buy-quiz", { cache: "no-store" });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to load questions");
-      setQuestions(Array.isArray(data.questions) ? data.questions : []);
+      const incoming = Array.isArray(data.questions) ? data.questions : [];
+      const withoutMonthlySpend = incoming.filter((q) => q?.id !== "monthlySpend");
+      setQuestions([...withoutMonthlySpend, monthlySpendFallbackQuestion]);
       setStep(0);
       setAnswers({});
       setResults(null);

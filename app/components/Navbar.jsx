@@ -24,8 +24,8 @@ const Navbar = ({ userRole, userName, userEmail }) => {
       method: "POST",
     });
 
-    router.push("/login");
-    router.refresh(); // 🔥 forces layout to re-check cookies
+    router.push("/");
+    router.refresh();
   };
 
   return (

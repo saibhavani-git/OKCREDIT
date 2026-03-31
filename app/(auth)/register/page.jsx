@@ -8,6 +8,7 @@ export default function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user");
   const [error, setError] = useState("");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ export default function RegisterPage() {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ username, email, password, role }),
       });
 
       const data = await res.json();
@@ -52,6 +53,37 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="bg-gray-950/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 shadow-2xl">
+          {/* Account type */}
+          <div className="mb-6">
+            <span className="block mb-2 text-sm font-medium text-gray-400 text-center">
+              Account type
+            </span>
+            <div className="flex rounded-xl p-1 bg-gray-900/60 border border-gray-700/50 gap-1">
+              <button
+                type="button"
+                onClick={() => setRole("user")}
+                className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  role === "user"
+                    ? "bg-gray-700 text-white shadow-sm"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                User
+              </button>
+              <button
+                type="button"
+                onClick={() => setRole("admin")}
+                className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  role === "admin"
+                    ? "bg-gray-700 text-white shadow-sm"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                Admin
+              </button>
+            </div>
+          </div>
+
           {/* Title */}
           <div className="text-center mb-8">
             <h1 
@@ -111,6 +143,10 @@ export default function RegisterPage() {
                 placeholder="you@example.com"
                 className="w-full px-4 py-3.5 bg-gray-900/60 border border-gray-700/50 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-500/50 focus:ring-1 focus:ring-gray-500/20 transition-all"
               />
+              <p className="mt-1.5 text-xs text-gray-500">
+                Each sign-up needs a unique email. The same email cannot create a
+                second account.
+              </p>
             </div>
 
             {/* Password */}

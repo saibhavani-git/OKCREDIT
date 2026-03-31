@@ -3,14 +3,25 @@ import dbConnect from "../../../lib/db";
 import User from "../../../models/user";
 import bcrypt from "bcryptjs";
 import generateToken from "../../../lib/generateToken";
-import { cookies } from "next/headers";
 
 export async function POST(request) {
   try {
     await dbConnect();
    // console.log("MONGO URI:", process.env.MONGODB_URI);
 
-    const { email, password } = await request.json();
+    const body = await request.json();
+    const email = String(body?.email || "").trim().toLowerCase();
+    const password = body?.password;
+    const accountType = String(body?.accountType || "")
+      .toLowerCase()
+      .trim();
+
+    if (!email || !password) {
+      return NextResponse.json(
+        { message: "Email and password are required" },
+        { status: 400 }
+      );
+    }
 
     const user = await User.findOne({ email });
     if (!user) {
@@ -29,6 +40,20 @@ export async function POST(request) {
         { status: 401 }
       );
     }
+
+    if (accountType === "admin" && user.role !== "admin") {
+      return NextResponse.json(
+        { message: "This account is not an admin. Sign in as user instead." },
+        { status: 403 }
+      );
+    }
+    if (accountType === "user" && user.role !== "user") {
+      return NextResponse.json(
+        { message: "This account is an admin. Use admin sign-in instead." },
+        { status: 403 }
+      );
+    }
+
       const token = generateToken(user)
      // console.log(token)
      const response =NextResponse.json({message:'SuccessFull',userRole:user.role})

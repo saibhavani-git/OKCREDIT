@@ -7,6 +7,7 @@ export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [accountType, setAccountType] = useState("user");
   const [error, setError] = useState("");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ export default function LoginPage() {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, accountType }),
       });
 
       const data = await res.json();
@@ -32,7 +33,7 @@ export default function LoginPage() {
           if (data.userRole === "user") {
             router.push("/users/userCards");
           } else if (data.userRole === "admin") {
-            router.push("/admin/dashboard");
+            router.push("/admin/cards");
           }
           router.refresh();
         }, 1000);
@@ -51,6 +52,37 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="bg-gray-950/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 shadow-2xl">
+          {/* Sign in as */}
+          <div className="mb-6">
+            <span className="block mb-2 text-sm font-medium text-gray-400 text-center">
+              Sign in as
+            </span>
+            <div className="flex rounded-xl p-1 bg-gray-900/60 border border-gray-700/50 gap-1">
+              <button
+                type="button"
+                onClick={() => setAccountType("user")}
+                className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  accountType === "user"
+                    ? "bg-gray-700 text-white shadow-sm"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                User
+              </button>
+              <button
+                type="button"
+                onClick={() => setAccountType("admin")}
+                className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  accountType === "admin"
+                    ? "bg-gray-700 text-white shadow-sm"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                Admin
+              </button>
+            </div>
+          </div>
+
           {/* Title */}
           <div className="text-center mb-8">
             <h1 

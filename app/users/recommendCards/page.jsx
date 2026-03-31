@@ -388,6 +388,7 @@ const RecommendCardsContent = () => {
   const [apiMessage, setApiMessage]              = useState(null)
   const [payingCardId, setPayingCardId]          = useState(null)
   const [paySuccessMessage, setPaySuccessMessage]= useState("")
+  const [noCardsToRecommend, setNoCardsToRecommend] = useState(false)
 
   const router       = useRouter()
   const searchParams = useSearchParams()
@@ -408,6 +409,7 @@ const RecommendCardsContent = () => {
 
       setLoading(true)
       setError(null)
+      setNoCardsToRecommend(false)
       if (!afterPay) {
         setRecommendedCards([])
         setBestOwnedCard(null)
@@ -434,7 +436,13 @@ const RecommendCardsContent = () => {
         if (data.message) setApiMessage(data.message)
       } catch (err) {
         console.error(err)
-        setError(err.message ?? "Something went wrong")
+        const msg = err.message ?? "Something went wrong"
+        if (msg.toLowerCase().includes("no user cards found")) {
+          setNoCardsToRecommend(true)
+          setError(null)
+        } else {
+          setError(msg)
+        }
       } finally {
         setLoading(false)
       }
@@ -702,7 +710,22 @@ const RecommendCardsContent = () => {
       )}
 
       {/* ── Empty state ── */}
-      {!loading && !error && recommendedCards.length === 0 && (
+      {!loading && !error && noCardsToRecommend && (
+        <div className="text-center py-16 px-4">
+          <h3 className="text-xl font-bold text-gray-200 mb-2">No cards found</h3>
+          <p className="text-gray-500 text-sm">
+            Add some cards to get recommendations.
+          </p>
+          <button
+            onClick={() => router.push("/users/addCards")}
+            className="mt-4 px-4 py-2 bg-gray-900 border border-gray-700 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
+          >
+            Add cards
+          </button>
+        </div>
+      )}
+
+      {!loading && !error && !noCardsToRecommend && recommendedCards.length === 0 && (
         <div className="text-center py-16">
           <h3 className="text-xl font-bold text-gray-200 mb-2">No recommendations found</h3>
           <p className="text-gray-500 text-sm">Try a different amount or intent.</p>

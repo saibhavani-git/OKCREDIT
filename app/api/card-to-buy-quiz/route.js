@@ -5,12 +5,26 @@ import CreditCard from "../../models/cards";
 const CATEGORIES = ["shopping", "travel", "fuel", "dining", "groceries"];
 
 const REWARD_LABELS = { cashback: "Cashback", points: "Reward points", miles: "Miles (travel)" };
+const CARD_TYPE_OPTIONS = [
+  { value: "Cashback", label: "Cashback card" },
+  { value: "Travel", label: "Travel card" },
+  { value: "Fuel", label: "Fuel card" },
+  { value: "Lifestyle", label: "Lifestyle card" },
+  { value: "Shopping", label: "Shopping card" },
+  { value: "Basic", label: "Basic/Starter card" },
+];
+const NETWORK_OPTIONS = [
+  { value: "Visa", label: "Visa" },
+  { value: "Mastercard", label: "Mastercard" },
+  { value: "RuPay", label: "RuPay" },
+  { value: "Amex", label: "Amex" },
+];
 
-const SPEND_OPTIONS = [
-  { value: "under_10k", label: "Under ₹10,000/month" },
-  { value: "10k_30k", label: "₹10,000 – ₹30,000/month" },
-  { value: "30k_50k", label: "₹30,000 – ₹50,000/month" },
-  { value: "50k_plus", label: "₹50,000+/month" },
+const INCOME_OPTIONS = [
+  { value: "under_3l", label: "Under ₹3L/year" },
+  { value: "3l_6l", label: "₹3L – ₹6L/year" },
+  { value: "6l_12l", label: "₹6L – ₹12L/year" },
+  { value: "12l_plus", label: "₹12L+/year" },
 ];
 
 /**
@@ -44,11 +58,35 @@ export async function GET() {
         ],
       },
       {
-        id: "spendBucket",
-        field: "spendBucket",
-        label: "How much do you typically spend per month?",
-        description: "Used to estimate rewards and fees. No impact on credit score.",
-        options: SPEND_OPTIONS,
+        id: "cardType",
+        field: "cardType",
+        label: "Which card style do you prefer?",
+        description: "Helps us align recommendations with your usage goal.",
+        options: CARD_TYPE_OPTIONS,
+      },
+      {
+        id: "preferredNetwork",
+        field: "preferredNetwork",
+        label: "Do you have a preferred card network?",
+        description: "Optional preference for Visa, Mastercard, RuPay, or Amex.",
+        options: [{ value: "", label: "No preference" }, ...NETWORK_OPTIONS],
+      },
+      {
+        id: "incomeBucket",
+        field: "incomeBucket",
+        label: "What is your annual income range?",
+        description: "Used to score eligibility fit and improve Smart Match %. ",
+        options: INCOME_OPTIONS,
+      },
+      {
+        id: "monthlySpend",
+        field: "monthlySpend",
+        label: "How much do you spend per month (₹)?",
+        description: "Enter your actual monthly expense so recommendations are calculated from it.",
+        inputType: "number",
+        min: 1000,
+        max: 200000,
+        placeholder: "e.g. 25000",
       },
     ];
 
